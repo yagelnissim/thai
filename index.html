@@ -62,25 +62,31 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans selection:bg-emerald-500 selection:text-white pb-12">
 
-    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-emerald-100">
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-emerald-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="text-3xl animate-bounce">🌴</span>
+                <span class="text-3xl animate-pulse">🌴</span>
                 <span class="font-bold text-xl text-emerald-900 tracking-wider">THAILAND <span class="text-gold-500">2026</span></span>
             </div>
             
-            <nav class="hidden lg:flex items-center gap-6 font-medium text-emerald-950">
-                <a href="#checklist-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-list-check"></i> צ'ק ליסט הכנות</a>
-                <a href="#flights-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-plane"></i> השוואת טיסות</a>
-                <a href="#calendar-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1 bg-gold-400/20 px-3 py-1 rounded-full"><i class="fa-solid fa-calendar-days text-gold-600"></i> יומן ותכנון יומי</a>
+            <nav class="hidden xl:flex items-center gap-5 font-medium text-emerald-950 text-sm">
+                <a href="#checklist-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-list-check"></i> צ'ק ליסט</a>
+                <a href="#flights-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-plane"></i> טיסות</a>
+                <a href="#calendar-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1 bg-gold-400/20 px-3 py-1 rounded-full"><i class="fa-solid fa-calendar-days text-gold-600 animate-bounce"></i> יומן יומי</a>
                 <a href="#hotels" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-hotel"></i> מלונות</a>
-                <a href="#kosher" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-utensils"></i> כשרות וחב"ד</a>
-                <a href="#budget" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-wallet"></i> תקציב</a>
-                <a href="#notes-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full text-emerald-800"><i class="fa-solid fa-comments"></i> הערות</a>
+                <a href="#kosher" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-utensils text-emerald-600"></i> כשרות וחב"ד</a>
+                <a href="#budget" class="hover:text-emerald-500 transition-colors flex items-center gap-1"><i class="fa-solid fa-wallet text-gold-600"></i> תקציב</a>
+                <a href="#notes-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full text-emerald-800"><i class="fa-solid fa-comments"></i> דיון והערות</a>
             </nav>
             
-            <div class="text-sm font-semibold bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full border border-emerald-100" id="exchange-rate-display">
-                שער חליפין: 1$ = 2.92 ₪ (מתעדכן...)
+            <!-- Custom Exchange Rate Input Box -->
+            <div class="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100/80 transition-all px-3 py-1.5 rounded-full border border-emerald-100 text-sm">
+                <span class="font-bold text-emerald-800">שער דולר:</span>
+                <div class="flex items-center gap-1">
+                    <span class="text-xs text-slate-500">1$ =</span>
+                    <input type="number" id="usd-rate" value="2.92" step="0.01" min="1" max="5" class="w-16 bg-white border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded text-center font-bold text-emerald-900 px-1 py-0.5" oninput="changeUSDRate(this.value)">
+                    <span class="font-semibold text-emerald-950">₪</span>
+                </div>
             </div>
         </div>
     </header>
@@ -109,7 +115,6 @@
 
     <main class="max-w-6xl mx-auto px-4 pt-12">
         
-        <!-- QUICK STATS -->
         <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-50 text-center flex flex-col justify-center items-center">
                 <span class="text-emerald-600 text-3xl mb-2"><i class="fa-solid fa-plane-departure"></i></span>
@@ -123,17 +128,16 @@
             </div>
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-50 text-center flex flex-col justify-center items-center">
                 <span class="text-emerald-600 text-3xl mb-2"><i class="fa-solid fa-hand-holding-dollar"></i></span>
-                <h4 class="text-sm font-medium text-slate-500">יעד תקציבי</h4>
-                <p class="text-base font-bold text-emerald-900 mt-1">10,000 ₪ לזוג</p>
+                <h4 class="text-sm font-medium text-slate-500">תקציב יעד לזוג</h4>
+                <p class="text-base font-bold text-emerald-900 mt-1">$3,500 (~<span class="budget-target-ils">10,220</span> ₪)</p>
             </div>
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-50 text-center flex flex-col justify-center items-center">
-                <span class="text-gold-500 text-3xl mb-2"><i class="fa-solid fa-umbrella-beach"></i></span>
-                <h4 class="text-sm font-medium text-slate-500">עונה ומזג אוויר</h4>
-                <p class="text-base font-bold text-emerald-900 mt-1">טרופי - חם ולח</p>
+                <span class="text-gold-500 text-3xl mb-2" id="quick-weather-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+                <h4 class="text-sm font-medium text-slate-500">מזג אוויר ממוצע</h4>
+                <p class="text-base font-bold text-emerald-900 mt-1">טרופי - 31°C</p>
             </div>
         </section>
 
-        <!-- PREPARATION CHECKLIST SECTION -->
         <section id="checklist-section" class="mb-16">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
@@ -195,13 +199,12 @@
             </div>
         </section>
 
-        <!-- INTERNATIONAL FLIGHTS SECTION -->
         <section id="flights-section" class="mb-16">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
                     <i class="fa-solid fa-ticket text-gold-500"></i> בחירת טיסות ישירות לתאילנד 2026
                 </h2>
-                <span class="text-slate-500 text-sm font-medium">לפי תקציב של 10,000 ₪ לזוג</span>
+                <span class="text-slate-500 text-sm font-medium">המחיר מתעדכן לפי שער החליפין שהזנתם</span>
             </div>
 
             <p class="text-slate-600 text-base mb-8">
@@ -237,7 +240,7 @@
                             <span>מחיר לזוג:</span>
                             <div class="text-right">
                                 <span class="text-2xl font-bold text-emerald-900">$1,950</span>
-                                <span class="text-xs text-slate-500 block">5,694 ₪ לזוג</span>
+                                <span class="text-xs text-slate-500 block">כ-<span id="flight-elal-ils">5,694</span> ₪ לזוג</span>
                             </div>
                         </div>
                     </div>
@@ -275,7 +278,7 @@
                             <span>מחיר לזוג:</span>
                             <div class="text-right">
                                 <span class="text-2xl font-bold text-emerald-900">$1,650</span>
-                                <span class="text-xs text-slate-500 block">4,818 ₪ לזוג</span>
+                                <span class="text-xs text-slate-500 block">כ-<span id="flight-israir-ils">4,818</span> ₪ לזוג</span>
                             </div>
                         </div>
                     </div>
@@ -287,7 +290,6 @@
             </div>
         </section>
 
-        <!-- INTERACTIVE CALENDAR & DAILY PLANNER SECTION -->
         <section id="calendar-section" class="mb-20">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
@@ -297,7 +299,7 @@
             </div>
 
             <p class="text-slate-600 text-base mb-6">
-                לחצו על כל אחד מהימים ביומן כדי לראות את התוכנית המובנית לאותו יום, להוסיף פעילויות אישיות שאתם רוצים לעשות, ולחלק משימות ביניכם. הנתונים שלכם יישמרו אוטומטית!
+                לחצו על כל אחד מהימים ביומן כדי לראות את התוכנית המובנית לאותו יום, להציג את <b>מזג האוויר היומי החזוי והלחות</b>, להוסיף פעילויות אישיות שאתם רוצים לעשות, ולחלק משימות ביניכם. הנתונים שלכם יישמרו אוטומטית בדפדפן!
             </p>
 
             <div class="grid lg:grid-cols-12 gap-8">
@@ -312,27 +314,26 @@
                     </div>
 
                     <div class="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-slate-500 border-t border-slate-50 pt-4">
-                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-emerald-500 rounded-full inline-block"></span> יום נבחר</span>
-                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-yellow-400 rounded-full inline-block"></span> שבת / קודש 🕯️</span>
-                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-slate-200 rounded-full inline-block"></span> יום רגיל</span>
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-circle text-[8px] text-emerald-600"></i> יש תוכניות מיוחדות</span>
+                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-emerald-500 rounded-lg inline-block"></span> יום נבחר</span>
+                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-yellow-400/30 border border-yellow-300 rounded-lg inline-block"></span> שבת / קודש 🕯️</span>
+                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-slate-50 border border-slate-100 rounded-lg inline-block"></span> יום רגיל</span>
+                        <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 bg-slate-950 rounded-lg inline-block"></span> פולמון בקופנגן 🌕</span>
                     </div>
                 </div>
 
-                <!-- Day Details & Sub-activity Planner (Right side) -->
-                <div class="lg:col-span-5 bg-gradient-to-b from-emerald-50/50 to-white p-6 rounded-3xl shadow-sm border border-emerald-100/60" id="calendar-details-panel">
+                <!-- Day Details, Simulated Weather & Sub-activity Planner (Right side) -->
+                <div class="lg:col-span-5 bg-gradient-to-b from-emerald-50/50 to-white p-6 rounded-3xl shadow-sm border border-emerald-100/60 transition-all duration-300" id="calendar-details-panel">
                     <!-- Dynamic details will load here on day selection -->
                 </div>
             </div>
         </section>
 
-        <!-- HOTELS SECTION -->
         <section id="hotels" class="mb-20">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
                     <i class="fa-solid fa-hotel text-gold-500"></i> אופציות לינה מומלצות ב-Booking
                 </h2>
-                <span class="text-slate-500 text-sm font-medium">לפי תקציב של 10,000 ₪ לזוג</span>
+                <span class="text-slate-500 text-sm font-medium">המחירים מוצגים בדולרים ובשקלים (לפי השער העדכני)</span>
             </div>
 
             <!-- Bangkok Hotels -->
@@ -353,7 +354,7 @@
                             <div class="flex justify-between items-center border-t border-slate-100 pt-4">
                                 <div>
                                     <span class="text-xs text-slate-400 block">מחיר מוערך ל-3 לילות לזוג</span>
-                                    <span class="text-lg font-bold text-emerald-900">$150 / 438 ₪</span>
+                                    <span class="text-lg font-bold text-emerald-900">$150 / <span class="hotel-price-ils" data-usd="150">438</span> ₪</span>
                                 </div>
                                 <a href="https://www.booking.com/searchresults.html?ss=Nouvo+City+Hotel+Bangkok" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
                             </div>
@@ -371,7 +372,7 @@
                             <div class="flex justify-between items-center border-t border-slate-100 pt-4">
                                 <div>
                                     <span class="text-xs text-slate-400 block">מחיר מוערך ל-3 לילות לזוג</span>
-                                    <span class="text-lg font-bold text-emerald-900">$105 / 307 ₪</span>
+                                    <span class="text-lg font-bold text-emerald-900">$105 / <span class="hotel-price-ils" data-usd="105">307</span> ₪</span>
                                 </div>
                                 <a href="https://www.booking.com/searchresults.html?ss=Rambuttri+Village+Plaza+Bangkok" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
                             </div>
@@ -398,7 +399,7 @@
                             <div class="flex justify-between items-center border-t border-slate-100 pt-4">
                                 <div>
                                     <span class="text-xs text-slate-400 block">מחיר מוערך ל-9 לילות לזוג</span>
-                                    <span class="text-lg font-bold text-emerald-900">$540 / 1,577 ₪</span>
+                                    <span class="text-lg font-bold text-emerald-900">$540 / <span class="hotel-price-ils" data-usd="540">1,577</span> ₪</span>
                                 </div>
                                 <a href="https://www.booking.com/searchresults.html?ss=Lub+d+Koh+Samui+Chaweng+Beach" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
                             </div>
@@ -416,7 +417,7 @@
                             <div class="flex justify-between items-center border-t border-slate-100 pt-4">
                                 <div>
                                     <span class="text-xs text-slate-400 block">מחיר מוערך ל-9 לילות לזוג</span>
-                                    <span class="text-lg font-bold text-emerald-900">$450 / 1,314 ₪</span>
+                                    <span class="text-lg font-bold text-emerald-900">$450 / <span class="hotel-price-ils" data-usd="450">1,314</span> ₪</span>
                                 </div>
                                 <a href="https://www.booking.com/searchresults.html?ss=Ark+Bar+Beach+Resort+Koh+Samui" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
                             </div>
@@ -442,217 +443,198 @@
                             <p class="text-slate-500 text-sm mb-4">ריזורט מקסים בחוף באן טאי השקט (10 דקות נסיעה מחוף הפולמון בהאד-רין). בריכה מפנקת מול הים ובונגלוס מעוצבים ומרווחים.</p>
                             <div class="flex justify-between items-center border-t border-slate-100 pt-4">
                                 <div>
-                                    <span class="text-xs text-slate-400 block">מחיר מוערך ל-7 לילות לזוג (עונת פולמון)</span>
-                                    <span class="text-lg font-bold text-emerald-900">$385 / 1,124 ₪</span>
+                                    <span class="text-xs text-slate-400 block">מחיר מוערך ל-7 לילות לזוג (פולמון)</span>
+                                    <span class="text-lg font-bold text-emerald-900">$385 / <span class="hotel-price-ils" data-usd="385">1,124</span> ₪</span>
                                 </div>
                                 <a href="https://www.booking.com/searchresults.html?ss=Morning+Star+Resort+Koh+Phangan" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
                             </div>
                         </div>
                     </div>
-                    <!-- Hotel 2 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-emerald-50 hover:shadow-md transition">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="Phangan Arena Hotel" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x480/064e3b/ffffff?text=Phangan+Arena'">
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-emerald-950">Phangan Arena Resort ⭐⭐⭐</h4>
-                                <span class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">8.3 מעולה לצעירים</span>
-                            </div>
-                            <p class="text-slate-500 text-sm mb-4">מלון מסיבות תוסס שמציע חדרים פרטיים מפנקים לצד מתחם מסיבות, בריכת שחייה, שולחנות סנוקר ופעילויות מטורפות במהלך שבוע הפולמון.</p>
-                            <div class="flex justify-between items-center border-t border-slate-100 pt-4">
-                                <div>
-                                    <span class="text-xs text-slate-400 block">מחיר מוערך ל-7 לילות לזוג</span>
-                                    <span class="text-lg font-bold text-emerald-900">$280 / 818 ₪</span>
-                                </div>
-                                <a href="https://www.booking.com/searchresults.html?ss=Phangan+Arena+Hostel" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">הזמן ב-Booking</a>
-                            </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kosher" class="mb-20 bg-emerald-950 text-white p-8 md:p-12 rounded-[40px] shadow-xl relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-emerald-800 pb-6 mb-8 gap-4">
+                    <div>
+                        <span class="text-gold-400 font-bold tracking-widest uppercase text-sm">אוכל כשר ושמירת שבת</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold mt-1">בתי חב"ד ומסעדות כשרות בתאילנד 🕍</h2>
+                    </div>
+                    <span class="bg-emerald-800 text-emerald-100 px-4 py-2 rounded-full text-xs font-semibold border border-emerald-700">בית חם לישראלים</span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Bangkok Chabad -->
+                    <div class="bg-emerald-900/60 p-6 rounded-3xl border border-emerald-800 backdrop-blur">
+                        <h3 class="text-xl font-bold text-gold-400 mb-2">בנגקוק - בית חב"ד המרכזי</h3>
+                        <p class="text-emerald-100 text-sm mb-4">כתובת: Ohr Menachem, 18 Phra Athit Road.</p>
+                        <p class="text-slate-300 text-xs mb-4">ממוקם קרוב לקוואסן ורמבוטרי. מסעדה בשרית כשרה, מאפייה טרייה, ספרייה, שירותי אינטרנט ותפילות יומיות.</p>
+                        <div class="border-t border-emerald-800 pt-4 flex justify-between items-center text-xs">
+                            <span class="text-emerald-300">טלפון: <span class="ltr">66-2-629-2770+</span></span>
+                            <a href="https://www.jewishthailand.com" target="_blank" class="text-gold-400 hover:underline">אתר חב"ד</a>
+                        </div>
+                    </div>
+
+                    <!-- Koh Samui Chabad -->
+                    <div class="bg-emerald-900/60 p-6 rounded-3xl border border-emerald-800 backdrop-blur">
+                        <h3 class="text-xl font-bold text-gold-400 mb-2">קוסמוי - חוף צ'אוונג</h3>
+                        <p class="text-emerald-100 text-sm mb-4">כתובת: Chaweng Beach, 39/8 Moo 3, Bophut.</p>
+                        <p class="text-slate-300 text-xs mb-4">מקום מושלם למפגשים וסעודות שבת. כולל מסעדה בשרית כשרה ומסעדה חלבית/פיצרייה מעולה. במרכז אזור המלונות.</p>
+                        <div class="border-t border-emerald-800 pt-4 flex justify-between items-center text-xs">
+                            <span class="text-emerald-300">טלפון: <span class="ltr">66-81-824-0588+</span></span>
+                            <a href="https://www.chabadkohsamui.com" target="_blank" class="text-gold-400 hover:underline">אתר חב"ד קוסמוי</a>
+                        </div>
+                    </div>
+
+                    <!-- Koh Phangan Chabad -->
+                    <div class="bg-emerald-900/60 p-6 rounded-3xl border border-emerald-800 backdrop-blur">
+                        <h3 class="text-xl font-bold text-gold-400 mb-2">קופנגן - חוף באן טאי</h3>
+                        <p class="text-emerald-100 text-sm mb-4">כתובת: 20/18 Moo 8, Koh Phangan.</p>
+                        <p class="text-slate-300 text-xs mb-4">בית חב"ד חם במיוחד המארח מאות צעירים בשבתות. פופולרי מאוד סביב תקופת הפולמון. יש מסעדה כשרה ומידע למטיילים.</p>
+                        <div class="border-t border-emerald-800 pt-4 flex justify-between items-center text-xs">
+                            <span class="text-emerald-300">טלפון: <span class="ltr">66-65-731-2561+</span></span>
+                            <a href="https://he.chabad.org" target="_blank" class="text-gold-400 hover:underline">מידע לתייר</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- KOSHER & CHABAD SECTION -->
-        <section id="kosher" class="mb-20">
-            <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
-                <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
-                    <i class="fa-solid fa-utensils text-gold-500"></i> מדריך אוכל כשר ובתי חב"ד
-                </h2>
-                <span class="text-slate-500 text-sm font-medium">הפתרון המושלם לשבתות ולכל ימי השבוע</span>
-            </div>
-
-            <div class="bg-emerald-950 text-white rounded-3xl p-8 shadow-xl">
-                <p class="text-lg mb-8 text-emerald-100">
-                    תאילנד נחשבת לאחד היעדים הנוחים בעולם לשומרי כשרות ומסורת, בזכות נוכחות מדהימה של בתי חב"ד שמציעים מסעדות בשריות וחלביות ברמה גבוהה, בית כנסת ואווירה משפחתית חמה.
-                </p>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Chabad 1 -->
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="text-xl font-bold text-gold-400">בית חב"ד בנגקוק</h4>
-                            <span class="bg-emerald-800 text-white text-xs px-2.5 py-1 rounded-full font-bold">הקוואסן</span>
-                        </div>
-                        <p class="text-slate-300 text-sm mb-6">ממוקם בלב אזור התיירות בקוואסן. כולל בית כנסת גדול, מסעדה כשרה מעולה ומרכז מידע שימושי.</p>
-                        <a href="https://www.chabadthailand.org/templates/article_cdo/aid/577051/jewish/Chabad-of-Bangkok.htm" target="_blank" class="text-gold-400 hover:text-white font-bold text-sm flex items-center gap-1 transition">אתר חב"ד בנגקוק <i class="fa-solid fa-arrow-left"></i></a>
-                    </div>
-                    <!-- Chabad 2 -->
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="text-xl font-bold text-gold-400">בית חב"ד קוסמוי</h4>
-                            <span class="bg-emerald-800 text-white text-xs px-2.5 py-1 rounded-full font-bold">צ'אוונג</span>
-                        </div>
-                        <p class="text-slate-300 text-sm mb-6">ממוקם במרחק הליכה קצר מחוף צ'אוונג. מרכז ענק המשרת מאות ישראלים. אידיאלי לשבתות ה-12.6 וה-19.6 שלכם.</p>
-                        <a href="https://www.chabadthailand.org/templates/article_cdo/aid/577053/jewish/Chabad-of-Koh-Samui.htm" target="_blank" class="text-gold-400 hover:text-white font-bold text-sm flex items-center gap-1 transition">אתר חב"ד קוסמוי <i class="fa-solid fa-arrow-left"></i></a>
-                    </div>
-                    <!-- Chabad 3 -->
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="text-xl font-bold text-gold-400">בית חב"ד קופנגן</h4>
-                            <span class="bg-emerald-800 text-white text-xs px-2.5 py-1 rounded-full font-bold">האד-רין</span>
-                        </div>
-                        <p class="text-slate-300 text-sm mb-6">ממוקם ממש בחוף האד-רין (איפה שמתקיימת מסיבת הפולמון). מתאים בול לשבת שלכם שם ב-26.6.</p>
-                        <a href="https://www.chabadthailand.org/templates/article_cdo/aid/577052/jewish/Chabad-of-Koh-Phangan.htm" target="_blank" class="text-gold-400 hover:text-white font-bold text-sm flex items-center gap-1 transition">אתר חב"ד קופנגן <i class="fa-solid fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <!-- Shabbat Meal Warning -->
-                <div class="mt-8 bg-gold-500/10 border border-gold-500/20 p-4 rounded-xl flex items-start gap-3">
-                    <span class="text-gold-400 text-xl"><i class="fa-solid fa-circle-exclamation"></i></span>
-                    <p class="text-sm text-emerald-100">
-                        <strong class="text-gold-400">טיפ חשוב:</strong> בשל הביקוש הגבוה לשבתות בתקופת הקיץ והפולמון, מומלץ מאוד להירשם לארוחות שבת (בתשלום סמלי) מראש דרך אתרי חב"ד הרשמיים המקושרים מעלה כדי להבטיח את מקומכם.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- BUDGET CALCULATOR SECTION -->
         <section id="budget" class="mb-20">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
-                    <i class="fa-solid fa-wallet text-gold-500"></i> מחשבון תקציב אינטראקטיבי לזוג
+                    <i class="fa-solid fa-wallet text-gold-500"></i> מחשבון תקציב אינטראקטיבי (לקבוצה של 4)
                 </h2>
-                <span class="text-slate-500 text-sm font-medium">בדקו והתאימו את הוצאות הטיול שלכם בזמן אמת</span>
+                <span class="text-slate-500 text-sm font-medium">עריכת פרמטרים וחישוב עלויות מיידי</span>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 shadow-sm border border-emerald-50">
-                <p class="text-slate-600 mb-8">
-                    כדי לוודא שאתם עומדים ביעד של <strong class="text-emerald-900">10,000 ₪ לזוג</strong>, תוכלו להשתמש במחשבון הדינמי למטה. שנו את הערכים לפי ההעדפות שלכם וראו את התקציב הסופי מתעדכן מיד (מבוסס על שער דולר קבוע של 2.92 ₪).
-                </p>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Budget Controls -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 lg:col-span-1 space-y-6">
+                    <h3 class="text-lg font-bold text-emerald-950 flex items-center gap-2"><i class="fa-solid fa-sliders text-emerald-600"></i> התאמת הוצאות (לזוג)</h3>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">אוכל, קוסמוס ומסעדות (לזוג ליום):</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-bold text-emerald-800" id="food-val-disp">$50</span>
+                            <span class="text-xs text-slate-400">מומלץ כשר חב"ד</span>
+                        </div>
+                        <input type="range" id="budget-food" min="20" max="150" value="50" step="5" class="w-full accent-emerald-600" oninput="recalcBudget()">
+                    </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Sliders & Inputs -->
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="font-bold text-emerald-950 text-sm">✈️ טיסות בינלאומיות (ישיר לזוג):</label>
-                                <span class="font-bold text-emerald-600" id="flight-display">1,950$ / 5,694 ₪</span>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">אטרקציות, טיולים ועיסויים (סה"כ לזוג):</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-bold text-emerald-800" id="attr-val-disp">$600</span>
+                            <span class="text-xs text-slate-400">ג'יפים, סירות, מסיבות</span>
+                        </div>
+                        <input type="range" id="budget-attr" min="200" max="1500" value="600" step="50" class="w-full accent-emerald-600" oninput="recalcBudget()">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2">שופינג ומתנות (סה"כ לזוג):</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-bold text-emerald-800" id="shop-val-disp">$400</span>
+                            <span class="text-xs text-slate-400">בנגקוק קניונים ושווקים</span>
+                        </div>
+                        <input type="range" id="budget-shop" min="100" max="1200" value="400" step="50" class="w-full accent-emerald-600" oninput="recalcBudget()">
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="text-xs font-bold text-slate-500 mb-2">מלונות שנבחרו (סימולציה):</h4>
+                        <div class="space-y-2 text-xs text-slate-600">
+                            <div class="flex justify-between">
+                                <span>בנגקוק (Nouvo City):</span>
+                                <span class="font-bold text-emerald-950">$150</span>
                             </div>
-                            <!-- Flight cost indicator (Locked to selection above, but shown here for visualization) -->
-                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex justify-between items-center">
-                                <span class="text-xs text-slate-500 font-semibold">החברה שנבחרה למעלה:</span>
-                                <span class="text-sm font-bold text-emerald-900" id="selected-flight-text">אל על ($1,950)</span>
+                            <div class="flex justify-between">
+                                <span>קוסמוי (Lub d):</span>
+                                <span class="font-bold text-emerald-950">$540</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>קופנגן (Morning Star):</span>
+                                <span class="font-bold text-emerald-950">$385</span>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="font-bold text-emerald-950 text-sm">🏨 תקציב מלונות ממוצע ללילה (לזוג):</label>
-                                <span class="font-bold text-emerald-600" id="hotel-display">55$ / 161 ₪</span>
+                <!-- Budget Output -->
+                <div class="bg-gradient-to-br from-emerald-900 to-emerald-950 text-white p-8 rounded-3xl shadow-md lg:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6 border-b border-emerald-800 pb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold">פירוט תקציב כולל (לקבוצה - 2 זוגות)</h3>
+                                <p class="text-emerald-300 text-xs mt-1">החישוב מתבסס על הטיסות והמלונות המוצגים לעיל</p>
                             </div>
-                            <input type="range" id="hotel-night-cost" min="30" max="150" step="5" value="55" class="w-full accent-emerald-600 cursor-pointer" oninput="updateBudget()">
-                            <p class="text-slate-400 text-xs mt-1">* מחושב אוטומטית עבור 19 לילות סה"כ בטיול.</p>
+                            <span class="text-gold-400 text-3xl"><i class="fa-solid fa-chart-pie animate-spin-slow"></i></span>
                         </div>
 
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="font-bold text-emerald-950 text-sm">🚢 טיסות פנים ומעבורות (לזוג):</label>
-                                <span class="font-bold text-emerald-600" id="domestic-display">240$ / 701 ₪</span>
+                        <div class="grid grid-cols-2 gap-6 text-sm">
+                            <div class="bg-emerald-800/40 p-4 rounded-2xl border border-emerald-800">
+                                <span class="text-emerald-300 block text-xs">טיסות ישירות (ל-4 אנשים):</span>
+                                <span class="text-xl font-bold block mt-1" id="calc-flights">$3,900</span>
+                                <span class="text-xs text-slate-300" id="calc-flights-ils">11,388 ₪</span>
                             </div>
-                            <input type="range" id="domestic-cost" min="100" max="500" step="10" value="240" class="w-full accent-emerald-600 cursor-pointer" oninput="updateBudget()">
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="font-bold text-emerald-950 text-sm">🍹 מחיה, מסיבות, טיולים ואוכל כשר (לזוג ליום):</label>
-                                <span class="font-bold text-emerald-600" id="daily-display">30$ / 88 ₪</span>
+                            <div class="bg-emerald-800/40 p-4 rounded-2xl border border-emerald-800">
+                                <span class="text-emerald-300 block text-xs">מלונות ולינה (ל-4 אנשים):</span>
+                                <span class="text-xl font-bold block mt-1" id="calc-hotels">$2,150</span>
+                                <span class="text-xs text-slate-300" id="calc-hotels-ils">6,278 ₪</span>
                             </div>
-                            <input type="range" id="daily-cost" min="15" max="100" step="5" value="30" class="w-full accent-emerald-600 cursor-pointer" oninput="updateBudget()">
-                            <p class="text-slate-400 text-xs mt-1">* מחושב עבור 20 ימי שהות.</p>
+                            <div class="bg-emerald-800/40 p-4 rounded-2xl border border-emerald-800">
+                                <span class="text-emerald-300 block text-xs">אוכל, קוסמוס וכשרות (4 אנשים, 20 יום):</span>
+                                <span class="text-xl font-bold block mt-1" id="calc-food">$2,000</span>
+                                <span class="text-xs text-slate-300" id="calc-food-ils">5,840 ₪</span>
+                            </div>
+                            <div class="bg-emerald-800/40 p-4 rounded-2xl border border-emerald-800">
+                                <span class="text-emerald-300 block text-xs">אטרקציות, עיסויים ושופינג (ל-4 אנשים):</span>
+                                <span class="text-xl font-bold block mt-1" id="calc-misc">$2,000</span>
+                                <span class="text-xs text-slate-300" id="calc-misc-ils">5,840 ₪</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Budget Summary Box -->
-                    <div class="gradient-bg text-white p-8 rounded-2xl flex flex-col justify-between shadow-md">
-                        <div>
-                            <h4 class="text-xl font-bold text-gold-400 mb-6 border-b border-white/10 pb-2">סיכום תקציב לזוג</h4>
-                            
-                            <div class="space-y-4 mb-8">
-                                <div class="flex justify-between text-emerald-100">
-                                    <span>טיסה בינלאומית:</span>
-                                    <span class="font-bold text-white" id="summary-flight">5,694 ₪</span>
-                                </div>
-                                <div class="flex justify-between text-emerald-100">
-                                    <span>לינה (19 לילות):</span>
-                                    <span class="font-bold text-white" id="summary-hotels">3,051 ₪</span>
-                                </div>
-                                <div class="flex justify-between text-emerald-100">
-                                    <span>נסיעות פנים ומעבורות:</span>
-                                    <span class="font-bold text-white" id="summary-domestic">701 ₪</span>
-                                </div>
-                                <div class="flex justify-between text-emerald-100">
-                                    <span>בזבוזים ואוכל (20 יום):</span>
-                                    <span class="font-bold text-white" id="summary-daily">1,752 ₪</span>
-                                </div>
-                            </div>
+                    <div class="border-t border-emerald-800 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="text-center md:text-right">
+                            <span class="text-gold-400 font-bold block text-sm uppercase">סך הכל משוער לכל המסע (4 חברים):</span>
+                            <span class="text-4xl md:text-5xl font-extrabold text-white block mt-1" id="calc-total-usd">$10,050</span>
                         </div>
-
-                        <div>
-                            <div class="border-t border-white/20 pt-6 mb-4">
-                                <div class="flex justify-between items-baseline">
-                                    <span class="text-lg font-bold">סה"כ מוערך לזוג:</span>
-                                    <div class="text-right">
-                                        <div class="text-3xl font-black text-gold-400" id="total-nis">11,198 ₪</div>
-                                        <div class="text-sm text-emerald-200" id="total-usd">$3,835</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Budget Warning Status -->
-                            <div class="p-3 rounded-lg text-center text-sm font-bold shadow-sm transition-all duration-300" id="budget-status-box">
-                                <span id="budget-status-text">בודק תקציב...</span>
-                            </div>
+                        <div class="text-center md:text-left bg-gold-500 text-emerald-950 font-bold px-6 py-3 rounded-2xl text-xl shadow-md">
+                            שווה ערך ל- <span id="calc-total-ils">29,346</span> ₪ סה"כ
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- COLLABORATIVE NOTES SECTION -->
-        <section id="notes-section" class="mb-20">
+        <section id="notes-section" class="mb-16">
             <div class="flex items-center justify-between mb-8 border-b-2 border-gold-500 pb-2">
                 <h2 class="text-3xl font-extrabold text-emerald-900 flex items-center gap-3">
-                    <i class="fa-solid fa-comments text-gold-500"></i> הערות ורעיונות שלכם
+                    <i class="fa-solid fa-comments text-gold-500"></i> דיון ועדכונים בקבוצה
                 </h2>
-                <span class="text-slate-500 text-sm font-medium">כדי לתכנן יחד בלי לשכוח שום דבר!</span>
+                <span class="text-slate-500 text-sm font-medium">הערות, שאלות ותיאומים בין כולם</span>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Add Note Form Card -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 h-fit lg:col-span-1">
+                <!-- Message Feed -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 flex flex-col justify-between">
+                    <div class="space-y-4 max-h-[450px] overflow-y-auto pr-2" id="comments-container">
+                        <!-- Dynamic comments will go here -->
+                    </div>
+                </div>
+
+                <!-- Post comment panel -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 h-fit">
                     <h3 class="text-xl font-bold text-emerald-950 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-pen-to-square text-emerald-600"></i> הוספת הערה חדשה
+                        <i class="fa-solid fa-paper-plane text-emerald-600"></i> כתיבת הודעה חדשה
                     </h3>
                     
-                    <form id="note-form" onsubmit="addNote(event)" class="space-y-4">
-                        <!-- Custom Alert Area inside Card (To avoid using window.alert) -->
-                        <div id="form-error" class="hidden p-3 text-xs font-bold text-red-800 bg-red-100 border border-red-200 rounded-lg">
-                            <i class="fa-solid fa-circle-exclamation"></i> אנא בחרו את שמכם וכתבו הערה.
-                        </div>
-
+                    <form onsubmit="postComment(event)" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-1" for="note-user">מי כותב את ההערה? <span class="text-red-500">*חובה</span></label>
-                            <select id="note-user" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer">
-                                <option value="" disabled selected>-- בחר/י את שמך --</option>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">כותב ההודעה:</label>
+                            <select id="commenter-name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer">
                                 <option value="מיכל">מיכל 🌸</option>
                                 <option value="יגל">יגל 🌊</option>
                                 <option value="יהל">יהל ✨</option>
@@ -661,31 +643,14 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-1" for="note-text">תוכן ההערה: <span class="text-red-500">*חובה</span></label>
-                            <textarea id="note-text" rows="4" required placeholder="לדוגמה: אל תשכחו שצריך להזמין כרטיסים למעבורת מראש!" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">תוכן ההודעה:</label>
+                            <textarea id="comment-text" required placeholder="תרשמו כאן עדכונים, רעיונות למלונות אחרים, שאלות לגבי מסיבת פולמון..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
                         </div>
 
                         <button type="submit" class="w-full gradient-bg hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-xl transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-plus"></i> פרסום הערה לכולם
+                            שלח הודעה <i class="fa-solid fa-send text-xs"></i>
                         </button>
                     </form>
-                </div>
-
-                <!-- Notes list area -->
-                <div class="lg:col-span-2 space-y-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-xl font-bold text-emerald-950 flex items-center gap-2">
-                            <i class="fa-solid fa-clipboard-list text-emerald-600"></i> לוח ההערות שלכם (<span id="notes-count">0</span>)
-                        </h3>
-                        <button onclick="clearAllNotes()" class="text-xs font-medium text-red-500 hover:text-red-700 flex items-center gap-1 transition">
-                            <i class="fa-solid fa-trash-can"></i> מחק את כל ההערות
-                        </button>
-                    </div>
-
-                    <!-- Notes Container -->
-                    <div id="notes-container" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-                        <!-- Dynamic notes injected here -->
-                    </div>
                 </div>
             </div>
         </section>
@@ -693,363 +658,455 @@
     </main>
 
     <script>
-        let USD_TO_ILS = 2.92;
-        const NUMBER_OF_NIGHTS = 19;
-        const NUMBER_OF_DAYS = 20;
+        // State management
+        let tasks = JSON.parse(localStorage.getItem('tripTasks_2026')) || [];
+        let dailyNotes = JSON.parse(localStorage.getItem('tripNotes_2026')) || {};
+        let comments = JSON.parse(localStorage.getItem('tripComments_2026')) || [];
+        
+        // Flight state
+        let selectedFlightPrice = 1950; // El Al default
+        let selectedFlightCarrier = 'elal';
+        
+        // Active USD to ILS conversion rate (Default 2.92 according to May 2026 live rates)
+        let usdToIlsRate = 2.92;
 
-        // Fetch exchange rate automatically
-        async function fetchExchangeRate() {
-            try {
-                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-                const data = await response.json();
-                if(data.rates && data.rates.ILS) {
-                    USD_TO_ILS = data.rates.ILS;
-                    document.getElementById('exchange-rate-display').innerText = `שער דולר מעודכן: 1$ = ${USD_TO_ILS.toFixed(2)} ₪`;
-                    updateBudget();
+        // Seeding default tasks on first load
+        if(tasks.length === 0) {
+            tasks = [
+                { id: 1, text: "להוציא דרכונים בתוקף לחצי שנה לפחות", assignee: "כולם", done: true },
+                { id: 2, text: "לבדוק חיסונים מומלצים למזרח בקופת חולים", assignee: "כולם", done: false },
+                { id: 3, text: "להזמין כרטיס סים לתאילנד / חבילת גלישה בחו״ל", assignee: "יגל", done: false },
+                { id: 4, text: "סגירת שבתות ותרומות לבתי חב״ד", assignee: "יהל", done: false },
+                { id: 5, text: "לקנות צבעי גוף זוהרים לפול מון בקופנגן", assignee: "מיכל", done: false }
+            ];
+            localStorage.setItem('tripTasks_2026', JSON.stringify(tasks));
+        }
+
+        // Seeding default comments on first load
+        if(comments.length === 0) {
+            comments = [
+                { id: 1, name: "יגל", text: "חברים, בדקתי לגבי מסיבת החצי ירח (Half Moon) בקופנגן. היא מתרחשת כמה ימים לפני הפול מון, כדאי ללכת!", time: "אתמול, 14:30" },
+                { id: 2, name: "מיכל", text: "אני ממש בעד! יהל מה דעתך? וצריך גם לוודא שיש מספיק אופציות כשרות בקופנגן לשבתות", time: "אתמול, 15:10" },
+                { id: 3, name: "יהל", text: "בית חב״ד בקופנגן ממש קרוב לחוף באן טאי, נעשה שם את סעודות השבת! רשמתי לנו לבדוק הרשמה מראש", time: "היום, 09:25" }
+            ];
+            localStorage.setItem('tripComments_2026', JSON.stringify(comments));
+        }
+
+        /* ================= WEATHER SIMULATOR FOR THAILAND 2026 ================= */
+        // Simulated weather generator depending on location and date
+        function getSimulatedWeather(day) {
+            let temp = 31;
+            let status = 'שמש עננים';
+            let icon = 'fa-cloud-sun';
+            let desc = 'נוח יחסית לעונה';
+            let humidity = '75%';
+
+            if (day >= 10 && day <= 13) {
+                // Bangkok
+                temp = 33 + (day % 3) - 1;
+                status = 'ממטרים פזורים וסופות רעמים';
+                icon = 'fa-cloud-showers-heavy';
+                desc = 'חם ולח מאוד, גשמים קצרים בצהריים';
+                humidity = '85%';
+            } else if (day >= 13 && day <= 22) {
+                // Koh Samui
+                temp = 30 + (day % 2);
+                status = 'מעונן חלקית עם רוח ים';
+                icon = 'fa-cloud-sun';
+                desc = 'מזג אוויר מצוין לחופים, רוחות קלות בשעות הערב';
+                humidity = '70%';
+            } else if (day >= 22 && day <= 30) {
+                // Koh Phangan
+                temp = 29 + (day % 3);
+                if (day === 29) {
+                    status = 'לילה בהיר ורוח מלטפת';
+                    icon = 'fa-moon';
+                    desc = 'לילה מושלם למסיבת הפולמון המרכזית!';
+                    humidity = '65%';
+                } else {
+                    status = 'שמש חמימה ומעט עננים';
+                    icon = 'fa-sun';
+                    desc = 'חם, מושלם לשחייה ושנורקלינג';
+                    humidity = '72%';
                 }
-            } catch (err) {
-                console.error("Failed to fetch exchange rate, using default:", err);
+            }
+            return { temp, status, icon, desc, humidity };
+        }
+
+        /* ================= CHECKLIST LOGIC ================= */
+        function addChecklistItem(e) {
+            e.preventDefault();
+            const textInput = document.getElementById('new-task-text');
+            const assigneeSelect = document.getElementById('new-task-assignee');
+            
+            if(!textInput.value.trim()) return;
+
+            const newTask = {
+                id: Date.now(),
+                text: textInput.value,
+                assignee: assigneeSelect.value,
+                done: false
+            };
+
+            tasks.push(newTask);
+            localStorage.setItem('tripTasks_2026', JSON.stringify(tasks));
+            
+            textInput.value = '';
+            renderChecklist();
+        }
+
+        function toggleTask(id) {
+            const task = tasks.find(t => t.id === id);
+            if(task) {
+                task.done = !task.done;
+                localStorage.setItem('tripTasks_2026', JSON.stringify(tasks));
+                renderChecklist();
             }
         }
 
+        function deleteTask(id) {
+            tasks = tasks.filter(t => t.id !== id);
+            localStorage.setItem('tripTasks_2026', JSON.stringify(tasks));
+            renderChecklist();
+        }
+
+        function getAssigneeBadgeClass(assignee) {
+            if(assignee.includes('מיכל')) return 'user-badge-michal px-2 py-1 rounded-full text-xs font-bold border';
+            if(assignee.includes('יגל')) return 'user-badge-yagel px-2 py-1 rounded-full text-xs font-bold border';
+            if(assignee.includes('יהל')) return 'user-badge-yahel px-2 py-1 rounded-full text-xs font-bold border';
+            if(assignee.includes('אלעזר')) return 'user-badge-elazar px-2 py-1 rounded-full text-xs font-bold border';
+            return 'bg-slate-100 text-slate-700 border-slate-200 px-2 py-1 rounded-full text-xs font-bold border';
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            const progressText = document.getElementById('checklist-progress-text');
+            const progressFill = document.getElementById('checklist-progress-fill');
+
+            if(tasks.length === 0) {
+                container.innerHTML = '<div class="text-center text-slate-400 py-8 font-medium">אין משימות כרגע. הוסיפו משימה חדשה למטה!</div>';
+                progressText.innerText = '0 מתוך 0 משימות הושלמו (0%)';
+                progressFill.style.width = '0%';
+                return;
+            }
+
+            const doneCount = tasks.filter(t => t.done).length;
+            const totalCount = tasks.length;
+            const percent = Math.round((doneCount / totalCount) * 100);
+
+            progressText.innerText = `${doneCount} מתוך ${totalCount} משימות הושלמו (${percent}%)`;
+            progressFill.style.width = `${percent}%`;
+
+            container.innerHTML = tasks.map(t => `
+                <div class="flex items-center justify-between p-3 border rounded-xl transition-all ${t.done ? 'bg-slate-50 border-slate-200 opacity-60' : 'bg-white border-emerald-100 shadow-sm'}">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTask(${t.id})" class="w-5 h-5 text-emerald-600 rounded cursor-pointer accent-emerald-600 border-emerald-300 focus:ring-emerald-500">
+                        <span class="${t.done ? 'line-through text-slate-400' : 'text-slate-800 font-medium'} text-sm md:text-base">${t.text}</span>
+                    </div>
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <span class="${getAssigneeBadgeClass(t.assignee)}">${t.assignee}</span>
+                        <button onclick="deleteTask(${t.id})" class="text-red-400 hover:text-red-600 p-1 transition-colors"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* ================= CALENDAR & DAILY WEATHER LOGIC ================= */
         function renderCalendar() {
             const grid = document.getElementById('calendar-days-grid');
-            if (!grid) return;
             grid.innerHTML = '';
-
-            calendarData.forEach(day => {
-                const hasCustom = day.customActivities && day.customActivities.length > 0;
-                const isSelected = day.dayNum === selectedDayNum;
+            
+            for (let day = 10; day <= 30; day++) {
+                const date = new Date(2026, 5, day); 
+                const isShabbat = date.getDay() === 5 || date.getDay() === 6; 
+                const isFullMoon = day === 29; 
                 
-                // Color theme class depending on day type and state
-                let bgClass = 'bg-slate-100 hover:bg-slate-200 text-slate-800';
-                let borderClass = 'border-slate-200';
+                const dayEl = document.createElement('div');
                 
-                if (day.isShabbat) {
-                    bgClass = 'bg-amber-100/80 hover:bg-amber-200/90 text-amber-950';
-                    borderClass = 'border-amber-300';
-                }
+                let styleClasses = 'bg-white border-emerald-50 hover:border-emerald-400 hover:shadow-md text-emerald-900';
+                if (isShabbat) styleClasses = 'bg-yellow-50 border-yellow-200 hover:border-yellow-300 text-yellow-800';
+                if (isFullMoon) styleClasses = 'bg-slate-950 border-gold-500 text-gold-400 shadow-md hover:shadow-lg hover:scale-105';
                 
-                if (isSelected) {
-                    bgClass = 'bg-emerald-600 hover:bg-emerald-700 text-white';
-                    borderClass = 'border-emerald-600 ring-2 ring-emerald-500/50';
-                }
-
-                const card = document.createElement('div');
-                card.className = `p-3 rounded-xl border text-center cursor-pointer transition relative flex flex-col justify-between ${bgClass} ${borderClass}`;
-                card.setAttribute('onclick', `selectCalendarDay(${day.dayNum})`);
-                
-                // Format short date (e.g. 10.6)
-                const dateParts = day.date.split('-');
-                const shortDate = `${parseInt(dateParts[2])}.${parseInt(dateParts[1])}`;
-
-                card.innerHTML = `
-                    <div>
-                        <div class="text-[10px] font-bold opacity-60">יום ${day.dayNum} (${day.dayOfWeek})</div>
-                        <div class="text-base font-extrabold tracking-tight mt-0.5">${shortDate}</div>
+                dayEl.className = `p-3 rounded-2xl text-center cursor-pointer border-2 transition-all duration-200 ${styleClasses}`;
+                dayEl.id = `cal-day-${day}`;
+                dayEl.innerHTML = `
+                    <div class="font-bold text-lg">${day}</div>
+                    <div class="text-[10px] uppercase font-bold ${isFullMoon ? 'text-slate-300' : 'text-slate-400'}">יוני</div>
+                    <div class="h-4 flex items-center justify-center mt-1">
+                        ${isShabbat ? '<span class="text-xs">🕯️</span>' : ''}
+                        ${isFullMoon ? '<span class="text-xs">🌕</span>' : ''}
                     </div>
-                    <div class="text-[10px] font-medium mt-2 truncate max-w-full">
-                        ${day.location}
-                    </div>
-                    ${hasCustom ? `
-                        <div class="absolute -top-1 -left-1 w-4 h-4 bg-emerald-500 text-white text-[9px] font-black rounded-full flex items-center justify-center border border-white shadow-sm">
-                            ${day.customActivities.length}
-                        </div>
-                    ` : ''}
                 `;
-                grid.appendChild(card);
-            });
-
-            renderDayDetails();
+                
+                dayEl.onclick = () => selectDay(day, isShabbat, isFullMoon);
+                grid.appendChild(dayEl);
+            }
+            
+            // Auto select the first day
+            selectDay(10, false, false);
         }
 
-        function selectCalendarDay(dayNum) {
-            selectedDayNum = dayNum;
-            renderCalendar();
-        }
+        function selectDay(day, isShabbat, isFullMoon) {
+            // Remove previous selection rings
+            for (let i = 10; i <= 30; i++) {
+                const el = document.getElementById(`cal-day-${i}`);
+                if (el) el.classList.remove('ring-4', 'ring-emerald-500');
+            }
+            
+            // Add ring to selected
+            const activeEl = document.getElementById(`cal-day-${day}`);
+            if (activeEl) activeEl.classList.add('ring-4', 'ring-emerald-500');
 
-        function renderDayDetails() {
             const panel = document.getElementById('calendar-details-panel');
-            if (!panel) return;
-
-            const day = calendarData.find(d => d.dayNum === selectedDayNum);
-            if (!day) return;
-
-            const dateParts = day.date.split('-');
-            const prettyDate = `${parseInt(dateParts[2])} ביוני 2026`;
-
-            let shabbatNoticeHTML = '';
-            if (day.isShabbat) {
-                const noticeText = day.shabbatType === 'Friday' ? 'הכנות לשבת וכניסת שבת' : 'שבת מנוחה ושמירה';
-                shabbatNoticeHTML = `
-                    <div class="mb-4 bg-amber-50 border border-amber-300 rounded-xl p-3 flex items-start gap-2.5 text-amber-900">
-                        <span class="text-xl">🕯️</span>
-                        <div>
-                            <div class="text-xs font-black uppercase tracking-wider text-amber-700">שבת קודש (${noticeText})</div>
-                            <p class="text-[11px] leading-relaxed mt-0.5">זמני שבת ואוכל כשר מוסדרים בבתי חב"ד המקומיים. מומלץ לוודא רישום לארוחות.</p>
-                        </div>
-                    </div>
-                `;
+            const note = dailyNotes[day] || '';
+            const w = getSimulatedWeather(day);
+            
+            let defaultActivity = 'זמן חופשי / אטרקציות';
+            let locationName = 'קוסמוי';
+            if(day >= 10 && day <= 13) {
+                defaultActivity = 'בנגקוק - קניות, שווקים (MBK, שוק הלילה) ומקדשים';
+                locationName = 'בנגקוק 🌆';
+            } else if(day >= 13 && day <= 22) {
+                defaultActivity = 'קוסמוי - חופים, מסיבות (Ark Bar), עיסויים ופינוקים';
+                locationName = 'קוסמוי 🏖️';
+            } else if(day >= 22 && day <= 29) {
+                defaultActivity = 'קופנגן - אווירת אי צ\'יל, חופים נסתרים, השכרת אופנועים';
+                locationName = 'קופנגן 🌴';
             }
-
-            let activitiesHTML = '';
-            if (day.customActivities && day.customActivities.length > 0) {
-                day.customActivities.forEach(act => {
-                    const userBadge = getUserBadgeClass(act.user);
-                    const userEmoji = getUserEmoji(act.user);
-                    activitiesHTML += `
-                        <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
-                            <div class="flex items-center gap-2">
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${userBadge}">
-                                    ${userEmoji} ${act.user}
-                                </span>
-                                ${act.time ? `<span class="text-xs font-bold text-slate-400 bg-slate-50 px-1.5 py-0.5 rounded">${act.time}</span>` : ''}
-                                <span class="text-xs text-slate-700 font-medium">${act.text}</span>
-                            </div>
-                            <button onclick="deleteDayActivity(${day.dayNum}, ${act.id})" class="text-slate-300 hover:text-red-500 transition" title="מחק">
-                                <i class="fa-solid fa-circle-xmark text-sm"></i>
-                            </button>
-                        </div>
-                    `;
-                });
-            } else {
-                activitiesHTML = `
-                    <div class="text-center py-6 text-slate-400 border border-dashed border-slate-200 rounded-xl bg-white/50">
-                        <i class="fa-solid fa-calendar-plus text-2xl mb-1 opacity-60"></i>
-                        <p class="text-xs font-bold">אין עדיין פעילויות אישיות ליום זה</p>
-                        <p class="text-[10px] text-slate-400">הוסיפו בטופס למטה משימות, רעיונות או תזכורות!</p>
-                    </div>
-                `;
+            if(isFullMoon) {
+                defaultActivity = 'מסיבת ה-FULL MOON המרכזית בחוף האד-רין! 🪩🎉 נא להתארגן על צבעי גוף מראש.';
+                locationName = 'קופנגן 🌕';
             }
-
+            if(day === 30) {
+                defaultActivity = 'טיסה חזרה לישראל - מתארגנים ליציאה לשדה התעופה ✈️';
+                locationName = 'בנגקוק לנתב״ג';
+            }
+            
             panel.innerHTML = `
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-emerald-800 text-xs font-black bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">יום ${day.dayNum} מתוך 21</span>
-                        <span class="text-slate-400 text-xs font-medium">${day.dayOfWeek}, ${prettyDate}</span>
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h4 class="text-2xl font-extrabold text-emerald-950 mb-1">${day} ביוני 2026</h4>
+                        <p class="text-sm font-semibold ${isFullMoon ? 'text-gold-600' : (isShabbat ? 'text-yellow-600' : 'text-emerald-600')}">
+                            ${isShabbat ? 'שבת קודש 🍷 - תכנון אוכל בחב"ד' : (isFullMoon ? 'ערב פול מון 🌕 טירוף!' : 'יום חול רגיל בטרופיקה')}
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-emerald-950 flex items-center gap-2 mb-3">
-                        <i class="fa-solid fa-location-dot text-emerald-600"></i> ${day.location}
-                    </h3>
-                    
-                    <div class="bg-white border border-emerald-100 p-4 rounded-2xl mb-4 shadow-sm">
-                        <div class="text-xs font-bold text-slate-400 mb-1">תוכנית מסלול ראשית:</div>
-                        <p class="text-sm text-emerald-950 font-medium leading-relaxed">${day.mainActivity}</p>
+                    <div class="text-right bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-100 flex items-center gap-1">
+                        <i class="fa-solid ${w.icon} text-lg text-gold-500"></i>
+                        <span class="text-sm font-black text-emerald-900">${w.temp}°C</span>
                     </div>
+                </div>
 
-                    ${shabbatNoticeHTML}
-
-                    <!-- Custom team plans listed -->
-                    <div class="mb-6">
-                        <div class="text-xs font-bold text-slate-400 mb-2 flex items-center justify-between">
-                            <span>📋 תוכניות ומשימות מיוחדות שלכם:</span>
-                            <span class="text-[10px] text-emerald-600 font-bold">${day.customActivities ? day.customActivities.length : 0} פעילויות</span>
-                        </div>
-                        <div class="space-y-2 max-h-[180px] overflow-y-auto pr-1">
-                            ${activitiesHTML}
-                        </div>
+                <!-- Weather Card Widget -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 mb-4 flex items-center gap-4">
+                    <span class="text-3xl text-gold-500"><i class="fa-solid ${w.icon}"></i></span>
+                    <div class="text-xs">
+                        <span class="block text-slate-400 font-bold uppercase">מזג אוויר יומי חזוי (${locationName}):</span>
+                        <span class="text-slate-800 font-extrabold text-sm block mt-0.5">${w.status} | לחות: ${w.humidity}</span>
+                        <span class="text-slate-500 italic block mt-0.5">${w.desc}</span>
                     </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 mb-5">
+                    <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">מיקום ופעילות מרכזית מתוכננת</h5>
+                    <p class="text-slate-800 font-medium text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-emerald-500"></i> ${defaultActivity}
+                    </p>
+                </div>
 
-                    <!-- Add Activity Form -->
-                    <div class="border-t border-slate-100 pt-4">
-                        <div class="text-xs font-bold text-slate-500 mb-2">💡 להוסיף תוכנית או משימה ליום זה?</div>
-                        <form onsubmit="addDayActivity(event, ${day.dayNum})" class="space-y-3">
-                            <div class="grid grid-cols-12 gap-2">
-                                <div class="col-span-4">
-                                    <select id="day-act-user" required class="w-full bg-white border border-slate-200 rounded-lg px-2 py-2 text-xs font-bold text-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-emerald-500">
-                                        <option value="מיכל">מיכל 🌸</option>
-                                        <option value="יגל">יגל 🌊</option>
-                                        <option value="יהל">יהל ✨</option>
-                                        <option value="אלעזר">אלעזר 🔥</option>
-                                    </select>
-                                </div>
-                                <div class="col-span-5">
-                                    <input type="text" id="day-act-text" required placeholder="למשל: ספא בצהריים" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-emerald-500">
-                                </div>
-                                <div class="col-span-3">
-                                    <input type="text" id="day-act-time" placeholder="שעה" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-2 text-xs text-center text-slate-800 focus:outline-none focus:ring-1 focus:ring-emerald-500">
-                                </div>
-                            </div>
-                            <button type="submit" class="w-full gradient-bg hover:bg-emerald-800 text-white font-bold text-xs py-2 rounded-lg transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                                <i class="fa-solid fa-plus text-[10px]"></i> הוסף תוכנית ליום זה
-                            </button>
-                        </form>
-                    </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">הערות אישיות ליום זה (נשמר אוטומטית):</label>
+                    <textarea 
+                        id="note-${day}"
+                        oninput="saveNote(${day}, this.value)"
+                        class="w-full bg-white border border-emerald-100 rounded-xl p-4 text-slate-700 min-h-[140px] focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none shadow-sm text-sm"
+                        placeholder="מה בא לכם לעשות ביום הזה? איפה אוכלים? אטרקציות מיוחדות? (למשל: סירת ארוכת זנב, טיול ג'יפים, קניות...)"
+                    >${note}</textarea>
                 </div>
             `;
         }
 
-        function addDayActivity(e, dayNum) {
+        function saveNote(day, text) {
+            dailyNotes[day] = text;
+            localStorage.setItem('tripNotes_2026', JSON.stringify(dailyNotes));
+        }
+
+        /* ================= GROUP COMMENTS / DISCUSSION BOARD ================= */
+        function postComment(e) {
             e.preventDefault();
-            const userInput = document.getElementById('day-act-user');
-            const textInput = document.getElementById('day-act-text');
-            const timeInput = document.getElementById('day-act-time');
+            const commenter = document.getElementById('commenter-name').value;
+            const textInput = document.getElementById('comment-text');
 
-            if (!textInput.value.trim() || !userInput.value) return;
-
-            calendarData = calendarData.map(day => {
-                if (day.dayNum === dayNum) {
-                    const activities = day.customActivities || [];
-                    return {
-                        ...day,
-                        customActivities: [
-                            ...activities,
-                            {
-                                id: Date.now(),
-                                user: userInput.value,
-                                text: textInput.value.trim(),
-                                time: timeInput.value.trim() || null
-                            }
-                        ]
-                    };
-                }
-                return day;
-            });
-
-            localStorage.setItem('thailand_trip_calendar', JSON.stringify(calendarData));
-            textInput.value = '';
-            timeInput.value = '';
-            renderCalendar();
-        }
-
-        function deleteDayActivity(dayNum, actId) {
-            calendarData = calendarData.map(day => {
-                if (day.dayNum === dayNum) {
-                    return {
-                        ...day,
-                        customActivities: day.customActivities.filter(act => act.id !== actId)
-                    };
-                }
-                return day;
-            });
-
-            localStorage.setItem('thailand_trip_calendar', JSON.stringify(calendarData));
-            renderCalendar();
-        }
-
-        function getUserBadgeClass(username) {
-            switch(username) {
-                case 'מיכל': return 'user-badge-michal';
-                case 'יגל': return 'user-badge-yagel';
-                case 'יהל': return 'user-badge-yahel';
-                case 'אלעזר': return 'user-badge-elazar';
-                default: return 'bg-slate-100 text-slate-800';
-            }
-        }
-
-        function getUserEmoji(username) {
-            switch(username) {
-                case 'מיכל': return '🌸';
-                case 'יגל': return '🌊';
-                case 'יהל': return '✨';
-                case 'אלעזר': return '🔥';
-                default: return '👥';
-            }
-        }
-
-        function renderNotes() {
-            const container = document.getElementById('notes-container');
-            const countDisplay = document.getElementById('notes-count');
-            
-            container.innerHTML = '';
-            countDisplay.innerText = notes.length;
-
-            if (notes.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-white p-8 rounded-2xl text-center border border-dashed border-slate-200 text-slate-400">
-                        <i class="fa-solid fa-comments text-4xl mb-2 opacity-55"></i>
-                        <p class="font-bold">אין עדיין הערות בקבוצה.</p>
-                        <p class="text-sm mt-1">תהיו הראשונים לכתוב משהו מעניין!</p>
-                    </div>
-                `;
-                return;
-            }
-
-            [...notes].reverse().forEach(note => {
-                const badgeClass = getUserBadgeClass(note.user);
-                const emoji = getUserEmoji(note.user);
-                
-                const noteCard = document.createElement('div');
-                noteCard.className = "bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-md transition duration-200 relative group";
-                noteCard.innerHTML = `
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="px-3 py-1 rounded-full text-xs font-bold border ${badgeClass} flex items-center gap-1">
-                            <span>${emoji}</span> ${note.user}
-                        </span>
-                        <span class="text-xs text-slate-400 font-medium">${note.time}</span>
-                    </div>
-                    <p class="text-slate-700 leading-relaxed text-sm whitespace-pre-wrap">${note.text}</p>
-                    
-                    <button onclick="deleteNote(${note.id})" class="absolute left-4 bottom-4 text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs flex items-center gap-1" title="מחק הערה">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                `;
-                container.appendChild(noteCard);
-            });
-        }
-
-        function addNote(event) {
-            event.preventDefault();
-            
-            const userSelect = document.getElementById('note-user');
-            const textInput = document.getElementById('note-text');
-            const errorDiv = document.getElementById('form-error');
-
-            const selectedUser = userSelect.value;
-            const noteText = textInput.value.trim();
-
-            if (!selectedUser || !noteText) {
-                errorDiv.classList.remove('hidden');
-                setTimeout(() => {
-                    errorDiv.classList.add('hidden');
-                }, 4000);
-                return;
-            }
-
-            errorDiv.classList.add('hidden');
+            if(!textInput.value.trim()) return;
 
             const now = new Date();
-            const timestamp = now.toLocaleDateString('he-IL', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
+            const formattedTime = `היום, ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-            const newNote = {
+            const newComment = {
                 id: Date.now(),
-                user: selectedUser,
-                text: noteText,
-                time: timestamp
+                name: commenter,
+                text: textInput.value,
+                time: formattedTime
             };
 
-            notes.push(newNote);
-            localStorage.setItem('thailand_trip_notes', JSON.stringify(notes));
-
+            comments.push(newComment);
+            localStorage.setItem('tripComments_2026', JSON.stringify(comments));
             textInput.value = '';
-            renderNotes();
+            renderComments();
         }
 
-        function deleteNote(id) {
-            notes = notes.filter(n => n.id !== id);
-            localStorage.setItem('thailand_trip_notes', JSON.stringify(notes));
-            renderNotes();
+        function deleteComment(id) {
+            comments = comments.filter(c => c.id !== id);
+            localStorage.setItem('tripComments_2026', JSON.stringify(comments));
+            renderComments();
         }
 
-        function clearAllNotes() {
-            notes = [];
-            localStorage.setItem('thailand_trip_notes', JSON.stringify(notes));
-            renderNotes();
+        function getCommenterBadgeColor(name) {
+            if(name.includes('מיכל')) return 'user-badge-michal';
+            if(name.includes('יגל')) return 'user-badge-yagel';
+            if(name.includes('יהל')) return 'user-badge-yahel';
+            if(name.includes('אלעזר')) return 'user-badge-elazar';
+            return 'bg-slate-100 text-slate-700 border-slate-200';
         }
 
-        window.onload = function() {
-            fetchExchangeRate();
-            updateBudget();
-            renderNotes();
+        function renderComments() {
+            const container = document.getElementById('comments-container');
+            if(comments.length === 0) {
+                container.innerHTML = '<div class="text-center text-slate-400 py-8 font-medium">אין הערות בקבוצה. תהיו הראשונים להגיב!</div>';
+                return;
+            }
+
+            container.innerHTML = comments.map(c => `
+                <div class="border border-slate-100 p-4 rounded-2xl bg-slate-50/50 hover:bg-slate-50 transition-all shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="${getCommenterBadgeColor(c.name)} px-2.5 py-1 rounded-full text-xs font-bold border">${c.name}</span>
+                            <span class="text-[10px] text-slate-400 font-bold">${c.time}</span>
+                        </div>
+                        <button onclick="deleteComment(${c.id})" class="text-slate-300 hover:text-red-500 p-1 transition-colors"><i class="fa-solid fa-trash text-xs"></i></button>
+                    </div>
+                    <p class="text-slate-700 text-sm whitespace-pre-wrap leading-relaxed">${c.text}</p>
+                </div>
+            `).join('');
+            
+            // Scroll to the bottom of comment feed
+            container.scrollTop = container.scrollHeight;
+        }
+
+        /* ================= FLIGHT SELECTION ================= */
+        function selectFlight(company, price) {
+            selectedFlightPrice = price;
+            selectedFlightCarrier = company;
+
+            const elalCard = document.getElementById('flight-elal');
+            const elalBadge = document.getElementById('badge-elal');
+            if (elalCard) {
+                elalCard.classList.remove('border-emerald-600');
+                elalCard.classList.add('border-slate-100');
+            }
+            if (elalBadge) elalBadge.classList.add('hidden');
+            
+            const israirCard = document.getElementById('flight-israir');
+            const israirBadge = document.getElementById('badge-israir');
+            if (israirCard) {
+                israirCard.classList.remove('border-emerald-600', 'border-blue-600');
+                israirCard.classList.add('border-slate-100');
+            }
+            if (israirBadge) israirBadge.classList.add('hidden');
+
+            const activeCard = document.getElementById('flight-' + company);
+            const activeBadge = document.getElementById('badge-' + company);
+            
+            if (activeCard) {
+                activeCard.classList.remove('border-slate-100');
+                activeCard.classList.add(company === 'israir' ? 'border-blue-600' : 'border-emerald-600');
+            }
+            if (activeBadge) activeBadge.classList.remove('hidden');
+            
+            const carrierText = company === 'elal' ? 'אל-על ישיר לבנגקוק' : 'ישראייר ישיר לבנגקוק';
+            const quickStatEl = document.getElementById('quick-flight-carrier');
+            if (quickStatEl) quickStatEl.innerText = carrierText;
+
+            recalcBudget();
+        }
+
+        /* ================= BUDGET & LIVE EXCHANGE RATE ENGINE ================= */
+        // Change the USD rate dynamically and update calculations
+        function changeUSDRate(rate) {
+            usdToIlsRate = parseFloat(rate);
+            if (isNaN(usdToIlsRate) || usdToIlsRate < 1) usdToIlsRate = 2.92;
+            
+            // Sync all visual elements with the current rate
+            const targetEls = document.querySelectorAll('.budget-target-ils');
+            targetEls.forEach(el => {
+                el.innerText = Math.round(3500 * usdToIlsRate).toLocaleString();
+            });
+
+            recalcBudget();
+        }
+
+        // Core budget calculation engine
+        function recalcBudget() {
+            // Read slider values
+            const foodPerDayPerCouple = parseInt(document.getElementById('budget-food').value);
+            const attractionsTotalPerCouple = parseInt(document.getElementById('budget-attr').value);
+            const shoppingTotalPerCouple = parseInt(document.getElementById('budget-shop').value);
+
+            // Display sliders value
+            document.getElementById('food-val-disp').innerText = `$${foodPerDayPerCouple}`;
+            document.getElementById('attr-val-disp').innerText = `$${attractionsTotalPerCouple}`;
+            document.getElementById('shop-val-disp').innerText = `$${shoppingTotalPerCouple}`;
+
+            // Group calculation (for 2 couples = 4 people)
+            const flightCostGroup = selectedFlightPrice * 2; 
+            
+            // Hotel default group cost estimation ($150 + $540 + $385 = $1075 per couple * 2)
+            const hotelCostGroup = (150 + 540 + 385) * 2; 
+            
+            // Food cost (20 days * daily estimate per couple * 2)
+            const foodCostGroup = (foodPerDayPerCouple * 20) * 2;
+
+            // Miscellaneous (Attractions + Shopping per couple * 2)
+            const miscCostGroup = (attractionsTotalPerCouple + shoppingTotalPerCouple) * 2;
+
+            // Grand Total USD
+            const totalGroupUSD = flightCostGroup + hotelCostGroup + foodCostGroup + miscCostGroup;
+
+            // Update UI elements in USD
+            document.getElementById('calc-flights').innerText = `$${flightCostGroup.toLocaleString()}`;
+            document.getElementById('calc-hotels').innerText = `$${hotelCostGroup.toLocaleString()}`;
+            document.getElementById('calc-food').innerText = `$${foodCostGroup.toLocaleString()}`;
+            document.getElementById('calc-misc').innerText = `$${miscCostGroup.toLocaleString()}`;
+            document.getElementById('calc-total-usd').innerText = `$${totalGroupUSD.toLocaleString()}`;
+
+            // Calculate & Display in ILS with dynamic rate
+            document.getElementById('calc-flights-ils').innerText = `${Math.round(flightCostGroup * usdToIlsRate).toLocaleString()} ₪`;
+            document.getElementById('calc-hotels-ils').innerText = `${Math.round(hotelCostGroup * usdToIlsRate).toLocaleString()} ₪`;
+            document.getElementById('calc-food-ils').innerText = `${Math.round(foodCostGroup * usdToIlsRate).toLocaleString()} ₪`;
+            document.getElementById('calc-misc-ils').innerText = `${Math.round(miscCostGroup * usdToIlsRate).toLocaleString()} ₪`;
+            document.getElementById('calc-total-ils').innerText = Math.round(totalGroupUSD * usdToIlsRate).toLocaleString();
+
+            // Update individual hotel display estimates in ILS
+            const hotelPrices = document.querySelectorAll('.hotel-price-ils');
+            hotelPrices.forEach(el => {
+                const usd = parseInt(el.getAttribute('data-usd'));
+                el.innerText = Math.round(usd * usdToIlsRate).toLocaleString();
+            });
+
+            // Update flight cards ILS estimates
+            document.getElementById('flight-elal-ils').innerText = Math.round(1950 * usdToIlsRate).toLocaleString();
+            document.getElementById('flight-israir-ils').innerText = Math.round(1650 * usdToIlsRate).toLocaleString();
+        }
+
+        // Initialize Everything when DOM is fully compiled
+        document.addEventListener('DOMContentLoaded', () => {
             renderChecklist();
             renderCalendar();
-        };
+            renderComments();
+            
+            // Set first selections and compute initial budget with the real 2.92 shekel rate
+            selectFlight('elal', 1950);
+            changeUSDRate(2.92);
+        });
     </script>
 </body>
 </html>
