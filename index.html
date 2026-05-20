@@ -79,8 +79,8 @@
                 <a href="#notes-section" class="hover:text-emerald-500 transition-colors flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full text-emerald-800"><i class="fa-solid fa-comments"></i> הערות</a>
             </nav>
             
-            <div class="text-sm font-semibold bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full border border-emerald-100">
-                שער חליפין קבוע: 1$ = 2.92 ₪
+            <div class="text-sm font-semibold bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full border border-emerald-100" id="exchange-rate-display">
+                שער חליפין: 1$ = 2.92 ₪ (מתעדכן...)
             </div>
         </div>
     </header>
@@ -693,245 +693,22 @@
     </main>
 
     <script>
-        const USD_TO_ILS = 2.92;
+        let USD_TO_ILS = 2.92;
         const NUMBER_OF_NIGHTS = 19;
         const NUMBER_OF_DAYS = 20;
 
-        // Current Selected Flight state
-        let selectedFlightPrice = 1950; // default El Al
-        let selectedFlightName = "אל על";
-
-        // Initial default notes
-        const INITIAL_NOTES = [
-            {
-                id: 1,
-                user: "מיכל",
-                text: "אנשים, לא לשכוח לקנות צבעים זוהרים וגופיות לפולמון בקופנגן! הבנתי שהחצי-אי שם נהיה מטורף לגמרי",
-                time: "20/05/2026, 11:20"
-            },
-            {
-                id: 2,
-                user: "אלעזר",
-                text: "בדקתי את האופציה של מעבורת מסוראט תאני לקוסמוי, זה אשכרה חוסך חצי מחיר לעומת טיסה ישירה! כדאי שנסגור את זה ברגע שיש לנו כרטיס טיסה לבנגקוק.",
-                time: "20/05/2026, 12:05"
-            },
-            {
-                id: 3,
-                user: "יהל",
-                text: "רשמתי לנו ביומן להירשם לארוחת שבת של ה-13.6 בחב\"ד קוסמוי. אומרים שהאווירה שם מטורפת וחייבים לשמור מקום מראש כי מפוצץ בישראלים.",
-                time: "20/05/2026, 12:15"
-            },
-            {
-                id: 4,
-                user: "יגל",
-                text: "בדקתי מחירי אופנועים בקוסמוי להשכרה, זה גרושים (משהו כמו 250 באט ליום). רק תביאו רישיון נהיגה בינלאומי וקסדה חובה!",
-                time: "20/05/2026, 12:30"
-            }
-        ];
-
-        let notes = JSON.parse(localStorage.getItem('thailand_trip_notes'));
-        if (!notes) {
-            notes = INITIAL_NOTES;
-            localStorage.setItem('thailand_trip_notes', JSON.stringify(notes));
-        }
-
-        const DEFAULT_CHECKLIST = [
-            { id: 1, task: "בדיקת תוקף דרכונים (לפחות 6 חודשים קדימה - עד סוף דצמבר 2026)", assignee: "כולם", completed: false },
-            { id: 2, task: "אישור חופשה רשמי מהעבודה לתאריכים 10.6 - 30.6", assignee: "כולם", completed: false },
-            { id: 3, task: "סגירת טיסות בינלאומיות (אל על או ישראייר)", assignee: "יגל", completed: false },
-            { id: 4, task: "ביטוח נסיעות מקיף לחו\"ל (כולל ספורט אתגרי, איתור וחילוץ)", assignee: "מיכל", completed: false },
-            { id: 5, task: "בדיקת חיסונים נדרשים במרפאת מטיילים", assignee: "יהל", completed: false },
-            { id: 6, task: "הוצאת רישיון נהיגה בינלאומי (חובה להשכרת אופנועים בקוסמוי)", assignee: "אלעזר", completed: false },
-            { id: 7, task: "הזמנת טיסות פנים ומעבורות בין האיים", assignee: "יגל", completed: false },
-            { id: 8, task: "הזמנת מקומות לארוחות שבת בבתי חב\"ד (קוסמוי וקופנגן)", assignee: "יהל", completed: false },
-            { id: 9, task: "רכישת בגדים וציוד זוהר למסיבת הפולמון", assignee: "מיכל", completed: false }
-        ];
-
-        let checklist = JSON.parse(localStorage.getItem('thailand_trip_checklist'));
-        if (!checklist) {
-            checklist = DEFAULT_CHECKLIST;
-            localStorage.setItem('thailand_trip_checklist', JSON.stringify(checklist));
-        }
-
-        const DEFAULT_CALENDAR = [
-            { date: "2026-06-10", dayNum: 1, dayOfWeek: "ד'", location: "בנגקוק 🌆", mainActivity: "נחיתה בבנגקוק, צ'ק אין והתארגנות במלון. סיור ערב ראשוני ברחוב הקוואסן.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-11", dayNum: 2, dayOfWeek: "ה'", location: "בנגקוק 🛍️", mainActivity: "שופינג מטורף בקניוני הענק MBK ו-Siam Paragon.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-12", dayNum: 3, dayOfWeek: "ו'", location: "בנגקוק 🕯️", mainActivity: "סיור במקדשים המלכותיים וארמון המלך. הכנות לשבת וסעודה חגיגית בבית חב\"ד בנגקוק.", isShabbat: true, shabbatType: "Friday", customActivities: [] },
-            { date: "2026-06-13", dayNum: 4, dayOfWeek: "ש'", location: "בנגקוק 🕍", mainActivity: "שבת מנוחה, תפילות וארוחות בבית חב\"ד. מוצאי שבת ברחוב הקוואסן התוסס.", isShabbat: true, shabbatType: "Saturday", customActivities: [] },
-            { date: "2026-06-14", dayNum: 5, dayOfWeek: "א'", location: "קוסמוי ✈️", mainActivity: "טיסה פנימית לקוסמוי והגעה למלון Lub d בצ'אוונג. התאקלמות וערב רגוע.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-15", dayNum: 6, dayOfWeek: "ב'", location: "קוסמוי 🛵", mainActivity: "השכרת אופנועים וטיול יום עצמאי למפלי נא מואנג וסלעי סבא וסבתא (Hin Ta Hin Yai).", isShabbat: false, customActivities: [] },
-            { date: "2026-06-16", dayNum: 7, dayOfWeek: "ג'", location: "קוסמוי 🏖️", mainActivity: "יום רביצה בים ומסיבת בריכה וחוף מעולה בצהריים ב-Ark Bar בצ'אוונג.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-17", dayNum: 8, dayOfWeek: "ד'", location: "קוסמוי 🚢", mainActivity: "שייט מודרך לפארק הלאומי אנג תונג (שמורת 42 האיים הירוקים).", isShabbat: false, customActivities: [] },
-            { date: "2026-06-18", dayNum: 9, dayOfWeek: "ה'", location: "קוסמוי 🎢", mainActivity: "אומגות בג'ונגלים, פארק מים קטן או קורס בישול תאילנדי מסורתי.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-19", dayNum: 10, dayOfWeek: "ו'", location: "קוסמוי 🕯️", mainActivity: "בוקר של מסאז'ים וטיפוח. הדלקת נרות, קבלת שבת וסעודת שבת משותפת בבית חב\"ד קוסמוי.", isShabbat: true, shabbatType: "Friday", customActivities: [] },
-            { date: "2026-06-20", dayNum: 11, dayOfWeek: "ש'", location: "קוסמוי 🕍", mainActivity: "שבת מנוחה קבוצתית, תפילות, ארוחת יום שבת חגיגית בחב\"ד וטיול רגלי בערב.", isShabbat: true, shabbatType: "Saturday", customActivities: [] },
-            { date: "2026-06-21", dayNum: 12, dayOfWeek: "א'", location: "קוסמוי 🛍️", mainActivity: "ביקור במקדש הבודהה הגדול (Big Buddha Temple) וסיור שווקי לילה לקניות ואווירה.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-22", dayNum: 13, dayOfWeek: "ב'", location: "קופנגן 🚢", mainActivity: "מעבורת בוקר מהירה מקוסמוי לקופנגן. הגעה לריזורט (Morning Star) והתרגעות בחוף.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-23", dayNum: 14, dayOfWeek: "ג'", location: "קופנגן 🌴", mainActivity: "חקר חופים מבודדים בקופנגן (האד רין, האד יאו) ורביצה בערסלים מול השקיעה.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-24", dayNum: 15, dayOfWeek: "ד'", location: "קופנגן 🌕", mainActivity: "מסיבת חצי הירח (Half Moon Party) הגדולה והמטורפת בג'ונגלים של קופנגן!", isShabbat: false, customActivities: [] },
-            { date: "2026-06-25", dayNum: 16, dayOfWeek: "ה'", location: "קופנגן 🧖", mainActivity: "יום התאוששות בספא ובסאונת הקיטור הציבורית המפורסמת The Dome עם צמחי מרפא.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-26", dayNum: 17, dayOfWeek: "ו'", location: "קופנגן 🕯️", mainActivity: "סיור מפלים וטיול שקט. קבלת שבת וסעודת ערב שבת משפחתית בבית חב\"ד קופנגן בהאד-רין.", isShabbat: true, shabbatType: "Friday", customActivities: [] },
-            { date: "2026-06-27", dayNum: 18, dayOfWeek: "ש'", location: "קופנגן 🕍", mainActivity: "שבת מנוחה בקופנגן, ארוחת שבת בחב\"ד, מנוחה, קריאה ומשחקי קופסה קבוצתיים.", isShabbat: true, shabbatType: "Saturday", customActivities: [] },
-            { date: "2026-06-28", dayNum: 19, dayOfWeek: "א'", location: "קופנגן 🌅", mainActivity: "ביקור בחוף זן (Zen Beach) בשעת השקיעה עם מוזיקה חיה, מעגלי מתופפים ואווירת היפים.", isShabbat: false, customActivities: [] },
-            { date: "2026-06-29", dayNum: 20, dayOfWeek: "ב'", location: "פולמון! 🎉", mainActivity: "היום הגדול הגיע! חוגגים כל הלילה במסיבת הפולמון הרשמית (Full Moon Party) בחוף האד-רין!", isShabbat: false, customActivities: [] },
-            { date: "2026-06-30", dayNum: 21, dayOfWeek: "ג'", location: "חזרה הביתה ✈️", mainActivity: "מעבורת בוקר מהירה לקוסמוי, טיסת פנים לבנגקוק, ומעבר ישיר לטיסת אל-על חזרה לישראל.", isShabbat: false, customActivities: [] }
-        ];
-
-        let calendarData = JSON.parse(localStorage.getItem('thailand_trip_calendar'));
-        if (!calendarData) {
-            calendarData = DEFAULT_CALENDAR;
-            localStorage.setItem('thailand_trip_calendar', JSON.stringify(calendarData));
-        }
-
-        let selectedDayNum = 1; // Default selected day on calendar
-
-        function renderChecklist() {
-            const container = document.getElementById('checklist-container');
-            const progressFill = document.getElementById('checklist-progress-fill');
-            const progressText = document.getElementById('checklist-progress-text');
-            
-            if (!container) return;
-            container.innerHTML = '';
-            
-            let completedCount = 0;
-            checklist.forEach(item => {
-                if (item.completed) completedCount++;
-                
-                const badgeClass = getUserBadgeClass(item.assignee);
-                const emoji = getUserEmoji(item.assignee);
-                
-                const itemElement = document.createElement('div');
-                itemElement.className = `flex items-center justify-between p-4 rounded-2xl border transition duration-200 ${item.completed ? 'bg-slate-50/80 border-slate-100 opacity-70' : 'bg-white border-emerald-50 hover:shadow-sm'}`;
-                itemElement.innerHTML = `
-                    <div class="flex items-center gap-3 flex-1">
-                        <input type="checkbox" id="chk-${item.id}" ${item.completed ? 'checked' : ''} onchange="toggleChecklist(${item.id})" class="w-5 h-5 accent-emerald-600 rounded cursor-pointer">
-                        <label for="chk-${item.id}" class="text-sm md:text-base font-semibold cursor-pointer select-none ${item.completed ? 'line-through text-slate-400' : 'text-slate-700'}">
-                            ${item.task}
-                        </label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${badgeClass}">
-                            ${emoji} ${item.assignee}
-                        </span>
-                        <button onclick="deleteChecklistItem(${item.id})" class="text-slate-300 hover:text-red-500 transition-colors p-1" title="מחק משימה">
-                            <i class="fa-solid fa-trash-can text-xs"></i>
-                        </button>
-                    </div>
-                `;
-                container.appendChild(itemElement);
-            });
-            
-            const progressPercent = checklist.length > 0 ? Math.round((completedCount / checklist.length) * 100) : 0;
-            progressFill.style.width = `${progressPercent}%`;
-            progressText.innerText = `${completedCount} מתוך ${checklist.length} משימות הושלמו (${progressPercent}%)`;
-        }
-
-        function toggleChecklist(id) {
-            checklist = checklist.map(item => {
-                if (item.id === id) {
-                    return { ...item, completed: !item.completed };
+        // Fetch exchange rate automatically
+        async function fetchExchangeRate() {
+            try {
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const data = await response.json();
+                if(data.rates && data.rates.ILS) {
+                    USD_TO_ILS = data.rates.ILS;
+                    document.getElementById('exchange-rate-display').innerText = `שער דולר מעודכן: 1$ = ${USD_TO_ILS.toFixed(2)} ₪`;
+                    updateBudget();
                 }
-                return item;
-            });
-            localStorage.setItem('thailand_trip_checklist', JSON.stringify(checklist));
-            renderChecklist();
-        }
-
-        function addChecklistItem(e) {
-            e.preventDefault();
-            const taskInput = document.getElementById('new-task-text');
-            const assigneeInput = document.getElementById('new-task-assignee');
-            const taskText = taskInput.value.trim();
-            const assignee = assigneeInput.value;
-            
-            if (!taskText || !assignee) return;
-            
-            const newItem = {
-                id: Date.now(),
-                task: taskText,
-                assignee: assignee,
-                completed: false
-            };
-            
-            checklist.push(newItem);
-            localStorage.setItem('thailand_trip_checklist', JSON.stringify(checklist));
-            taskInput.value = '';
-            renderChecklist();
-        }
-
-        function deleteChecklistItem(id) {
-            checklist = checklist.filter(item => item.id !== id);
-            localStorage.setItem('thailand_trip_checklist', JSON.stringify(checklist));
-            renderChecklist();
-        }
-
-        function selectFlight(carrier, price) {
-            selectedFlightPrice = price;
-            if(carrier === 'elal') {
-                selectedFlightName = "אל על";
-                document.getElementById('flight-elal').className = "bg-white rounded-3xl p-6 border-2 border-emerald-600 shadow-md cursor-pointer hover:shadow-lg transition relative overflow-hidden";
-                document.getElementById('badge-elal').classList.remove('hidden');
-                
-                document.getElementById('flight-israir').className = "bg-white rounded-3xl p-6 border-2 border-slate-100 shadow-sm cursor-pointer hover:shadow-lg transition relative overflow-hidden";
-                document.getElementById('badge-israir').classList.add('hidden');
-                document.getElementById('quick-flight-carrier').innerText = "אל-על ישיר לבנגקוק";
-            } else {
-                selectedFlightName = "ישראייר";
-                document.getElementById('flight-israir').className = "bg-white rounded-3xl p-6 border-2 border-emerald-600 shadow-md cursor-pointer hover:shadow-lg transition relative overflow-hidden";
-                document.getElementById('badge-israir').classList.remove('hidden');
-                
-                document.getElementById('flight-elal').className = "bg-white rounded-3xl p-6 border-2 border-slate-100 shadow-sm cursor-pointer hover:shadow-lg transition relative overflow-hidden";
-                document.getElementById('badge-elal').classList.add('hidden');
-                document.getElementById('quick-flight-carrier').innerText = "ישראייר ישיר לבנגקוק";
-            }
-            
-            // Update selected flight display in budget and run calculations
-            document.getElementById('selected-flight-text').innerText = `${selectedFlightName} ($${price})`;
-            updateBudget();
-        }
-
-        function updateBudget() {
-            // Flight cost is dynamic based on user selection
-            const flightCost = selectedFlightPrice;
-            const hotelNightCost = parseFloat(document.getElementById('hotel-night-cost').value);
-            const domesticCost = parseFloat(document.getElementById('domestic-cost').value);
-            const dailyCost = parseFloat(document.getElementById('daily-cost').value);
-
-            // Calculations
-            const totalHotelCost = hotelNightCost * NUMBER_OF_NIGHTS;
-            const totalDailyCost = dailyCost * NUMBER_OF_DAYS;
-
-            // Update UI displays
-            document.getElementById('flight-display').innerText = `${flightCost.toLocaleString()}$ / ${(flightCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('hotel-display').innerText = `${hotelNightCost.toLocaleString()}$ / ${(hotelNightCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('domestic-display').innerText = `${domesticCost.toLocaleString()}$ / ${(domesticCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('daily-display').innerText = `${dailyCost.toLocaleString()}$ / ${(dailyCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-
-            // Display in Summary Box
-            document.getElementById('summary-flight').innerText = `${(flightCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('summary-hotels').innerText = `${(totalHotelCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('summary-domestic').innerText = `${(domesticCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('summary-daily').innerText = `${(totalDailyCost * USD_TO_ILS).toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-
-            // Calculate total cost
-            const totalUSD = flightCost + totalHotelCost + domesticCost + totalDailyCost;
-            const totalILS = totalUSD * USD_TO_ILS;
-
-            // Display totals
-            document.getElementById('total-nis').innerText = `${totalILS.toLocaleString(undefined, {maximumFractionDigits: 0})} ₪`;
-            document.getElementById('total-usd').innerText = `$${totalUSD.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
-
-            // Check if budget is within 10,000 NIS target
-            const statusBox = document.getElementById('budget-status-box');
-            const statusText = document.getElementById('budget-status-text');
-
-            if (totalILS <= 10000) {
-                statusBox.className = 'p-3 rounded-lg text-center text-sm font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
-                statusText.innerHTML = '<i class="fa-solid fa-circle-check"></i> מעולה! עמדתם ביעד התקציב של 10,000 ₪';
-            } else {
-                const diff = totalILS - 10000;
-                statusBox.className = 'p-3 rounded-lg text-center text-sm font-bold bg-red-500/20 text-red-300 border border-red-500/30';
-                statusText.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> חריגה של ${diff.toLocaleString(undefined, {maximumFractionDigits: 0})} ₪ מהיעד`;
+            } catch (err) {
+                console.error("Failed to fetch exchange rate, using default:", err);
             }
         }
 
@@ -1267,6 +1044,7 @@
         }
 
         window.onload = function() {
+            fetchExchangeRate();
             updateBudget();
             renderNotes();
             renderChecklist();
