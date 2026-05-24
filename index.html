@@ -2,1257 +2,1859 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תאילנד 2026 🌴 יגל, מיכל, יהל ואלעזר</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
+    <title>תאילנד 2026 - יגל, מיכל, יהל ואלעזר</title>
+    <!-- Google Fonts - Assistant -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Assistant for Hebrew -->
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                    },
+                    colors: {
+                        thailand: {
+                            gold: '#D4AF37',
+                            emerald: '#0F766E',
+                            teal: '#14B8A6',
+                            sunset: '#F97316',
+                            ocean: '#0284C7',
+                            dark: '#0F172A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
+        /* Safe-area insets for iPhone notch and home indicator */
+        :root {
+            --sab: env(safe-area-inset-bottom, 0px);
+            --sat: env(safe-area-inset-top, 0px);
+        }
+        
         body {
-            font-family: 'Assistant', sans-serif;
-            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #fef08a 100%);
-            background-attachment: fixed;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 16px; /* Prevents auto-zoom on iOS inputs */
         }
-        .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), 
-                              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
+        
+        input, select, textarea {
+            font-size: 16px !important; /* Force iOS to prevent auto-zooming when focusing fields */
         }
-        .tropical-blur {
-            backdrop-filter: blur(12px);
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-        .calendar-cell {
-            transition: all 0.2s ease-in-out;
-        }
-        .calendar-cell:hover:not(.disabled) {
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.2);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
+
+        ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #0d9488;
-            border-radius: 10px;
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        .active-tab {
+            background: linear-gradient(to right, #0f766e, #14b8a6);
+            color: white !important;
+            box-shadow: 0 4px 14px 0 rgba(20, 184, 166, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+        }
+
+        .text-glow {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
-<body class="min-h-screen text-slate-800 flex flex-col">
+<body class="bg-gradient-to-br from-teal-50 via-emerald-50 to-amber-50 text-slate-800 min-h-screen font-sans pb-20 overflow-x-hidden">
 
-    <!-- Hero Header with Flight Details & Countdown -->
-    <header class="hero-bg text-white relative overflow-hidden shadow-2xl pb-16">
-        <!-- Curved bottom wave -->
-        <div class="absolute bottom-0 left-0 right-0 h-16 overflow-hidden z-10">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-16 text-sky-50 fill-current" style="transform: rotate(180deg);">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,55.05,16.22,83.1,22.81,141.43,36.54,203,40.13,264.49,43,283.56,43.87,302.66,45.49,321.39,56.44Z"></path>
-            </svg>
-        </div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        <div class="max-w-7xl mx-auto px-4 pt-10 pb-6 relative z-10">
-            <div class="flex flex-col lg:flex-row justify-between items-center gap-8">
-                <!-- Flight details & Title -->
-                <div class="text-center lg:text-right space-y-3">
-                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-xs font-black px-4 py-2 rounded-full shadow-lg transform -rotate-1 hover:rotate-0 transition">
-                        <i data-lucide="plane-takeoff" class="w-4 h-4 animate-bounce"></i> טיסת ארקיע IZ-591 • טרמינל 3 • המראה ב-23:55
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg bg-clip-text bg-gradient-to-r from-yellow-200 via-teal-100 to-white text-transparent">
-                        תאילנד קוראת לנו! 🌴🏖️
-                    </h1>
-                    <p class="text-sky-100 text-lg font-medium tracking-wide">
-                        14 ביוני עד 6 ביולי 2026 • חופשת חלומות של 23 ימים
-                    </p>
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2 text-xs text-emerald-200">
-                        <span class="bg-white/10 px-3 py-2 rounded-xl border border-white/10 flex items-center gap-1.5 backdrop-blur-sm">
-                            <i data-lucide="calendar" class="w-4 h-4 text-amber-300"></i> 14.06.2026 - 06.07.2026
-                        </span>
-                        <span class="bg-white/10 px-3 py-2 rounded-xl border border-white/10 flex items-center gap-1.5 backdrop-blur-sm">
-                            <i data-lucide="plane" class="w-4 h-4 text-amber-300"></i> טיסת הלוך: 23:55 בנתב"ג
-                        </span>
-                    </div>
-                </div>
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'thailand-planner-2026';
+    let db = null;
+    let auth = null;
+    let isFirebaseActive = false;
 
-                <!-- Live Countdown Timer -->
-                <div class="bg-white/15 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl w-full lg:w-auto max-w-md text-center">
-                    <span class="block text-xs text-amber-300 font-bold mb-3 uppercase tracking-wider flex items-center justify-center gap-1.5">
-                        <i data-lucide="hourglass" class="w-4 h-4 animate-spin" style="animation-duration: 6s;"></i> זמן נותר לטיסה של ארקיע
-                    </span>
-                    <div class="grid grid-cols-4 gap-3" id="countdown">
-                        <div class="bg-slate-950/60 p-3 rounded-2xl border border-white/10 min-w-[70px]">
-                            <span id="days" class="block text-2xl md:text-3xl font-black text-amber-300">00</span>
-                            <span class="text-[10px] text-slate-300 block font-semibold">ימים</span>
-                        </div>
-                        <div class="bg-slate-950/60 p-3 rounded-2xl border border-white/10 min-w-[70px]">
-                            <span id="hours" class="block text-2xl md:text-3xl font-black text-amber-300">00</span>
-                            <span class="text-[10px] text-slate-300 block font-semibold">שעות</span>
-                        </div>
-                        <div class="bg-slate-950/60 p-3 rounded-2xl border border-white/10 min-w-[70px]">
-                            <span id="minutes" class="block text-2xl md:text-3xl font-black text-amber-300">00</span>
-                            <span class="text-[10px] text-slate-300 block font-semibold">דקות</span>
-                        </div>
-                        <div class="bg-slate-950/60 p-3 rounded-2xl border border-white/10 min-w-[70px]">
-                            <span id="seconds" class="block text-2xl md:text-3xl font-black text-amber-300">00</span>
-                            <span class="text-[10px] text-slate-300 block font-semibold">שניות</span>
-                        </div>
-                    </div>
-                    <p id="countdown-status" class="text-xs text-emerald-100 mt-3 font-medium italic"></p>
-                </div>
+    if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+        try {
+            const firebaseConfig = JSON.parse(__firebase_config);
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            isFirebaseActive = true;
+        } catch (e) {
+            console.error("שגיאה באתחול Firebase, נעבור למצב שמירה מקומית", e);
+        }
+    }
+
+    window.isFirebaseActive = isFirebaseActive;
+    window.db = db;
+    window.auth = auth;
+    window.appId = appId;
+</script>
+
+<div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3 pb-12">
+
+    <!-- TOP HEADER WITH MINIMAL ACTIVE USER INDICATOR (iOS Optimized) -->
+    <header class="flex flex-row justify-between items-center bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 mb-4 shadow-md border border-teal-100/50">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <div class="bg-gradient-to-tr from-emerald-600 to-teal-400 text-white p-2 sm:p-3 rounded-xl shadow-md shadow-teal-200">
+                <i class="fa-solid fa-plane-departure text-base sm:text-xl"></i>
             </div>
+            <div>
+                <h1 class="text-lg sm:text-2xl font-extrabold text-teal-900 tracking-tight flex items-center gap-1">תאילנד 2026 <span class="text-sm sm:text-lg">🌴</span></h1>
+                <p class="text-[10px] sm:text-xs text-emerald-700 font-bold">התכנון של יגל, מיכל, יהל ואלעזר</p>
+            </div>
+        </div>
+        
+        <!-- Active User Badge (Triggers Modal Switcher) -->
+        <div class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200/80 transition-all rounded-xl px-2.5 py-2 cursor-pointer border border-slate-200/50" onclick="openUserModal()">
+            <span class="text-[11px] font-bold text-slate-500 hidden xs:inline">עורך פעיל:</span>
+            <div id="activeUserHeaderBadge" class="flex items-center gap-1">
+                <!-- Will be updated dynamically -->
+                <span class="text-xs font-black text-slate-700">יגל 👨‍💻</span>
+            </div>
+            <span class="text-[10px] text-teal-600 font-black hover:underline mr-0.5">(החלף)</span>
         </div>
     </header>
 
-    <!-- Main Workspace Grid -->
-    <main class="flex-grow max-w-8xl mx-auto px-4 py-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-20 -mt-10">
+    <!-- COOL HERO BANNER WITH TIMER (Guaranteed background image & Fallback gradient styling) -->
+    <section class="relative rounded-3xl overflow-hidden shadow-2xl mb-6 min-h-[340px] md:min-h-[280px] flex flex-col justify-between p-4 sm:p-6 text-white border border-teal-200/20 bg-gradient-to-br from-teal-900 via-emerald-800 to-amber-700">
+        <!-- High quality background image of Thailand with elegant dark overlay -->
+        <div class="absolute inset-0 bg-cover bg-center z-0 transform scale-100 transition-transform duration-1000" 
+             style="background-image: url('https://images.unsplash.com/photo-1528181304800-2f1908c97520?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-teal-950/95 via-slate-900/70 to-teal-900/30 z-10"></div>
         
-        <!-- RIGHT COLUMN: User Selector, Exchange, Budget, and Day Editor -->
-        <div class="lg:col-span-4 space-y-8">
-            
-            <!-- User Selector Panel (Sidebar style) -->
-            <div class="bg-white/95 backdrop-blur rounded-3xl p-6 shadow-xl border border-teal-50">
-                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <i data-lucide="users" class="text-teal-600"></i> מי הגולש הפעיל כרגע?
-                    </h3>
-                    <span id="current-user-badge" class="bg-teal-100 text-teal-800 text-xs font-black px-2.5 py-1 rounded-full">יגל</span>
+        <!-- Header flight badge -->
+        <div class="relative z-20 flex flex-wrap justify-between items-start gap-2">
+            <span class="bg-amber-400 text-slate-950 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md animate-pulse">
+                <i class="fa-solid fa-clock mr-1 ml-1"></i> טיסה ישירה בקרוב!
+            </span>
+            <div class="text-right">
+                <p class="text-lg sm:text-2xl font-black text-amber-300 tracking-wider">ארקיע ZI-591 ✈️</p>
+                <p class="text-[10px] text-teal-200">המראה ב-14.6 בשעה 23:55 מטרמינל 3</p>
+            </div>
+        </div>
+
+        <!-- Real Digital Countdown -->
+        <div class="relative z-20 my-auto py-2 w-full max-w-2xl mx-auto">
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
+                <div class="glass-card rounded-2xl p-2 sm:p-4 border border-white/20 shadow-lg flex flex-col items-center justify-center glow-cyan backdrop-blur-md">
+                    <span class="block text-3xl sm:text-5xl font-black text-amber-300 font-mono text-glow tracking-tight" id="count-days">00</span>
+                    <span class="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest mt-0.5">ימים</span>
                 </div>
-                
-                <div class="grid grid-cols-4 gap-2" id="user-selector-sidebar">
-                    <button onclick="selectUser('יגל')" id="sidebar-user-יגל" class="user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-teal-600 text-white shadow-md shadow-teal-600/20">
-                        <span class="text-base">🏄‍♂️</span>יגל
+                <div class="glass-card rounded-2xl p-2 sm:p-4 border border-white/20 shadow-lg flex flex-col items-center justify-center glow-cyan backdrop-blur-md">
+                    <span class="block text-3xl sm:text-5xl font-black text-teal-200 font-mono text-glow tracking-tight" id="count-hours">00</span>
+                    <span class="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest mt-0.5">שעות</span>
+                </div>
+                <div class="glass-card rounded-2xl p-2 sm:p-4 border border-white/20 shadow-lg flex flex-col items-center justify-center glow-cyan backdrop-blur-md">
+                    <span class="block text-3xl sm:text-5xl font-black text-emerald-300 font-mono text-glow tracking-tight" id="count-minutes">00</span>
+                    <span class="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest mt-0.5">דקות</span>
+                </div>
+                <div class="glass-card rounded-2xl p-2 sm:p-4 border border-white/20 shadow-lg flex flex-col items-center justify-center glow-cyan backdrop-blur-md">
+                    <span class="block text-3xl sm:text-5xl font-black text-rose-300 font-mono text-glow tracking-tight" id="count-seconds">00</span>
+                    <span class="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest mt-0.5">שניות</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom row -->
+        <div class="relative z-20 flex flex-wrap justify-between items-center gap-2 border-t border-white/10 pt-3 text-xs">
+            <span class="text-teal-200 font-bold flex items-center gap-1" id="countdownStatusText">
+                טוען ספירה לאחור...
+            </span>
+            <span class="text-amber-300 font-extrabold flex items-center gap-1">
+                <i class="fa-solid fa-plane-arrival"></i> חזרה לארץ ב-6.7 (סך הכל 23 ימים)
+            </span>
+        </div>
+    </section>
+
+    <!-- LIVE CURRENCY EXCHANGE WIDGET -->
+    <section class="bg-gradient-to-r from-teal-700 to-emerald-800 text-white rounded-3xl p-4 sm:p-6 shadow-md mb-6 relative overflow-hidden">
+        <div class="absolute right-0 top-0 opacity-10 pointer-events-none text-9xl">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+            <!-- Rate Info -->
+            <div>
+                <h3 class="text-base sm:text-lg font-extrabold flex items-center gap-2">
+                    <i class="fa-solid fa-coins text-amber-300"></i>
+                    שערי חליפין תאילנד בלייב 🇹🇭
+                </h3>
+                <p class="text-xs text-teal-100 mt-1">שערים אמיתיים להמרה וחישוב תקציב בטיול</p>
+                <div class="mt-3 space-y-1.5 text-xs sm:text-sm">
+                    <div class="flex justify-between border-b border-teal-600/30 pb-1">
+                        <span class="text-teal-200">שקל אחד (1 ILS)</span>
+                        <span class="font-extrabold text-amber-300" id="rateIlsToThb">טוען...</span>
+                    </div>
+                    <div class="flex justify-between border-b border-teal-600/30 pb-1">
+                        <span class="text-teal-200">דולר אחד (1 USD)</span>
+                        <span class="font-extrabold text-amber-300" id="rateUsdToThb">טוען...</span>
+                    </div>
+                    <div class="flex justify-between pb-1">
+                        <span class="text-teal-200">דולר אחד (1 USD)</span>
+                        <span class="font-extrabold text-amber-300" id="rateUsdToIls">טוען...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive quick converter (iOS touch targets optimized) -->
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 lg:col-span-2">
+                <span class="text-xs font-bold text-teal-100 block mb-2">מחשבון המרה זריז:</span>
+                <div class="grid grid-cols-3 gap-2 text-slate-800">
+                    <div>
+                        <label class="block text-[10px] text-teal-100 font-bold mb-1">שקלים (₪ ILS)</label>
+                        <input type="number" id="calcIls" class="w-full rounded-xl px-3 py-2.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-amber-400" value="100" oninput="convertCurrency('ILS')">
+                    </div>
+                    <div class="flex items-center justify-center pt-5">
+                        <i class="fa-solid fa-arrows-left-right text-white text-base"></i>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] text-teal-100 font-bold mb-1">באט (฿ THB)</label>
+                        <input type="number" id="calcThb" class="w-full rounded-xl px-3 py-2.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-amber-400" oninput="convertCurrency('THB')">
+                    </div>
+                </div>
+                <p class="text-[10px] text-teal-200 mt-2 text-left" id="conversionRateUsed">טוען שערי המרה...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGATION TABS - High visibility grid for mobile, flex for desktop -->
+    <nav class="grid grid-cols-2 md:flex md:flex-row border-b border-teal-200/50 gap-2 mb-6" id="mainNavigation">
+        <button onclick="switchTab('itinerary')" id="tab-itinerary" class="active-tab py-3.5 px-4 text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 rounded-xl transition-all">
+            <i class="fa-solid fa-calendar-alt text-base"></i> יומן ולוח זמנים
+        </button>
+        <button onclick="switchTab('budget')" id="tab-budget" class="bg-white/60 text-slate-500 hover:text-teal-900 hover:bg-white/90 py-3.5 px-4 text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 rounded-xl border border-slate-100 transition-all">
+            <i class="fa-solid fa-calculator text-base"></i> תקציב וחלוקה
+        </button>
+        <button onclick="switchTab('recommendations')" id="tab-recommendations" class="bg-white/60 text-slate-500 hover:text-teal-900 hover:bg-white/90 py-3.5 px-4 text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 rounded-xl border border-slate-100 transition-all">
+            <i class="fa-solid fa-compass text-base"></i> המלצות לתאילנד
+        </button>
+        <button onclick="switchTab('tools')" id="tab-tools" class="bg-white/60 text-slate-500 hover:text-teal-900 hover:bg-white/90 py-3.5 px-4 text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 rounded-xl border border-slate-100 transition-all">
+            <i class="fa-solid fa-suitcase text-base"></i> כלים ורשימות ציוד
+        </button>
+    </nav>
+
+    <!-- TAB 1: ITINERARY & CALENDAR -->
+    <div id="content-itinerary" class="tab-content block">
+        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100/50 mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                <div>
+                    <h2 class="text-lg sm:text-xl font-black text-teal-900">תכנון ימי הטיול שלכם</h2>
+                    <p class="text-xs text-slate-500">בחרו יום כדי לפתוח אותו, להוסיף אטרקציות ומלונות, להגיב או לעשות לייק.</p>
+                </div>
+                <!-- Filter buttons -->
+                <div class="flex gap-2 w-full sm:w-auto">
+                    <button onclick="toggleAllDays(true)" class="flex-1 sm:flex-none bg-teal-50 hover:bg-teal-100 text-teal-800 text-xs font-bold px-3 py-2.5 rounded-xl border border-teal-200 transition-all">
+                        <i class="fa-solid fa-folder-open"></i> פתח הכל
                     </button>
-                    <button onclick="selectUser('מיכל')" id="sidebar-user-מיכל" class="user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-slate-50 text-slate-600 hover:bg-teal-50">
-                        <span class="text-base">🌸</span>מיכל
-                    </button>
-                    <button onclick="selectUser('יהל')" id="sidebar-user-יהל" class="user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-slate-50 text-slate-600 hover:bg-teal-50">
-                        <span class="text-base">🌴</span>יהל
-                    </button>
-                    <button onclick="selectUser('אלעזר')" id="sidebar-user-אלעזר" class="user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-slate-50 text-slate-600 hover:bg-teal-50">
-                        <span class="text-base">🍍</span>אלעזר
+                    <button onclick="toggleAllDays(false)" class="flex-1 sm:flex-none bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold px-3 py-2.5 rounded-xl border border-slate-200 transition-all">
+                        <i class="fa-solid fa-folder"></i> סגור הכל
                     </button>
                 </div>
             </div>
 
-            <!-- Dynamic Editor (Triggered ONLY when clicking an active day in the calendar) -->
-            <div id="sidebar-editor-card" class="bg-gradient-to-br from-white to-teal-50/20 rounded-3xl p-6 shadow-xl border border-teal-100/50 sticky top-4">
-                <div id="editor-placeholder" class="text-center py-10">
-                    <span class="text-5xl block animate-bounce mb-3">📅</span>
-                    <h3 class="font-bold text-slate-800 text-base">בחר יום בלוח השנה</h3>
-                    <p class="text-xs text-slate-500 mt-2 max-w-[240px] mx-auto leading-relaxed">
-                        לחצו על כל תאריך המודגש בטורקיז בלוח השנה כדי להציג את פרטיו או לערוך ולהוסיף תכנון יומי!
-                    </p>
-                </div>
+            <!-- Dynamic Days Accordion Container -->
+            <div class="space-y-4" id="itineraryDaysAccordion">
+                <!-- Days will be generated by Javascript -->
+            </div>
+        </div>
+    </div>
 
-                <div id="editor-content" class="hidden space-y-4">
-                    <div class="flex items-center justify-between mb-2 border-b border-slate-100 pb-3">
-                        <div>
-                            <span id="editor-day-tag" class="text-xs font-black text-teal-700 bg-teal-100 px-2.5 py-1 rounded-full">יום 1</span>
-                            <h3 id="editor-day-title" class="text-lg font-bold text-slate-800 mt-2">יום ראשון - 14.6</h3>
+    <!-- TAB 2: BUDGET & EXPENSES -->
+    <div id="content-budget" class="tab-content hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Balance and Settlement Summary -->
+            <div class="lg:col-span-1 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-teal-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-teal-600"></i>
+                        סיכום מאזן קבוצתי
+                    </h3>
+                    
+                    <!-- Progress / Stats -->
+                    <div class="space-y-2.5 bg-slate-50 rounded-2xl p-4 border border-slate-100 mb-4">
+                        <div class="flex justify-between items-center text-xs sm:text-sm">
+                            <span class="text-slate-500 font-bold">סך הכל הוצאות:</span>
+                            <span class="font-black text-teal-900 text-base" id="totalGroupExpenses">₪ 0.00</span>
                         </div>
-                        <span class="text-3xl" id="editor-day-emoji">🏝️</span>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400">חלק אישי (4 חברים):</span>
+                            <span class="font-bold text-slate-700" id="averagePerPerson">₪ 0.00</span>
+                        </div>
                     </div>
 
-                    <div class="space-y-3">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-500 mb-1 flex items-center gap-1">
-                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> מיקום / אזור בתאילנד:
-                            </label>
-                            <input type="text" id="day-location" placeholder="למשל: בנגקוק - קווסאן" class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-white font-semibold text-slate-800 shadow-sm">
+                    <!-- Individual Balances -->
+                    <h4 class="text-xs font-bold text-slate-500 mb-2">יתרת חברים (פלוס = מגיע לו החזר, מינוס = חייב):</h4>
+                    <div class="space-y-2 mb-4" id="individualBalancesList">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+
+                <!-- Debts Settlement Matrix -->
+                <div class="border-t border-slate-100 pt-3">
+                    <h4 class="text-xs sm:text-sm font-extrabold text-teal-800 mb-2 flex items-center gap-1">
+                        <i class="fa-solid fa-right-left text-amber-500"></i>
+                        כיצד הכי קל להתקזז ולסגור חובות?
+                    </h4>
+                    <div id="debtSettlementSuggestions" class="text-xs space-y-1.5 text-slate-600 bg-amber-50/50 rounded-xl p-3 border border-amber-100">
+                        אין הוצאות רשומות כרגע.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expenses List & Add Expense Form -->
+            <div class="lg:col-span-2 space-y-4">
+                <!-- Add Expense form card -->
+                <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100">
+                    <h3 class="text-base sm:text-lg font-extrabold text-teal-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-emerald-600"></i>
+                        הוספת הוצאה חדשה לטיול
+                    </h3>
+                    
+                    <form id="expenseForm" onsubmit="handleNewExpense(event)" class="space-y-3">
+                        <div class="bg-teal-50/70 rounded-2xl p-3 border border-teal-150 mb-2">
+                            <label class="block text-xs font-black text-teal-900 mb-2">מי עורך כעת ומשלם את ההוצאה הזו? 👇</label>
+                            <div class="grid grid-cols-4 gap-1" id="budgetFormUserSelector">
+                                <!-- Dynamic segmented controls for user inside forms -->
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-500 mb-1 flex items-center gap-1">
-                                <i data-lucide="hotel" class="w-3.5 h-3.5"></i> מלון / לינה:
-                            </label>
-                            <input type="text" id="day-hotel" placeholder="שם המלון או הריזורט" class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-white text-slate-800 shadow-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-500 mb-1 flex items-center gap-1">
-                                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> תוכניות, מסיבות ופעילויות:
-                            </label>
-                            <textarea id="day-activities" rows="4" placeholder="ספרו מה התוכנית המדהימה שלכם להיום..." class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-white text-slate-800 shadow-sm"></textarea>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-2">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-500 mb-1">מזג אוויר:</label>
-                                <select id="day-weather" class="w-full text-xs p-2 rounded-lg border border-slate-200 focus:outline-none focus:border-teal-500 bg-white">
-                                    <option value="☀️ שמש מטורפת">☀️ שמש מטורפת</option>
-                                    <option value="⛅ מעונן חלקית">⛅ מעונן חלקית</option>
-                                    <option value="🌦️ גשם טרופי">🌦️ גשם טרופי</option>
-                                    <option value="⛈️ סופת רעים">⛈️ סופת רעים</option>
+                                <label class="block text-[11px] font-bold text-slate-400 mb-1">סכום ההוצאה</label>
+                                <input type="number" step="any" id="expAmount" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:ring-2 focus:ring-teal-400 focus:outline-none" required placeholder="0.00">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-400 mb-1">מטבע</label>
+                                <select id="expCurrency" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:ring-2 focus:ring-teal-400 focus:outline-none bg-white">
+                                    <option value="ILS">שקל (ILS ₪)</option>
+                                    <option value="THB" selected>באט תאילנדי (THB ฿)</option>
+                                    <option value="USD">דולר (USD $)</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-500 mb-1">הוצאה יומית (₪):</label>
-                                <input type="number" id="day-estimated-cost" placeholder="סכום ב-₪" class="w-full text-xs p-2 rounded-lg border border-slate-200 focus:outline-none focus:border-teal-500 bg-white">
+                                <label class="block text-[11px] font-bold text-slate-400 mb-1">קטגוריה</label>
+                                <select id="expCategory" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:ring-2 focus:ring-teal-400 focus:outline-none bg-white">
+                                    <option value="flights">✈️ טיסות ומעברים</option>
+                                    <option value="hotel">🏨 מלונות ואירוח</option>
+                                    <option value="attraction">🐘 אטרקציות ופעילויות</option>
+                                    <option value="food">🍜 מסעדות ואוכל</option>
+                                    <option value="shopping">🛍️ קניות ומתנות</option>
+                                    <option value="other" selected>⚙️ כללי / שונות</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="flex flex-col gap-2 pt-2 border-t border-slate-100">
-                            <button onclick="saveDayPlan()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs py-3 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
-                                <i data-lucide="save" class="w-4 h-4"></i> שמור עדכון ליום זה
-                            </button>
-                            <p id="day-last-updated" class="text-[9px] text-slate-400 text-center italic mt-1">עדכון אחרון: אין עדיין</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Live Exchange Rate with Direct Shekel Calculation -->
-            <div class="bg-white/95 rounded-3xl p-6 shadow-xl border border-teal-50">
-                <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                    <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <i data-lucide="refresh-cw" class="text-emerald-500 animate-spin" style="animation-duration: 10s;"></i> שער חליפין בלייב (מול ₪)
-                    </h2>
-                    <span class="text-[9px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">חי ומתעדכן</span>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3 mb-4">
-                    <div class="bg-gradient-to-br from-slate-50 to-teal-50/10 p-3 rounded-2xl text-center border border-slate-100">
-                        <span class="text-[10px] text-slate-500 block font-bold">שקל אחד בבאט (THB)</span>
-                        <span id="rate-thb" class="text-base font-black text-teal-600 block mt-1">טוען שער...</span>
-                    </div>
-                    <div class="bg-gradient-to-br from-slate-50 to-teal-50/10 p-3 rounded-2xl text-center border border-slate-100">
-                        <span class="text-[10px] text-slate-500 block font-bold">שער הדולר (USD)</span>
-                        <span id="rate-usd" class="text-base font-black text-slate-800 block mt-1">טוען...</span>
-                    </div>
-                </div>
-
-                <!-- Currency Converter -->
-                <div class="bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
-                    <h3 class="text-xs font-black text-sky-800 mb-2.5 flex items-center gap-1">
-                        <i data-lucide="calculator" class="w-3.5 h-3.5"></i> מחשבון שופינג מהיר לתאילנד
-                    </h3>
-                    <div class="space-y-2">
-                        <div class="flex gap-2">
-                            <input type="number" id="calc-ils" oninput="convertCurrency('ILS')" placeholder="כמה שקלים זה..." class="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-white shadow-sm">
-                            <span class="bg-white text-[10px] border border-slate-200 px-3 py-2 rounded-xl flex items-center font-black text-slate-700">ILS ₪</span>
-                        </div>
-                        <div class="flex gap-2">
-                            <input type="number" id="calc-thb" oninput="convertCurrency('THB')" placeholder="כמה באט זה..." class="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-white shadow-sm">
-                            <span class="bg-white text-[10px] border border-slate-200 px-3 py-2 rounded-xl flex items-center font-black text-slate-700">THB ฿</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Budget Manager -->
-            <div class="bg-white/95 rounded-3xl p-6 shadow-xl border border-teal-50">
-                <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2 mb-4 border-b border-slate-100 pb-3">
-                    <i data-lucide="wallet-2" class="text-emerald-500"></i> מעקב תקציב ועלויות 💸
-                </h2>
-                
-                <div class="mb-4">
-                    <label class="block text-[10px] font-bold text-slate-500 mb-1">הגדרת תקציב קבוצתי (ש"ח):</label>
-                    <div class="flex gap-2">
-                        <input type="number" id="total-budget" value="35000" onchange="updateBudgetUI()" class="w-full text-xs font-extrabold p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-slate-50 shadow-sm">
-                        <button onclick="updateBudgetUI()" class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold px-4 rounded-xl shadow-md">עדכן</button>
-                    </div>
-                </div>
-
-                <!-- Budget Stats -->
-                <div class="grid grid-cols-2 gap-3 mb-4">
-                    <div class="bg-rose-50 p-3 rounded-2xl border border-rose-100">
-                        <span class="text-[10px] text-rose-700 block font-bold">סה"כ הוצאות</span>
-                        <span id="budget-spent" class="text-sm font-black text-rose-800">0 ₪</span>
-                    </div>
-                    <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-100">
-                        <span class="text-[10px] text-emerald-700 block font-bold">יתרה בקופה</span>
-                        <span id="budget-remaining" class="text-sm font-black text-emerald-800">35,000 ₪</span>
-                    </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="mb-4">
-                    <div class="flex justify-between text-[10px] text-slate-500 mb-1">
-                        <span class="font-bold">ניצול תקציב</span>
-                        <span id="budget-percent" class="font-extrabold text-teal-600">0%</span>
-                    </div>
-                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                        <div id="budget-bar" class="bg-gradient-to-r from-teal-500 to-emerald-500 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <!-- Expenses List -->
-                <div class="max-h-40 overflow-y-auto custom-scrollbar border-t border-b border-slate-100 py-2 space-y-1.5" id="expenses-list"></div>
-
-                <!-- Add Expense Form -->
-                <div class="mt-4 space-y-2 bg-slate-50/50 p-3 rounded-2xl border border-slate-100">
-                    <span class="text-[10px] font-black text-slate-700 block">הוספת הוצאה</span>
-                    <div class="grid grid-cols-2 gap-2">
-                        <input type="text" id="expense-desc" placeholder="מה קניתם?" class="text-xs p-2 rounded-xl border border-slate-200 focus:outline-none col-span-2 shadow-sm bg-white">
-                        <input type="number" id="expense-amount" placeholder="סכום ב-₪" class="text-xs p-2 rounded-xl border border-slate-200 focus:outline-none shadow-sm bg-white">
-                        <select id="expense-category" class="text-xs p-2 rounded-xl border border-slate-200 focus:outline-none bg-white shadow-sm">
-                            <option value="טיסות">טיסות</option>
-                            <option value="מלונות">מלונות</option>
-                            <option value="אוכל">אוכל</option>
-                            <option value="אטרקציות">אטרקציות</option>
-                            <option value="מסיבות">מסיבות</option>
-                            <option value="שופינג">שופינג</option>
-                        </select>
-                    </div>
-                    <button onclick="addExpense()" class="w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-black py-2 rounded-xl transition shadow-md">הוסף הוצאה 💳</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- LEFT/CENTER COLUMN: Real Monthly Calendar and Social Features -->
-        <div class="lg:col-span-8 space-y-8 order-first lg:order-last">
-            
-            <!-- Statistics Header Banner with stunning tropical decoration -->
-            <div class="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-3xl p-6 shadow-xl text-white flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
-                <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]"></div>
-                <div>
-                    <h2 class="text-xl font-black flex items-center gap-2">
-                        <span>🏝️</span> לוח המסע החודשי שלכם!
-                    </h2>
-                    <p class="text-xs font-medium text-emerald-100 mt-1 max-w-[450px]">
-                        כאן מוצגים החודשים יוני ויולי 2026. לחצו על התאריכים המתוכננים (המסומנים בצבע טורקיז ונושאים את ימי הטיול) כדי לערוך אותם!
-                    </p>
-                </div>
-                <div class="flex gap-3">
-                    <div class="bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-2xl text-center border border-white/10 shadow">
-                        <span class="text-[9px] text-teal-100 block font-bold">סה"כ ימים</span>
-                        <span class="text-base font-black">23 ימים</span>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-2xl text-center border border-white/10 shadow">
-                        <span class="text-[9px] text-teal-100 block font-bold">תכנונים שבוצעו</span>
-                        <span id="total-planned-days" class="text-base font-black text-yellow-300">0</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Full Monthly Calendar Views -->
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-teal-50/50 space-y-8">
-                
-                <!-- Table View controls -->
-                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2">
-                        <i data-lucide="list" class="text-teal-600"></i> טבלת מסלול הטיול המלאה
-                    </h2>
-                    <span class="text-xs font-bold bg-teal-50 text-teal-800 px-3 py-1 rounded-lg">23 ימים מרוכזים</span>
-                </div>
-
-                <!-- Single Table Container -->
-                <div class="overflow-auto custom-scrollbar max-h-[700px] pb-4" id="trip-table-container">
-                    <table class="w-full text-right border-collapse min-w-[600px]">
-                        <thead class="sticky top-0 z-10">
-                            <tr class="bg-gradient-to-r from-teal-50 to-emerald-50 text-teal-900 text-xs uppercase shadow-sm">
-                                <th class="p-4 rounded-tr-2xl font-black w-20">יום</th>
-                                <th class="p-4 font-black w-32">תאריך</th>
-                                <th class="p-4 font-black w-48">מיקום / אזור</th>
-                                <th class="p-4 font-black">מלון / לינה</th>
-                                <th class="p-4 font-black rounded-tl-2xl text-center w-28">פעולה</th>
-                            </tr>
-                        </thead>
-                        <tbody id="trip-table-body" class="text-sm divide-y divide-slate-100">
-                            <!-- JS will build this -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Social Board / Notes & Tips with Likes & Comments -->
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-teal-50/50">
-                <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
-                    <div>
-                        <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
-                            <i data-lucide="messages-square" class="text-amber-500 animate-pulse"></i> המלצות, פתקים ודיונים בקבוצה 🥥
-                        </h2>
-                        <p class="text-xs text-slate-500 mt-1">יגל, מיכל, יהל ואלעזר יכולים להמליץ, לעשות לייקים ולהגיב זה לזה בזמן אמת!</p>
-                    </div>
-                </div>
-
-                <!-- Add Note Form -->
-                <div class="bg-amber-50/40 p-4 rounded-2xl border border-amber-100 mb-6">
-                    <textarea id="new-note" rows="2" placeholder="מצאתם מלון שווה? רוצים להמליץ על מסעדה או מסיבה? כתבו פה..." class="w-full text-xs p-3 rounded-xl border border-amber-200 focus:outline-none focus:border-amber-400 bg-white text-slate-800 shadow-sm"></textarea>
-                    <div class="flex justify-end mt-2">
-                        <button onclick="addNote()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-black px-5 py-2 rounded-xl transition shadow-md shadow-amber-500/20">
-                            נעץ המלצה על הלוח 📌
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Notes Container -->
-                <div class="space-y-4" id="notes-container"></div>
-            </div>
-
-            <!-- Chabad House Shabbat Section -->
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-teal-50/50">
-                <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 mb-4 border-b border-slate-100 pb-4">
-                    <span class="bg-blue-50 text-blue-600 p-2 rounded-2xl"><i data-lucide="synagogue"></i></span>
-                    המלצות לשבתות וסניפי בית חב"ד בתאילנד ✡️
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                        <h3 class="font-bold text-slate-800 text-xs flex justify-between">
-                            <span>בית חב"ד בנגקוק (המרכזי קווסאן)</span>
-                            <span class="text-[9px] bg-blue-100 text-blue-800 px-2 rounded-full font-bold">אירוח מושלם</span>
-                        </h3>
-                        <p class="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                            סניף ענק עם מסעדה כשרה, אווירה קהילתית ועזרה למטיילים. מומלץ מאוד להירשם לארוחת שישי לפחות 3 ימים מראש.
-                        </p>
-                        <p class="text-[10px] text-blue-700 font-bold mt-2">📍 96 Ram Buttri, Bangkok</p>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                        <h3 class="font-bold text-slate-800 text-xs flex justify-between">
-                            <span>בית חב"ד קוסמוי (חוף צ'אוונג)</span>
-                            <span class="text-[9px] bg-blue-100 text-blue-800 px-2 rounded-full font-bold">מזרח האיים</span>
-                        </h3>
-                        <p class="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
-                            נקודת מפגש מדהימה למאות ישראלים שעושים את השבת בסימן של שירה, תפילה ומאכלים ביתיים מעולים.
-                        </p>
-                        <p class="text-[10px] text-blue-700 font-bold mt-2">📍 Chaweng Beach, Koh Samui</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Attractions & Party Spotlights -->
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-teal-50/50">
-                <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 mb-4 border-b border-slate-100 pb-4">
-                    <span class="bg-pink-50 text-pink-600 p-2 rounded-2xl"><i data-lucide="sparkles"></i></span>
-                    מסיבות ואטרקציות חובה שאסור לפספס 🎉
-                </h2>
-
-                <div class="space-y-4">
-                    <div class="border-r-4 border-pink-500 pr-4 bg-slate-50/55 p-4 rounded-l-2xl">
-                        <h3 class="font-bold text-slate-800 text-xs">🌕 מסיבת הפול מון המפורסמת - קופנגן</h3>
-                        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
-                            המסיבה הגדולה ביותר בחופי תאילנד. מומלץ להצטייד בצבעים זוהרים, לנעול נעליים סגורות, ולהשאיר חפצי ערך חשובים ודרכונים בכספת המלון.
-                        </p>
-                    </div>
-                    <div class="border-r-4 border-cyan-500 pr-4 bg-slate-50/55 p-4 rounded-l-2xl">
-                        <h3 class="font-bold text-slate-800 text-xs">🏝️ פארק לאומי אנג ת'ונג (Ang Thong)</h3>
-                        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
-                            שייט מרהיב בין איים בתוליים, תצפיות מדהימות, לגונות נסתרות וספורט ימי מגוון. חווית טבע מטורפת!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Packing Checklist -->
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-teal-50/50">
-                <h2 class="text-sm font-bold text-slate-800 flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                    <span class="flex items-center gap-2">
-                        <i data-lucide="check-square" class="text-teal-600"></i> מה אורזים לתאילנד? צ'קליסט קבוצתי 🎒
-                    </span>
-                    <span id="checklist-count" class="text-xs bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-black">0/0</span>
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="packing-checklist"></div>
-
-                <div class="mt-4 flex gap-2">
-                    <input type="text" id="new-item-text" placeholder="הוסיפו פריט משלכם לאריזה..." class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 bg-slate-50/50 shadow-sm">
-                    <button onclick="addCustomChecklistItem()" class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-black px-5 rounded-xl transition shadow-md">הוסף</button>
-                </div>
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-10 text-center border-t border-slate-800 mt-12 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <p class="text-sm font-semibold text-slate-200">טיסה נעימה בארקיע! תיהנו המון בתאילנד יגל, מיכל, יהל ואלעזר ✈️🇹🇭</p>
-            <p class="text-xs mt-2 text-slate-500">יומן מסע חודשי מעודכן עם תצוגת לוח שנה מלאה ותמיכה דינמית.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Active User & Day state
-        let currentUser = "יגל";
-        let activeDayKey = null; // Stored as "YYYY-MM-DD"
-
-        // June & July 2026 Calendar boundaries
-        const tripStartDate = new Date(2026, 5, 14, 23, 55, 0); // June 14, 2026, 23:55
-        const tripEndDate = new Date(2026, 6, 6, 23, 59, 0);    // July 6, 2026
-
-        // Convert key to local Hebrew date format for header text
-        function getReadableDateStr(dateStr) {
-            const dateObj = new Date(dateStr);
-            return dateObj.toLocaleDateString('he-IL', { weekday: 'long', day: 'numeric', month: 'long' });
-        }
-
-        // Standard preloaded checklist items
-        const defaultChecklist = [
-            { id: 1, text: "דרכון בתוקף לחצי שנה ומעלה", checked: false, category: "מסמכים" },
-            { id: 2, text: "כרטיס טיסה מודפס ארקיע IZ-591", checked: false, category: "מסמכים" },
-            { id: 3, text: "ביטוח בריאות ונסיעות רחב לחו\"ל", checked: false, category: "מסמכים" },
-            { id: 4, text: "רישיונות נהיגה בינלאומיים", checked: false, category: "מסמכים" },
-            { id: 5, text: "תכשיר הגנה מפני השמש", checked: false, category: "היגיינה וקוסמטיקה" },
-            { id: 6, text: "סופטיל / ספריי נגד יתושים חזק", checked: false, category: "היגיינה וקוסמטיקה" },
-            { id: 7, text: "מטען נייד, כבלים ומתאם שקעים", checked: false, category: "אלקטרוניקה וציוד" },
-            { id: 8, text: "תיק עמיד למים (Dry Bag)", checked: false, category: "אלקטרוניקה וציוד" }
-        ];
-
-        // Default Trip Plans to show initially
-        const defaultPlans = {
-            "2026-06-14": {
-                dayNumber: 1,
-                location: "טיסה מתל אביב",
-                hotel: "מטוס ארקיע IZ-591",
-                activities: "נפגשים בנתב\"ג טרמינל 3 בשעה 20:30. ממריאים בטיסת הלילה הישירה של ארקיע בשעה 23:55!",
-                weather: "☀️ שמש מטורפת",
-                cost: 2500,
-                lastUpdated: "מערכת תאילנד"
-            },
-            "2026-06-15": {
-                dayNumber: 2,
-                location: "בנגקוק",
-                hotel: "Chatrium Riverside",
-                activities: "נחיתה בבנגקוק בשעות אחר הצהריים. העברה מסודרת למלון, התארגנות ויציאה ראשונה לקווסאן או רחוב רמבוטרי לשייקים ראשונים של פירות טרופיים 🥭🥥",
-                weather: "⛅ מעונן חלקית",
-                cost: 400,
-                lastUpdated: "יגל"
-            },
-            "2026-06-19": {
-                dayNumber: 6,
-                location: "קופנגן",
-                hotel: "Santhiya Resort",
-                activities: "יום שישי! שוכרים אופנועים/טוקטוקים, נוסעים לאכול ארוחת ערב חגיגית ומשותפת בבית חב\"ד המקומי 🕯️",
-                weather: "☀️ שמש מטורפת",
-                cost: 200,
-                lastUpdated: "מיכל"
-            },
-            "2026-06-20": {
-                dayNumber: 7,
-                location: "קופנגן",
-                hotel: "Santhiya Resort",
-                activities: "יום שבת מנוחה, נהנים בריזורט המושלם, שחייה בחוף הפרטי, מנוחה משותפת.",
-                weather: "☀️ שמש מטורפת",
-                cost: 100,
-                lastUpdated: "יהל"
-            },
-            "2026-06-26": {
-                dayNumber: 13,
-                location: "פוקט",
-                hotel: "The Keemala Phuket",
-                activities: "מגיעים לפוקט! קבלת שבת שמחה ושירה בבית חב\"ד פוקט בחוף פאטונג ✡️",
-                weather: "🌦️ גשם טרופי",
-                cost: 150,
-                lastUpdated: "אלעזר"
-            },
-            "2026-07-06": {
-                dayNumber: 23,
-                location: "טיסת חזור",
-                hotel: "טיסת ארקיע",
-                activities: "אורזים את הכל, עושים שופינג אחרון בבנגקוק ויוצאים לנמל התעופה לטיסת ארקיע חזרה הביתה לישראל. להתראות תאילנד!",
-                weather: "⛅ מעונן חלקית",
-                cost: 150,
-                lastUpdated: "מערכת תאילנד"
-            }
-        };
-
-        // Preloaded social notes
-        const defaultNotes = [
-            { 
-                id: 1, 
-                user: "יגל", 
-                text: "סגרתי לנו את טיסת הפנים בנגקוק-פוקט! תתכוננו לטירוף 🏝️", 
-                date: "24/05/2026", 
-                likes: ["מיכל", "יהל"], 
-                comments: [
-                    { user: "מיכל", text: "אין עליך בעולם יא מלך!!", date: "24/05/2026" },
-                    { user: "אלעזר", text: "כל הכבוד, מחכה לזה כבר", date: "24/05/2026" }
-                ] 
-            },
-            { 
-                id: 2, 
-                user: "מיכל", 
-                text: "מצאתי את המסעדה האיטלקית הכי מומלצת בבנגקוק, שמרתי לנו מקום לערב הראשון!", 
-                date: "24/05/2026", 
-                likes: ["יגל", "יהל", "אלעזר"], 
-                comments: [] 
-            }
-        ];
-
-        // State holder with LocalStorage or Defaults
-        let state = {
-            plans: {...defaultPlans},
-            checklist: [...defaultChecklist],
-            expenses: [
-                { id: 1, desc: "טיסות ארקיע (הלוך חזור)", amount: 15500, category: "טיסות" },
-                { id: 2, desc: "מקדמה ריזורט Santhiya", amount: 3500, category: "מלונות" }
-            ],
-            totalBudget: 45000,
-            notes: [...defaultNotes]
-        };
-
-        // Window Loaded
-        window.onload = function() {
-            lucide.createIcons();
-            
-            // Try loading state from local storage if exists
-            const savedState = localStorage.getItem("thailand_trip_state_v3");
-            if (savedState) {
-                try {
-                    state = JSON.parse(savedState);
-                } catch(e) {
-                    console.error("Error parsing saved state, resetting to default.", e);
-                }
-            }
-
-            // Populate monthly calendar grids
-            renderMonthlyGrids();
-            // Render Checklist
-            renderChecklist();
-            // Render Expenses & Budget UI
-            updateBudgetUI();
-            // Render Notes Board
-            renderNotes();
-            
-            // Start Live Countdown Interval
-            setInterval(updateCountdown, 1000);
-            updateCountdown();
-
-            // Fetch Live exchange rates
-            fetchLiveRates();
-        };
-
-        // Save state to localStorage
-        function saveToStorage() {
-            localStorage.setItem("thailand_trip_state_v3", JSON.stringify(state));
-        }
-
-        // Active user selection
-        function selectUser(user) {
-            currentUser = user;
-            document.getElementById("current-user-badge").innerText = user;
-            
-            // Update selected buttons visually
-            document.querySelectorAll("#user-selector-sidebar .user-btn").forEach(btn => {
-                const btnId = btn.id.replace("sidebar-user-", "");
-                if (btnId === user) {
-                    btn.className = "user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-teal-600 text-white shadow-md shadow-teal-600/20";
-                } else {
-                    btn.className = "user-btn py-2.5 rounded-2xl text-xs font-black transition-all flex flex-col items-center gap-1 bg-slate-50 text-slate-600 hover:bg-teal-50";
-                }
-            });
-
-            showToast(`משתמש פעיל עודכן: ${user} 👤`);
-        }
-
-        // Flight Countdown implementation
-        function updateCountdown() {
-            const now = new Date();
-            const difference = tripStartDate - now;
-
-            const daysElem = document.getElementById("days");
-            const hoursElem = document.getElementById("hours");
-            const minutesElem = document.getElementById("minutes");
-            const secondsElem = document.getElementById("seconds");
-            const statusElem = document.getElementById("countdown-status");
-
-            if (difference < 0) {
-                const activeDiff = tripEndDate - now;
-                if (activeDiff > 0) {
-                    daysElem.innerText = "00";
-                    hoursElem.innerText = "00";
-                    minutesElem.innerText = "00";
-                    secondsElem.innerText = "00";
-                    statusElem.innerText = "סוואדיקה! אתם כרגע בתאילנד נהנים בגן עדן! 🌴🇹🇭";
-                } else {
-                    daysElem.innerText = "--";
-                    hoursElem.innerText = "--";
-                    minutesElem.innerText = "--";
-                    secondsElem.innerText = "--";
-                    statusElem.innerText = "הטיול המדהים הסתיים! איזה זכרונות מטורפים! 💖";
-                }
-                return;
-            }
-
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-            daysElem.innerText = d.toString().padStart(2, '0');
-            hoursElem.innerText = h.toString().padStart(2, '0');
-            minutesElem.innerText = m.toString().padStart(2, '0');
-            secondsElem.innerText = s.toString().padStart(2, '0');
-            statusElem.innerHTML = `ארקיע IZ-591 מוכנה להמראה מנתב"ג טרמינל 3 ✈️`;
-        }
-
-        // Live Exchange Rates
-        async function fetchLiveRates() {
-            try {
-                const response = await fetch('https://open.er-api.com/v6/latest/ILS');
-                if (!response.ok) throw new Error("API network failure");
-                const data = await response.json();
-                
-                const thbRate = data.rates.THB;
-                const usdRate = (1 / data.rates.USD).toFixed(2);
-
-                document.getElementById("rate-thb").innerText = `₪ 1 = ฿ ${thbRate.toFixed(2)}`;
-                document.getElementById("rate-usd").innerText = `₪ ${usdRate}`;
-            } catch (error) {
-                console.error("Using fallback rates", error);
-                document.getElementById("rate-thb").innerText = `₪ 1 = ฿ 9.35 *`;
-                document.getElementById("rate-usd").innerText = `₪ 3.65 *`;
-            }
-        }
-
-        // Currency Converter Calculator Logic
-        function convertCurrency(source) {
-            const ilsInput = document.getElementById("calc-ils");
-            const thbInput = document.getElementById("calc-thb");
-            const rate = 9.35; // Approximation
-
-            if (source === 'ILS') {
-                const ilsVal = parseFloat(ilsInput.value);
-                if (!isNaN(ilsVal)) {
-                    thbInput.value = (ilsVal * rate).toFixed(0);
-                } else {
-                    thbInput.value = "";
-                }
-            } else if (source === 'THB') {
-                const thbVal = parseFloat(thbInput.value);
-                if (!isNaN(thbVal)) {
-                    ilsInput.value = (thbVal / rate).toFixed(1);
-                } else {
-                    ilsInput.value = "";
-                }
-            }
-        }
-
-        // Render Calendar grids for June & July 2026
-        function renderMonthlyGrids() {
-            // June 2026 starts on a Monday (index 1) and has 30 days
-            renderMonth("june-grid", 2026, 5, 1);
-            
-            // July 2026 starts on a Wednesday (index 3) and has 31 days
-            renderMonth("july-grid", 2026, 6, 3);
-
-            // Update stats
-            let plansCount = 0;
-            for (let key in state.plans) {
-                const plan = state.plans[key];
-                if (plan.location || plan.hotel || plan.activities) {
-                    plansCount++;
-                }
-            }
-            document.getElementById("total-planned-days").innerText = plansCount;
-        }
-
-        // Helper to render a specific month's grid
-        function renderMonth(gridId, year, monthIndex, startDayOffset) {
-            const grid = document.getElementById(gridId);
-            grid.innerHTML = "";
-
-            const totalDaysInMonth = new Date(year, monthIndex + 1, 0).getDate();
-
-            // Insert empty cells for padding start day offset
-            for (let i = 0; i < startDayOffset; i++) {
-                const emptyCell = document.createElement("div");
-                emptyCell.className = "h-24 bg-slate-50/20 rounded-2xl border border-dashed border-slate-100/50";
-                grid.appendChild(emptyCell);
-            }
-
-            // Populate month dates
-            for (let dayNum = 1; dayNum <= totalDaysInMonth; dayNum++) {
-                const dateObj = new Date(year, monthIndex, dayNum);
-                const dateKey = `${year}-${(monthIndex + 1).toString().padStart(2, '0')}-${dayNum.toString().padStart(2, '0')}`;
-                
-                // Check if this date is inside our trip boundaries (14.6.2026 - 6.7.2026)
-                const isTripDate = dateObj >= new Date(2026, 5, 14) && dateObj <= new Date(2026, 6, 6);
-                const dayPlan = state.plans[dateKey] || {};
-
-                const cell = document.createElement("div");
-                
-                // Shabbat styles inside the calendar cells
-                const isFriday = dateObj.getDay() === 5;
-                const isSaturday = dateObj.getDay() === 6;
-                let shabbatText = "";
-                if (isFriday) {
-                    shabbatText = `<div class="text-[8px] text-blue-800 font-bold bg-blue-50 py-0.5 px-1 rounded mt-1">🕯️ כניסת שבת: 18:25</div>`;
-                } else if (isSaturday) {
-                    shabbatText = `<div class="text-[8px] text-amber-950 font-bold bg-amber-100 py-0.5 px-1 rounded mt-1">✨ הבדלה: 19:15</div>`;
-                }
-
-                // Weather tag
-                const weatherValue = dayPlan.weather || "";
-
-                if (isTripDate) {
-                    // This day is a trip day! Design it with bright turquoise/emerald tropical card look
-                    const isActive = dateKey === activeDayKey;
-                    
-                    cell.className = `calendar-cell h-24 p-2 rounded-2xl border cursor-pointer relative flex flex-col justify-between text-right ${
-                        isActive 
-                            ? 'bg-gradient-to-br from-teal-500 to-emerald-500 text-white shadow-lg ring-4 ring-teal-200' 
-                            : 'bg-white hover:bg-teal-50/60 border-teal-100 shadow-sm'
-                    }`;
-
-                    // Calculating the trip day sequence index (14.6 is day 1, etc.)
-                    const diffTime = Math.abs(dateObj - new Date(2026, 5, 14));
-                    const seqDayNumber = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-
-                    cell.onclick = () => selectDayFromCalendar(dateKey, seqDayNumber);
-
-                    cell.innerHTML = `
-                        <div class="flex justify-between items-start">
-                            <span class="text-xs font-black ${isActive ? 'text-white' : 'text-teal-800'}">${dayNum}</span>
-                            <span class="text-[8px] font-bold ${isActive ? 'bg-white/20 text-white' : 'bg-teal-50 text-teal-900'} px-1.5 py-0.5 rounded-full">יום ${seqDayNumber}</span>
-                        </div>
-                        <div class="text-right space-y-0.5 mt-1 overflow-hidden">
-                            <span class="text-[10px] font-black truncate block ${isActive ? 'text-yellow-100' : 'text-slate-800'}">
-                                ${dayPlan.location || '✈️ טרם נקבע'}
-                            </span>
-                            ${dayPlan.hotel ? `<span class="text-[8px] font-semibold truncate block ${isActive ? 'text-teal-100' : 'text-slate-500'}">🏨 ${dayPlan.hotel}</span>` : ''}
-                        </div>
-                        <div class="flex items-center justify-between mt-1">
-                            ${shabbatText}
-                            <span class="text-[8px]">${weatherValue ? weatherValue.split(" ")[0] : ""}</span>
-                        </div>
-                    `;
-                } else {
-                    // Day outside trip boundary - Styled as disabled/inactive
-                    cell.className = `h-24 p-2 rounded-2xl border border-slate-100 bg-slate-100/40 text-slate-300 text-right flex flex-col justify-between cursor-not-allowed disabled`;
-                    cell.onclick = () => showToast("תאריך זה מחוץ לגבולות הטיול שלכם! ✈️");
-                    cell.innerHTML = `
-                        <span class="text-xs font-semibold block">${dayNum}</span>
-                        <span class="text-[8px] text-slate-400 block text-center">אין טיסה</span>
-                        <div></div>
-                    `;
-                }
-
-                grid.appendChild(cell);
-            }
-        }
-
-        // Toggle calendar months view tabs
-        function switchCalendarMonth(view) {
-            document.querySelectorAll(".month-tab-btn").forEach(btn => {
-                btn.className = "month-tab-btn text-xs font-bold px-4 py-1.5 rounded-lg text-slate-600 hover:text-slate-800";
-            });
-
-            const activeBtn = document.getElementById(`month-tab-${view}`);
-            activeBtn.className = "month-tab-btn text-xs font-black px-4 py-1.5 rounded-lg bg-white text-teal-900 shadow-sm";
-
-            const juneSect = document.getElementById("calendar-june");
-            const julySect = document.getElementById("calendar-july");
-
-            if (view === 'all') {
-                juneSect.style.display = 'block';
-                julySect.style.display = 'block';
-            } else if (view === 'june') {
-                juneSect.style.display = 'block';
-                julySect.style.display = 'none';
-            } else if (view === 'july') {
-                juneSect.style.display = 'none';
-                julySect.style.display = 'block';
-            }
-        }
-
-        // Action when clicking an active trip date
-        function selectDayFromCalendar(dateKey, seqDayNum) {
-            activeDayKey = dateKey;
-            
-            // Re-render calendar grids to highlight the selection border
-            renderMonthlyGrids();
-
-            // Reveal the editor card, hide the placeholder
-            document.getElementById("editor-placeholder").classList.add("hidden");
-            const editorContent = document.getElementById("editor-content");
-            editorContent.classList.remove("hidden");
-
-            const formattedDateStr = getReadableDateStr(dateKey);
-
-            document.getElementById("editor-day-tag").innerText = `יום ${seqDayNum}`;
-            document.getElementById("editor-day-title").innerText = formattedDateStr;
-
-            // Define emoji by trip stages
-            let emoji = "🏝️";
-            if (seqDayNum === 1) emoji = "🛫";
-            if (seqDayNum === 23) emoji = "🛬";
-            document.getElementById("editor-day-emoji").innerText = emoji;
-
-            const plan = state.plans[dateKey] || { location: "", hotel: "", activities: "", weather: "☀️ שמש מטורפת", cost: "" };
-
-            document.getElementById("day-location").value = plan.location || "";
-            document.getElementById("day-hotel").value = plan.hotel || "";
-            document.getElementById("day-activities").value = plan.activities || "";
-            document.getElementById("day-weather").value = plan.weather || "☀️ שמש מטורפת";
-            document.getElementById("day-estimated-cost").value = plan.cost || "";
-
-            document.getElementById("day-last-updated").innerText = plan.lastUpdated 
-                ? `עודכן לאחרונה על ידי: ${plan.lastUpdated}` 
-                : "אין עדיין תכנון מפורט ליום זה.";
-        }
-
-        // Save Day Plan content from editor
-        function saveDayPlan() {
-            if (!activeDayKey) return;
-
-            const location = document.getElementById("day-location").value.trim();
-            const hotel = document.getElementById("day-hotel").value.trim();
-            const activities = document.getElementById("day-activities").value.trim();
-            const weather = document.getElementById("day-weather").value;
-            const cost = parseFloat(document.getElementById("day-estimated-cost").value);
-
-            const timestamp = new Date().toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' }) + " (" + new Date().toLocaleDateString('he-IL', { day: 'numeric', month: 'numeric' }) + ")";
-
-            state.plans[activeDayKey] = {
-                location,
-                hotel,
-                activities,
-                weather,
-                cost: isNaN(cost) ? 0 : cost,
-                lastUpdated: `${currentUser} בשעה ${timestamp}`
-            };
-
-            // Sync automatically to budget expenses
-            if (cost > 0) {
-                const seqDayText = document.getElementById("editor-day-tag").innerText;
-                const existingExpenseIndex = state.expenses.findIndex(exp => exp.desc === `תקציב ${seqDayText} (${location || 'תאילנד'})`);
-                if (existingExpenseIndex > -1) {
-                    state.expenses[existingExpenseIndex].amount = cost;
-                } else {
-                    state.expenses.push({
-                        id: Date.now(),
-                        desc: `תקציב ${seqDayText} (${location || 'תאילנד'})`,
-                        amount: cost,
-                        category: "אטרקציות"
-                    });
-                }
-            }
-
-            saveToStorage();
-            renderMonthlyGrids();
-            updateBudgetUI();
-            
-            showToast("העדכונים נשמרו והתעדכנו בלוח השנה! 🗺️🌟");
-        }
-
-        // Checklist Rendering
-        function renderChecklist() {
-            const container = document.getElementById("packing-checklist");
-            container.innerHTML = "";
-
-            const categories = {};
-            state.checklist.forEach(item => {
-                if (!categories[item.category]) {
-                    categories[item.category] = [];
-                }
-                categories[item.category].push(item);
-            });
-
-            let checkedCount = 0;
-            state.checklist.forEach(i => { if (i.checked) checkedCount++; });
-            document.getElementById("checklist-count").innerText = `${checkedCount}/${state.checklist.length}`;
-
-            for (const category in categories) {
-                const catDiv = document.createElement("div");
-                catDiv.className = "space-y-2 bg-slate-50/60 p-4 rounded-2xl border border-slate-100";
-                catDiv.innerHTML = `<h4 class="text-xs font-black text-slate-500 border-b border-slate-200 pb-1.5">${category}</h4>`;
-
-                categories[category].forEach(item => {
-                    const row = document.createElement("div");
-                    row.className = "flex items-center justify-between p-1 text-xs";
-
-                    row.innerHTML = `
-                        <label class="flex items-center gap-2 cursor-pointer w-full text-slate-700">
-                            <input type="checkbox" onchange="toggleChecklistItem(${item.id})" ${item.checked ? 'checked' : ''} class="w-4 h-4 text-teal-600 border-slate-200 rounded">
-                            <span class="${item.checked ? 'line-through text-slate-400 font-normal' : 'font-semibold'}">${item.text}</span>
-                        </label>
-                        <button onclick="removeChecklistItem(${item.id})" class="text-slate-300 hover:text-rose-500 transition px-1">
-                            <i data-lucide="x" class="w-3.5 h-3.5"></i>
-                        </button>
-                    `;
-                    catDiv.appendChild(row);
-                });
-
-                container.appendChild(catDiv);
-            }
-            lucide.createIcons();
-        }
-
-        function toggleChecklistItem(id) {
-            state.checklist = state.checklist.map(item => {
-                if (item.id === id) return { ...item, checked: !item.checked };
-                return item;
-            });
-            saveToStorage();
-            renderChecklist();
-        }
-
-        function removeChecklistItem(id) {
-            state.checklist = state.checklist.filter(item => item.id !== id);
-            saveToStorage();
-            renderChecklist();
-        }
-
-        function addCustomChecklistItem() {
-            const input = document.getElementById("new-item-text");
-            const text = input.value.trim();
-            if (!text) return;
-
-            state.checklist.push({
-                id: Date.now(),
-                text: text,
-                checked: false,
-                category: "ציוד אישי משלכם"
-            });
-
-            saveToStorage();
-            renderChecklist();
-            input.value = "";
-            showToast("פריט אריזה חדש נוסף! 🎒");
-        }
-
-        // Budget Engine
-        function updateBudgetUI() {
-            const budgetInput = document.getElementById("total-budget");
-            const budgetVal = parseFloat(budgetInput.value);
-            if (!isNaN(budgetVal)) {
-                state.totalBudget = budgetVal;
-            }
-
-            const totalSpent = state.expenses.reduce((acc, curr) => acc + curr.amount, 0);
-            const remaining = state.totalBudget - totalSpent;
-            const percent = state.totalBudget > 0 ? Math.round((totalSpent / state.totalBudget) * 100) : 0;
-
-            document.getElementById("budget-spent").innerText = `${totalSpent.toLocaleString()} ₪`;
-            document.getElementById("budget-remaining").innerText = `${remaining.toLocaleString()} ₪`;
-            
-            const budgetBar = document.getElementById("budget-bar");
-            const budgetPercentText = document.getElementById("budget-percent");
-            budgetPercentText.innerText = `${percent}%`;
-            budgetBar.style.width = `${Math.min(percent, 100)}%`;
-
-            // Render list
-            const listContainer = document.getElementById("expenses-list");
-            listContainer.innerHTML = "";
-
-            if (state.expenses.length === 0) {
-                listContainer.innerHTML = `<p class="text-[11px] text-slate-400 text-center py-4">אין עדיין הוצאות קבועות.</p>`;
-            } else {
-                state.expenses.forEach(exp => {
-                    const row = document.createElement("div");
-                    row.className = "flex items-center justify-between text-xs p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-teal-100 transition";
-                    row.innerHTML = `
-                        <div class="flex items-center gap-2">
-                            <span class="bg-teal-50 text-teal-800 text-[8px] font-black px-1.5 py-0.5 rounded-full">${exp.category}</span>
-                            <span class="font-bold text-slate-700 truncate max-w-[120px]">${exp.desc}</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="font-extrabold text-slate-800">${exp.amount.toLocaleString()} ₪</span>
-                            <button onclick="deleteExpense(${exp.id})" class="text-slate-300 hover:text-rose-500 transition">
-                                <i data-lucide="x" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    `;
-                    listContainer.appendChild(row);
-                });
-            }
-
-            lucide.createIcons();
-            saveToStorage();
-        }
-
-        function addExpense() {
-            const desc = document.getElementById("expense-desc").value.trim();
-            const amountVal = parseFloat(document.getElementById("expense-amount").value);
-            const category = document.getElementById("expense-category").value;
-
-            if (!desc || isNaN(amountVal) || amountVal <= 0) {
-                showToast("נא למלא פרטי הוצאה תקינים! 💰");
-                return;
-            }
-
-            state.expenses.push({
-                id: Date.now(),
-                desc,
-                amount: amountVal,
-                category
-            });
-
-            updateBudgetUI();
-            document.getElementById("expense-desc").value = "";
-            document.getElementById("expense-amount").value = "";
-            showToast("הוצאה חדשה נוספה לתקציב!");
-        }
-
-        function deleteExpense(id) {
-            state.expenses = state.expenses.filter(exp => exp.id !== id);
-            updateBudgetUI();
-        }
-
-        // Social Board rendering with Likes and Comment Threads
-        function renderNotes() {
-            const container = document.getElementById("notes-container");
-            container.innerHTML = "";
-
-            if (state.notes.length === 0) {
-                container.innerHTML = `<p class="text-xs text-amber-800 text-center py-6 bg-amber-50 rounded-2xl italic">לוח ההמלצות ריק. תהיו הראשונים להוסיף רעיון מטורף!</p>`;
-                return;
-            }
-
-            state.notes.forEach(note => {
-                const isLikedByCurrent = note.likes && note.likes.includes(currentUser);
-                const likesText = note.likes && note.likes.length > 0 ? `אהבו את זה: ${note.likes.join(", ")}` : "אין לייקים עדיין";
-
-                let commentsHtml = "";
-                if (note.comments && note.comments.length > 0) {
-                    note.comments.forEach(comment => {
-                        commentsHtml += `
-                            <div class="bg-white/60 p-2.5 rounded-xl text-[11px] border border-amber-100/30 space-y-0.5">
-                                <div class="flex justify-between font-bold text-amber-950">
-                                    <span>${comment.user}</span>
-                                    <span class="text-[8px] text-slate-400 font-normal">${comment.date || ''}</span>
-                                </div>
-                                <p class="text-slate-700 font-medium">${comment.text}</p>
-                            </div>
-                        `;
-                    });
-                }
-
-                const item = document.createElement("div");
-                item.className = "bg-amber-100/30 border-r-4 border-amber-400 p-4 rounded-l-2xl text-xs space-y-3 shadow-sm relative";
-                
-                item.innerHTML = `
-                    <div class="flex justify-between items-start">
                         <div>
-                            <span class="font-extrabold text-amber-950 text-sm">${note.user}</span>
-                            <span class="text-[8px] text-slate-400 block mt-0.5">${note.date}</span>
+                            <label class="block text-[11px] font-bold text-slate-400 mb-1">תיאור ההוצאה</label>
+                            <input type="text" id="expDescription" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:ring-2 focus:ring-teal-400 focus:outline-none" placeholder="לדוגמה: מלון בבנגקוק, כרטיסי טיסה פנימית..." required>
                         </div>
-                        <button onclick="deleteNote(${note.id})" class="text-amber-500 hover:text-rose-500 transition">
-                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
 
-                    <p class="text-slate-800 font-semibold text-sm leading-relaxed">${note.text}</p>
+                        <div>
+                            <span class="block text-[11px] font-bold text-slate-400 mb-1">עבור מי ההוצאה? (חלוקה בין)</span>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <label class="inline-flex items-center gap-1.5 text-xs font-bold cursor-pointer bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-1.5">
+                                    <input type="checkbox" id="split-יגל" checked class="rounded text-teal-600 focus:ring-teal-500 h-4 w-4"> יגל
+                                </label>
+                                <label class="inline-flex items-center gap-1.5 text-xs font-bold cursor-pointer bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-1.5">
+                                    <input type="checkbox" id="split-מיכל" checked class="rounded text-teal-600 focus:ring-teal-500 h-4 w-4"> מיכל
+                                </label>
+                                <label class="inline-flex items-center gap-1.5 text-xs font-bold cursor-pointer bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-1.5">
+                                    <input type="checkbox" id="split-יהל" checked class="rounded text-teal-600 focus:ring-teal-500 h-4 w-4"> יהל
+                                </label>
+                                <label class="inline-flex items-center gap-1.5 text-xs font-bold cursor-pointer bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-1.5">
+                                    <input type="checkbox" id="split-אלעזר" checked class="rounded text-teal-600 focus:ring-teal-500 h-4 w-4"> אלעזר
+                                </label>
+                            </div>
+                        </div>
 
-                    <!-- Likes bar -->
-                    <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-amber-200/50">
-                        <div class="flex items-center gap-2">
-                            <button onclick="toggleLike(${note.id})" class="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
-                                isLikedByCurrent ? 'bg-amber-500 text-white' : 'bg-white hover:bg-amber-200 text-amber-800 border border-amber-200 shadow-sm'
-                            }">
-                                <i data-lucide="heart" class="w-3 h-3 ${isLikedByCurrent ? 'fill-current' : ''}"></i> לייק
+                        <div class="flex justify-end pt-1">
+                            <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold px-6 py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-check"></i> שמור הוצאה
                             </button>
-                            <span class="text-[9px] text-amber-950 font-bold">${likesText}</span>
                         </div>
+                    </form>
+                </div>
+
+                <!-- Expense log card (Hybrid Layout) -->
+                <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100">
+                    <h3 class="text-base sm:text-lg font-extrabold text-teal-900 mb-3">רשימת ההוצאות שנרשמו</h3>
+                    
+                    <!-- Desktop Table view -->
+                    <div class="hidden md:block overflow-x-auto">
+                        <table class="w-full text-right text-xs sm:text-sm">
+                            <thead>
+                                <tr class="border-b border-slate-100 text-slate-400 font-bold pb-2">
+                                    <th class="py-2">תיאור וקטגוריה</th>
+                                    <th class="py-2">שולם ע"י</th>
+                                    <th class="py-2 text-center">התחלק בין</th>
+                                    <th class="py-2 text-left">סכום מקורי</th>
+                                    <th class="py-2 text-left">סכום בשקלים</th>
+                                    <th class="py-2 text-center">פעולות</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expensesTableBody" class="divide-y divide-slate-50">
+                                <!-- Expenses will be rendered dynamically -->
+                            </tbody>
+                        </table>
                     </div>
 
-                    <!-- Comments block -->
-                    <div class="space-y-2 pt-2 bg-amber-50/50 p-3 rounded-xl border border-amber-100/20">
-                        <div class="space-y-1.5" id="comments-list-${note.id}">
-                            ${commentsHtml}
-                        </div>
-                        <div class="flex gap-1.5 mt-2 pt-2 border-t border-amber-200/10">
-                            <input type="text" id="comment-input-${note.id}" placeholder="כתבו תגובה חמה..." class="w-full text-[10px] p-2 rounded-lg border border-amber-200 focus:outline-none bg-white">
-                            <button onclick="addComment(${note.id})" class="bg-amber-600 hover:bg-amber-700 text-white text-[9px] font-bold px-3 py-2 rounded-lg transition-all">שלח</button>
-                        </div>
+                    <!-- Mobile/iPhone Card View (Optimized layout) -->
+                    <div class="block md:hidden space-y-3" id="expensesMobileContainer">
+                        <!-- Mobile expense cards will be generated by JS -->
                     </div>
-                `;
-                container.appendChild(item);
-            });
+                </div>
+            </div>
+        </div>
+    </div>
 
-            lucide.createIcons();
-        }
+    <!-- TAB 3: RECOMMENDATIONS -->
+    <div id="content-recommendations" class="tab-content hidden space-y-8">
+        
+        <!-- Chabad Houses Shabbat Recommendations -->
+        <div>
+            <div class="border-r-4 border-amber-500 pr-3 mb-4">
+                <h2 class="text-lg sm:text-xl font-black text-teal-900">בתי חב"ד לשבתות וחגים בתאילנד 🕍</h2>
+                <p class="text-xs text-slate-500">תאילנד מארחת את בתי חב"ד הגדולים והחמים בעולם. מומלץ להירשם לארוחות שבת מראש!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="chabadRecommendationsContainer">
+                <!-- Chabad Cards rendered dynamically by JS -->
+            </div>
+        </div>
 
-        function addNote() {
-            const noteText = document.getElementById("new-note").value.trim();
-            if (!noteText) return;
+        <!-- Parties & Nightlife Recommendations -->
+        <div>
+            <div class="border-r-4 border-purple-500 pr-3 mb-4">
+                <h2 class="text-lg sm:text-xl font-black text-teal-900">מסיבות וחיי לילה שאסור לפספס 🎉</h2>
+                <p class="text-xs text-slate-500">איפה לרקוד, באיזה תאריכים, ואיך להימנע מצרות.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="partiesRecommendationsContainer">
+                <!-- Parties cards rendered dynamically by JS -->
+            </div>
+        </div>
 
-            const dateStr = new Date().toLocaleDateString('he-IL', { day: 'numeric', month: 'numeric', year: 'numeric' });
+        <!-- Attractions Recommendations -->
+        <div>
+            <div class="border-r-4 border-teal-500 pr-3 mb-4">
+                <h2 class="text-lg sm:text-xl font-black text-teal-900">אטרקציות חובה ומקומות מומלצים 🐘</h2>
+                <p class="text-xs text-slate-500">החוויות שיהפכו את הטיול שלכם לבלתי נשכח.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="attractionsRecommendationsContainer">
+                <!-- Attractions rendered dynamically by JS -->
+            </div>
+        </div>
+    </div>
 
-            state.notes.push({
-                id: Date.now(),
-                user: currentUser,
-                text: noteText,
-                date: dateStr,
+    <!-- TAB 4: TOOLS & CHECKS -->
+    <div id="content-tools" class="tab-content hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Panel: Packing Checklist -->
+            <div class="lg:col-span-2 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100">
+                <div class="flex justify-between items-center mb-4 border-b border-slate-100 pb-3">
+                    <h3 class="text-base sm:text-lg font-extrabold text-teal-900 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-emerald-600"></i>
+                        רשימת אריזה קבוצתית משותפת
+                    </h3>
+                    <button onclick="resetChecklist()" class="text-xs text-rose-600 font-extrabold hover:underline">
+                        <i class="fa-solid fa-trash-arrow-up"></i> אפס הכל
+                    </button>
+                </div>
+                
+                <!-- Category filtering & lists -->
+                <div class="space-y-6" id="checklistContainer">
+                    <!-- Categorized checklist generated by Javascript -->
+                </div>
+            </div>
+
+            <!-- Right Panel: Thai Phrases Dictionary & Contacts -->
+            <div class="space-y-6">
+                <!-- Practical Thai Phrases -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-100 rounded-3xl p-4 sm:p-6 shadow-md border border-amber-200/50">
+                    <h3 class="text-base sm:text-lg font-extrabold text-amber-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-language"></i>
+                        שיחון תאילנדי שימושי 🇹🇭
+                    </h3>
+                    <p class="text-xs text-amber-800 mb-4">המילים והמשפטים שיקרבו אתכם למקומיים ויצילו אתכם במסעדות:</p>
+                    
+                    <div class="space-y-2.5" id="thaiPhrasesContainer">
+                        <!-- Phrases generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Emergency Contacts -->
+                <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-teal-100">
+                    <h3 class="text-sm font-extrabold text-rose-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-phone-flip text-rose-600 animate-pulse"></i>
+                        מספרי חירום חיוניים
+                    </h3>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex justify-between items-center border-b border-slate-50 pb-2">
+                            <div>
+                                <span class="font-bold text-slate-700 block">משטרת התיירים של תאילנד</span>
+                                <span class="text-slate-400">דוברים אנגלית ומסייעים בכל בעיה</span>
+                            </div>
+                            <a href="tel:1155" class="bg-rose-50 text-rose-700 font-extrabold px-3.5 py-2.5 rounded-lg border border-rose-200 hover:bg-rose-100 transition-all">1155</a>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-50 pb-2">
+                            <div>
+                                <span class="font-bold text-slate-700 block">אמבולנס / עזרה ראשונה</span>
+                                <span class="text-slate-400">חיוג ישיר לפינוי רפואי</span>
+                            </div>
+                            <a href="tel:1669" class="bg-rose-50 text-rose-700 font-extrabold px-3.5 py-2.5 rounded-lg border border-rose-200 hover:bg-rose-100 transition-all">1669</a>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-slate-700 block">שגרירות ישראל בבנגקוק</span>
+                                <span class="text-slate-400">במקרה של אובדן דרכון או חירום קריטי</span>
+                            </div>
+                            <a href="tel:+6622049200" class="bg-slate-100 text-slate-700 font-extrabold px-3 py-2.5 rounded-lg border border-slate-200 hover:bg-slate-200 transition-all text-[11px] font-mono">+6622049200</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- PREMIUM iOS SWITCH USER SLIDE-UP MODAL (Triggers only when coming to edit) -->
+<div id="userModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-end justify-center hidden opacity-0 transition-opacity duration-300" onclick="closeUserModal()">
+    <div class="bg-white w-full max-w-md rounded-t-3xl p-6 pb-8 shadow-2xl transform translate-y-full transition-transform duration-300 relative" onclick="event.stopPropagation()">
+        <!-- Handle for iOS sheet look -->
+        <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-5"></div>
+        
+        <h3 class="text-lg font-black text-slate-800 text-center mb-1 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-user-gear text-teal-600"></i>
+            החלפת עורך פעיל
+        </h3>
+        <p class="text-xs text-slate-500 text-center mb-6">בחר את שמך כדי לבצע פעולות, להגיב או להוסיף הוצאות בשמך.</p>
+        
+        <div class="grid grid-cols-2 gap-3" id="modalUserGrid">
+            <!-- Rendered dynamically -->
+        </div>
+
+        <button onclick="closeUserModal()" class="w-full mt-6 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 rounded-2xl text-xs transition-all border border-slate-200">
+            סגור
+        </button>
+    </div>
+</div>
+
+<script>
+    const users = [
+        { name: 'יגל', avatar: '👨‍💻', color: 'bg-blue-100 text-blue-800 border-blue-300 shadow-blue-100' },
+        { name: 'מיכל', avatar: '👩‍⚕️', color: 'bg-pink-100 text-pink-800 border-pink-300 shadow-pink-100' },
+        { name: 'יהל', avatar: '👩‍🎨', color: 'bg-purple-100 text-purple-800 border-purple-300 shadow-purple-100' },
+        { name: 'אלעזר', avatar: '👨‍🌾', color: 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-emerald-100' }
+    ];
+
+    let activeUser = 'יגל'; 
+    let exchangeRates = {
+        USD: 3.65,
+        THB: 0.103, 
+        ILS: 1,
+        THB_per_ILS: 9.71 
+    };
+
+    const DEPARTURE_DATE = new Date('2026-06-14T23:55:00');
+    const RETURN_DATE = new Date('2026-07-06T23:55:00');
+
+    let itineraryActivities = [];
+    let groupExpenses = [];
+    let checklistItems = [];
+
+    const STORAGE_KEYS = {
+        ITINERARY: 'thai_itinerary_v2',
+        BUDGET: 'thai_budget_v2',
+        CHECKLIST: 'thai_checklist_v2',
+        ACTIVE_USER: 'thai_active_user'
+    };
+
+    function loadInitialMockData() {
+        const defaultItinerary = [
+            {
+                id: 'init-flight-1',
+                dayNumber: 1,
+                time: '23:55',
+                title: 'המראה מתל אביב (טיסת ארקיע ZI-591)',
+                desc: 'המראה מטרמינל 3. מומלץ להגיע 3 שעות קודם כלומר סביב 20:55 בערב כדי למנוע תורים ולעשות דיוטי פרי בכיף!',
+                type: 'flight',
+                cost: 0,
+                currency: 'ILS',
+                addedBy: 'מערכת',
                 likes: [],
                 comments: []
-            });
+            },
+            {
+                id: 'init-arrival-2',
+                dayNumber: 2,
+                time: '15:00',
+                title: 'נחיתה משוערת בבנגקוק ומעבר למלון',
+                desc: 'הגעה לבנגקוק, נשימת אוויר טרופי ראשון, נסיעה במונית למלון המרכזי והתחלת הטיול!',
+                type: 'general',
+                cost: 500,
+                currency: 'THB',
+                addedBy: 'מערכת',
+                likes: [],
+                comments: []
+            },
+            {
+                id: 'init-shabbat-6',
+                dayNumber: 6,
+                time: '18:00',
+                title: 'שבת ראשונה בבנגקוק - בית חב"ד',
+                desc: 'מפגש מרגש עם כל הישראלים בבית חב"ד בנגקוק לארוחת ערב חגיגית ותפילת שבת באווירה ביתית.',
+                type: 'general',
+                cost: 0,
+                currency: 'ILS',
+                addedBy: 'מערכת',
+                likes: [],
+                comments: []
+            },
+            {
+                id: 'init-flight-23',
+                dayNumber: 23,
+                time: '12:00',
+                title: 'טיסה חזור לישראל',
+                desc: 'אריזת התיקים, בדיקה שלא שכחנו כלום, נסיעה לשדה התעופה בבנגקוק וטיסה חזרה לישראל. נתראה בטיול הבא! ✈️',
+                type: 'flight',
+                cost: 0,
+                currency: 'ILS',
+                addedBy: 'מערכת',
+                likes: [],
+                comments: []
+            }
+        ];
 
-            saveToStorage();
-            renderNotes();
-            document.getElementById("new-note").value = "";
-            showToast("ההמלצה ננעצה בלוח המשותף! 📌");
+        const defaultExpenses = [
+            {
+                id: 'init-exp-1',
+                description: 'טיסה הלוך חזור של ארקיע (לכל אחד)',
+                amount: 3200,
+                currency: 'ILS',
+                category: 'flights',
+                payer: 'יגל',
+                splitBetween: ['יגל', 'מיכל', 'יהל', 'אלעזר'],
+                dateAdded: new Date().toISOString()
+            },
+            {
+                id: 'init-exp-2',
+                description: 'פיקדון מלון ראשון בבנגקוק',
+                amount: 4000,
+                currency: 'THB',
+                category: 'hotel',
+                payer: 'מיכל',
+                splitBetween: ['יגל', 'מיכל', 'יהל', 'אלעזר'],
+                dateAdded: new Date().toISOString()
+            }
+        ];
+
+        const defaultChecklist = [
+            { id: 'chk-1', text: 'דרכונים בתוקף לחצי שנה לפחות', category: 'docs', checked: false, checkedBy: '' },
+            { id: 'chk-2', text: 'כרטיסי טיסה מודפסים ודיגיטליים', category: 'docs', checked: false, checkedBy: '' },
+            { id: 'chk-3', text: 'פוליסת ביטוח נסיעות לחו"ל', category: 'docs', checked: false, checkedBy: '' },
+            { id: 'chk-4', text: 'רישיון נהיגה בינלאומי קטנועים', category: 'docs', checked: false, checkedBy: '' },
+            { id: 'chk-5', text: 'תכשיר חזק נגד יתושים (לקנות בתאילנד)', category: 'pharmacy', checked: false, checkedBy: '' },
+            { id: 'chk-6', text: 'קרם הגנה חזק מהשמש', category: 'pharmacy', checked: false, checkedBy: '' },
+            { id: 'chk-7', text: 'כפכפים נוחים להליכה', category: 'clothing', checked: false, checkedBy: '' },
+            { id: 'chk-8', text: 'בגד ים ומגבת קלה לחוף', category: 'clothing', checked: false, checkedBy: '' },
+            { id: 'chk-9', text: 'סוללת גיבוי חזקה לטיסות', category: 'electronics', checked: false, checkedBy: '' },
+            { id: 'chk-10', text: 'מתאם תקע בינלאומי', category: 'electronics', checked: false, checkedBy: '' }
+        ];
+
+        if (!localStorage.getItem(STORAGE_KEYS.ITINERARY)) {
+            localStorage.setItem(STORAGE_KEYS.ITINERARY, JSON.stringify(defaultItinerary));
+        }
+        if (!localStorage.getItem(STORAGE_KEYS.BUDGET)) {
+            localStorage.setItem(STORAGE_KEYS.BUDGET, JSON.stringify(defaultExpenses));
+        }
+        if (!localStorage.getItem(STORAGE_KEYS.CHECKLIST)) {
+            localStorage.setItem(STORAGE_KEYS.CHECKLIST, JSON.stringify(defaultChecklist));
+        }
+    }
+
+    function loadLocalState() {
+        try {
+            itineraryActivities = JSON.parse(localStorage.getItem(STORAGE_KEYS.ITINERARY)) || [];
+            groupExpenses = JSON.parse(localStorage.getItem(STORAGE_KEYS.BUDGET)) || [];
+            checklistItems = JSON.parse(localStorage.getItem(STORAGE_KEYS.CHECKLIST)) || [];
+            activeUser = localStorage.getItem(STORAGE_KEYS.ACTIVE_USER) || 'יגל';
+        } catch (e) {
+            console.error("שגיאה בטעינת נתונים מקומיים", e);
+        }
+    }
+
+    function saveLocalState() {
+        localStorage.setItem(STORAGE_KEYS.ITINERARY, JSON.stringify(itineraryActivities));
+        localStorage.setItem(STORAGE_KEYS.BUDGET, JSON.stringify(groupExpenses));
+        localStorage.setItem(STORAGE_KEYS.CHECKLIST, JSON.stringify(checklistItems));
+        localStorage.setItem(STORAGE_KEYS.ACTIVE_USER, activeUser);
+    }
+
+    async function setupFirestoreSync() {
+        if (!window.isFirebaseActive) {
+            renderAll();
+            return;
         }
 
-        function deleteNote(id) {
-            state.notes = state.notes.filter(n => n.id !== id);
-            saveToStorage();
-            renderNotes();
-        }
+        const { getAuth, signInAnonymously, signInWithCustomToken } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+        const { collection, onSnapshot, doc, setDoc } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
 
-        function toggleLike(noteId) {
-            state.notes = state.notes.map(note => {
-                if (note.id === noteId) {
-                    let likes = note.likes || [];
-                    if (likes.includes(currentUser)) {
-                        likes = likes.filter(u => u !== currentUser);
-                    } else {
-                        likes.push(currentUser);
-                    }
-                    return { ...note, likes };
+        try {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(window.auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(window.auth);
+            }
+
+            const currentUser = window.auth.currentUser;
+            if (!currentUser) {
+                renderAll();
+                return;
+            }
+
+            const itineraryCol = collection(window.db, 'artifacts', window.appId, 'public', 'data', 'itinerary');
+            const budgetCol = collection(window.db, 'artifacts', window.appId, 'public', 'data', 'budget');
+            const checklistCol = collection(window.db, 'artifacts', window.appId, 'public', 'data', 'checklist');
+
+            onSnapshot(itineraryCol, (snapshot) => {
+                const fetched = [];
+                snapshot.forEach(doc => {
+                    fetched.push({ id: doc.id, ...doc.data() });
+                });
+                if (fetched.length > 0) {
+                    itineraryActivities = fetched;
+                    localStorage.setItem(STORAGE_KEYS.ITINERARY, JSON.stringify(itineraryActivities));
+                    renderItinerary();
                 }
-                return note;
-            });
-            saveToStorage();
-            renderNotes();
-        }
+            }, (err) => console.log(err));
 
-        function addComment(noteId) {
-            const input = document.getElementById(`comment-input-${noteId}`);
-            const commentText = input.value.trim();
-            if (!commentText) return;
-
-            const dateStr = new Date().toLocaleDateString('he-IL', { day: 'numeric', month: 'numeric' }) + " " + new Date().toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' });
-
-            state.notes = state.notes.map(note => {
-                if (note.id === noteId) {
-                    const comments = note.comments || [];
-                    comments.push({
-                        user: currentUser,
-                        text: commentText,
-                        date: dateStr
-                    });
-                    return { ...note, comments };
+            onSnapshot(budgetCol, (snapshot) => {
+                const fetched = [];
+                snapshot.forEach(doc => {
+                    fetched.push({ id: doc.id, ...doc.data() });
+                });
+                if (fetched.length > 0) {
+                    groupExpenses = fetched;
+                    localStorage.setItem(STORAGE_KEYS.BUDGET, JSON.stringify(groupExpenses));
+                    renderBudget();
                 }
-                return note;
-            });
+            }, (err) => console.log(err));
 
-            saveToStorage();
-            renderNotes();
-            input.value = "";
+            onSnapshot(checklistCol, (snapshot) => {
+                const fetched = [];
+                snapshot.forEach(doc => {
+                    fetched.push({ id: doc.id, ...doc.data() });
+                });
+                if (fetched.length > 0) {
+                    checklistItems = fetched;
+                    localStorage.setItem(STORAGE_KEYS.CHECKLIST, JSON.stringify(checklistItems));
+                    renderChecklist();
+                }
+            }, (err) => console.log(err));
+
+        } catch (e) {
+            console.error("שגיאה בסנכרון Firebase", e);
+            renderAll();
         }
+    }
 
-        // Custom Toast Popups
-        function showToast(message) {
-            const toast = document.createElement("div");
-            toast.className = "fixed bottom-5 left-5 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 border border-slate-700 transition-all duration-300 transform translate-y-10 opacity-0";
-            toast.innerHTML = `<i data-lucide="info" class="text-amber-400 w-4 h-4"></i> <span>${message}</span>`;
+    async function updateFirestoreDoc(collectionName, docId, data) {
+        if (!window.isFirebaseActive || !window.auth.currentUser) return;
+        try {
+            const { doc, setDoc } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
+            const docRef = doc(window.db, 'artifacts', window.appId, 'public', 'data', collectionName, docId);
+            await setDoc(docRef, data, { merge: true });
+        } catch (e) {
+            console.error("שגיאה בעדכון מסמך:", e);
+        }
+    }
+
+    async function deleteFirestoreDoc(collectionName, docId) {
+        if (!window.isFirebaseActive || !window.auth.currentUser) return;
+        try {
+            const { doc, deleteDoc } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
+            const docRef = doc(window.db, 'artifacts', window.appId, 'public', 'data', collectionName, docId);
+            await deleteDoc(docRef);
+        } catch (e) {
+            console.error("שגיאה במחיקת מסמך:", e);
+        }
+    }
+
+    async function fetchLiveCurrencyRates() {
+        const rateIlsToThbEl = document.getElementById('rateIlsToThb');
+        const rateUsdToThbEl = document.getElementById('rateUsdToThb');
+        const rateUsdToIlsEl = document.getElementById('rateUsdToIls');
+        const conversionRateUsed = document.getElementById('conversionRateUsed');
+
+        try {
+            const response = await fetch('https://open.er-api.com/v6/latest/USD');
+            if (!response.ok) throw new Error("API Network error");
+            const data = await response.json();
             
-            document.body.appendChild(toast);
-            lucide.createIcons();
+            const usdToIls = data.rates.ILS;
+            const usdToThb = data.rates.THB;
+            const ilsToThb = usdToThb / usdToIls;
+            const thbToIls = usdToIls / usdToThb;
 
-            setTimeout(() => {
-                toast.classList.remove("translate-y-10", "opacity-0");
-                toast.classList.add("translate-y-0", "opacity-100");
-            }, 10);
+            exchangeRates = {
+                USD: usdToIls,
+                THB: thbToIls,
+                ILS: 1,
+                THB_per_ILS: ilsToThb
+            };
 
-            setTimeout(() => {
-                toast.classList.add("translate-y-10", "opacity-0");
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+            rateIlsToThbEl.innerHTML = `<span class="text-white bg-teal-800 px-2 py-0.5 rounded-md font-extrabold ml-1">฿ ${ilsToThb.toFixed(2)}</span> באט`;
+            rateUsdToThbEl.innerHTML = `<span class="text-white bg-teal-800 px-2 py-0.5 rounded-md font-extrabold ml-1">฿ ${usdToThb.toFixed(2)}</span> באט`;
+            rateUsdToIlsEl.innerHTML = `<span class="text-white bg-teal-800 px-2 py-0.5 rounded-md font-extrabold ml-1">₪ ${usdToIls.toFixed(2)}</span> ש"ח`;
+            
+            conversionRateUsed.innerHTML = `שער מעודכן בלייב: ₪1 = ฿${ilsToThb.toFixed(2)} באט`;
+        } catch (err) {
+            rateIlsToThbEl.innerHTML = `฿ 9.68 באט <span class="text-[9px] text-teal-200 block">(שמור)</span>`;
+            rateUsdToThbEl.innerHTML = `฿ 35.40 באט <span class="text-[9px] text-teal-200 block">(שמור)</span>`;
+            rateUsdToIlsEl.innerHTML = `₪ 3.65 ש"ח <span class="text-[9px] text-teal-200 block">(שמור)</span>`;
+            conversionRateUsed.innerHTML = `מחשב לפי שער שמור: ₪1 = ฿9.68 באט`;
         }
-    </script>
+        convertCurrency('ILS');
+    }
+
+    function convertCurrency(source) {
+        const calcIls = document.getElementById('calcIls');
+        const calcThb = document.getElementById('calcThb');
+
+        if (source === 'ILS') {
+            const val = parseFloat(calcIls.value) || 0;
+            calcThb.value = (val * exchangeRates.THB_per_ILS).toFixed(1);
+        } else {
+            const val = parseFloat(calcThb.value) || 0;
+            calcIls.value = (val * exchangeRates.THB).toFixed(1);
+        }
+    }
+
+    function generateTripDaysList() {
+        const days = [];
+        let current = new Date(DEPARTURE_DATE);
+        let dayNum = 1;
+        while (current <= RETURN_DATE || dayNum <= 23) {
+            days.push({
+                dayNumber: dayNum,
+                dateStr: current.toLocaleDateString('he-IL', { weekday: 'long', day: 'numeric', month: 'numeric' }),
+                isoDate: current.toISOString().split('T')[0],
+                isWeekend: current.getDay() === 5 || current.getDay() === 6
+            });
+            current.setDate(current.getDate() + 1);
+            dayNum++;
+        }
+        return days;
+    }
+
+    function openUserModal() {
+        const modal = document.getElementById('userModal');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.querySelector('div').classList.remove('translate-y-full');
+        }, 50);
+        renderModalUsers();
+    }
+
+    function closeUserModal() {
+        const modal = document.getElementById('userModal');
+        modal.classList.add('opacity-0');
+        modal.querySelector('div').classList.add('translate-y-full');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    function renderModalUsers() {
+        const container = document.getElementById('modalUserGrid');
+        container.innerHTML = users.map(user => {
+            const isSelected = user.name === activeUser;
+            return `
+                <button onclick="selectUserFromModal('${user.name}')" class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all shadow-sm ${isSelected ? user.color + ' ring-4 ring-teal-500/30 border-transparent scale-102' : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'}">
+                    <span class="text-3xl mb-1">${user.avatar}</span>
+                    <span class="text-xs font-black">${user.name}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    function selectUserFromModal(name) {
+        setActiveUser(name);
+        closeUserModal();
+    }
+
+    function setActiveUser(name) {
+        activeUser = name;
+        saveLocalState();
+        renderActiveUserUI();
+        renderItinerary();
+        renderBudget();
+    }
+
+    function renderActiveUserUI() {
+        const found = users.find(u => u.name === activeUser) || users[0];
+        // Update header user indicator
+        document.getElementById('activeUserHeaderBadge').innerHTML = `
+            <span class="text-xs font-extrabold bg-white px-2 py-1 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1">
+                <span>${found.avatar}</span>
+                <span>${found.name}</span>
+            </span>
+        `;
+        // Update in-form segmented selectors
+        renderInFormSelectors();
+    }
+
+    function renderInFormSelectors() {
+        const budgetContainer = document.getElementById('budgetFormUserSelector');
+        if (budgetContainer) {
+            budgetContainer.innerHTML = users.map(user => {
+                const isSelected = user.name === activeUser;
+                return `
+                    <button type="button" onclick="setActiveUser('${user.name}')" class="flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-black border transition-all ${isSelected ? user.color + ' border-transparent shadow' : 'bg-white hover:bg-slate-100 border-slate-200 text-slate-600'}">
+                        <span>${user.avatar}</span>
+                        <span>${user.name}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+    }
+
+    function toggleAllDays(open) {
+        const accordions = document.querySelectorAll('.day-accordion-content');
+        const icons = document.querySelectorAll('.day-accordion-icon');
+        accordions.forEach(acc => {
+            if (open) {
+                acc.classList.remove('hidden');
+            } else {
+                acc.classList.add('hidden');
+            }
+        });
+        icons.forEach(icon => {
+            if (open) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+
+    function toggleDay(dayNum) {
+        const content = document.getElementById(`day-content-${dayNum}`);
+        const icon = document.getElementById(`day-icon-${dayNum}`);
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            content.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function renderItinerary() {
+        const container = document.getElementById('itineraryDaysAccordion');
+        const days = generateTripDaysList();
+
+        container.innerHTML = days.map(day => {
+            const activities = itineraryActivities
+                .filter(act => act.dayNumber === day.dayNumber)
+                .sort((a, b) => (a.time || '').localeCompare(b.time || ''));
+
+            const hasActivities = activities.length > 0;
+            const shabbatBadge = day.isWeekend ? `<span class="bg-amber-100 text-amber-800 text-[9px] font-black px-2 py-0.5 rounded-md mr-1.5">שבת קודש 🕍</span>` : '';
+
+            let activitiesListHtml = '';
+            if (hasActivities) {
+                activitiesListHtml = activities.map(act => {
+                    const likedByActive = act.likes && act.likes.includes(activeUser);
+                    const likeButtonClass = likedByActive ? 'text-rose-600 bg-rose-50 border-rose-200' : 'text-slate-500 bg-slate-50 border-slate-100';
+                    const likesCount = act.likes ? act.likes.length : 0;
+                    const likesNames = likesCount > 0 ? `(${act.likes.join(', ')})` : '';
+
+                    const commentsHtml = (act.comments || []).map(comm => `
+                        <div class="bg-slate-50 rounded-xl p-2 text-[11px] border border-slate-100/50">
+                            <div class="flex justify-between items-center mb-0.5">
+                                <span class="font-extrabold text-teal-800">${comm.user}</span>
+                                <span class="text-[9px] text-slate-400">${comm.date || ''}</span>
+                            </div>
+                            <p class="text-slate-700 leading-normal">${comm.text}</p>
+                        </div>
+                    `).join('');
+
+                    let categoryIcon = '<i class="fa-solid fa-map-pin"></i>';
+                    if (act.type === 'flight') categoryIcon = '<i class="fa-solid fa-plane"></i>';
+                    if (act.type === 'hotel') categoryIcon = '<i class="fa-solid fa-hotel"></i>';
+                    if (act.type === 'attraction') categoryIcon = '<i class="fa-solid fa-star text-amber-500"></i>';
+                    if (act.type === 'food') categoryIcon = '<i class="fa-solid fa-utensils"></i>';
+
+                    return `
+                        <div class="bg-white rounded-2xl p-3 sm:p-4 border border-teal-50 shadow-sm relative group">
+                            <!-- iOS Optimized Delete trigger -->
+                            <button onclick="deleteActivity('${act.id}')" class="absolute left-2.5 top-2.5 text-slate-300 hover:text-rose-600 md:opacity-0 group-hover:opacity-100 transition-all p-1 text-xs" title="מחק פעילות">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                            <div class="flex items-start gap-2.5">
+                                <div class="bg-teal-50 text-teal-700 p-2 rounded-xl text-xs font-black shrink-0">
+                                    ${categoryIcon}
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex flex-wrap items-center gap-1.5">
+                                        <span class="font-bold text-slate-400 text-xs">${act.time || 'כל היום'}</span>
+                                        <h4 class="font-extrabold text-slate-800 text-xs sm:text-sm truncate max-w-[180px] sm:max-w-none">${act.title}</h4>
+                                        <span class="text-[9px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded-full">ע"י ${act.addedBy}</span>
+                                        ${act.cost ? `<span class="text-[9px] bg-amber-50 text-amber-700 border border-amber-100 px-1.5 py-0.5 rounded font-black">~ ${act.cost} ${act.currency}</span>` : ''}
+                                    </div>
+                                    <p class="text-xs text-slate-600 mt-1 whitespace-pre-line leading-relaxed">${act.desc || ''}</p>
+
+                                    <!-- Likes and Comments Interface -->
+                                    <div class="mt-3 pt-2.5 border-t border-slate-50 flex flex-col gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <button onclick="toggleLikeActivity('${act.id}')" class="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-black border transition-all ${likeButtonClass}">
+                                                <i class="fa-solid fa-heart text-rose-500"></i>
+                                                <span>אהבתי (${likesCount})</span>
+                                                <span class="text-[9px] font-normal text-slate-400">${likesNames}</span>
+                                            </button>
+                                            
+                                            <span class="text-[10px] text-slate-400 font-bold">
+                                                <i class="fa-solid fa-comments text-teal-600 ml-0.5"></i> ${act.comments ? act.comments.length : 0} תגובות
+                                            </span>
+                                        </div>
+
+                                        <div class="space-y-1.5">
+                                            ${commentsHtml}
+                                            
+                                            <div class="flex gap-1.5 mt-1.5">
+                                                <input type="text" id="comment-input-${act.id}" placeholder="הוסף תגובה..." class="flex-1 bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none transition-all">
+                                                <button onclick="addCommentToActivity('${act.id}')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-3 py-1.5 rounded-xl text-xs transition-all flex items-center justify-center">
+                                                    <i class="fa-solid fa-paper-plane"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('') || '';
+            } else {
+                activitiesListHtml = `
+                    <div class="text-center py-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50/50 text-slate-400 text-[11px]">
+                        אין אטרקציות שמורות ליום זה.
+                    </div>
+                `;
+            }
+
+            // Generate user buttons specifically inside this form ("כשבאים לערוך")
+            const dayFormUserButtons = users.map(user => {
+                const isSelected = user.name === activeUser;
+                return `
+                    <button type="button" onclick="setActiveUser('${user.name}')" class="flex-1 py-1.5 rounded-lg text-[10px] font-black border transition-all ${isSelected ? user.color + ' border-transparent shadow-xs' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
+                        <span>${user.avatar}</span> ${user.name}
+                    </button>
+                `;
+            }).join('');
+
+            return `
+                <div class="border border-teal-100/60 rounded-2xl overflow-hidden shadow-sm bg-white" id="day-card-${day.dayNumber}">
+                    <div onclick="toggleDay(${day.dayNumber})" class="flex justify-between items-center p-3.5 cursor-pointer hover:bg-teal-50/30 transition-all select-none">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-700 text-white font-black text-xs h-6 w-6 rounded-full flex items-center justify-center shadow">
+                                ${day.dayNumber}
+                            </span>
+                            <div>
+                                <span class="font-extrabold text-slate-800 text-xs sm:text-sm">${day.dateStr}</span>
+                                ${shabbatBadge}
+                                <span class="text-[10px] font-bold text-teal-600 bg-teal-50 px-1.5 py-0.5 rounded-full mr-1">${activities.length} פעילויות</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300 day-accordion-icon" id="day-icon-${day.dayNumber}"></i>
+                    </div>
+
+                    <div class="day-accordion-content hidden border-t border-teal-50 p-3.5 space-y-3 bg-slate-50/20" id="day-content-${day.dayNumber}">
+                        <div class="space-y-3">
+                            ${activitiesListHtml}
+                        </div>
+
+                        <!-- Quick Add Activity Form -->
+                        <div class="bg-teal-50/40 rounded-2xl p-3 border border-teal-100/40 mt-3">
+                            <span class="block text-[11px] font-extrabold text-teal-950 mb-2 flex items-center gap-1">
+                                <i class="fa-solid fa-plus-circle"></i> הוספת משהו ליום ${day.dayNumber}
+                            </span>
+
+                            <!-- User Selector inside editing form -->
+                            <div class="bg-white/80 border border-slate-200/50 rounded-xl p-2 mb-3.5">
+                                <span class="block text-[10px] font-black text-slate-500 mb-1.5">מי מוסיף את הפעילות? ✍️</span>
+                                <div class="flex gap-1.5">
+                                    ${dayFormUserButtons}
+                                </div>
+                            </div>
+                            
+                            <form onsubmit="handleNewActivity(event, ${day.dayNumber})" class="grid grid-cols-1 sm:grid-cols-4 gap-2">
+                                <div>
+                                    <input type="text" placeholder="שם הפעילות (לדוגמה: ביקור בקוסאן)" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none" required id="actTitle-${day.dayNumber}">
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="שעה (לדוגמה: 14:00)" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none" id="actTime-${day.dayNumber}">
+                                </div>
+                                <div>
+                                    <select class="w-full rounded-xl border border-slate-200 px-2 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none bg-white" id="actType-${day.dayNumber}">
+                                        <option value="general">📍 פעילות כללית</option>
+                                        <option value="flight">✈️ טיסה / מעבר</option>
+                                        <option value="hotel">🏨 מלון / לינה</option>
+                                        <option value="attraction">🐘 אטרקציית חובה</option>
+                                        <option value="food">🍜 מסעדה / אוכל</option>
+                                    </select>
+                                </div>
+                                <div class="flex gap-1">
+                                    <input type="number" placeholder="עלות" class="w-1/2 rounded-xl border border-slate-200 px-2 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none" id="actCost-${day.dayNumber}">
+                                    <select class="w-1/2 rounded-xl border border-slate-200 px-1.5 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none bg-white" id="actCurrency-${day.dayNumber}">
+                                        <option value="THB">THB ฿</option>
+                                        <option value="ILS">ILS ₪</option>
+                                        <option value="USD">USD $</option>
+                                    </select>
+                                </div>
+                                <div class="sm:col-span-4">
+                                    <textarea placeholder="תיאור, כתובת, קישורים, פרטים חיוניים..." rows="2" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs focus:ring-2 focus:ring-teal-400 focus:outline-none" id="actDesc-${day.dayNumber}"></textarea>
+                                </div>
+                                <div class="sm:col-span-4 flex justify-end">
+                                    <button type="submit" class="w-full sm:w-auto bg-teal-700 hover:bg-teal-800 text-white font-extrabold px-4 py-2.5 rounded-xl text-xs shadow transition-all flex items-center justify-center gap-1">
+                                        <i class="fa-solid fa-plus"></i> הוסף ללו"ז
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    async function handleNewActivity(e, dayNum) {
+        e.preventDefault();
+        
+        const titleInput = document.getElementById(`actTitle-${dayNum}`);
+        const timeInput = document.getElementById(`actTime-${dayNum}`);
+        const typeInput = document.getElementById(`actType-${dayNum}`);
+        const costInput = document.getElementById(`actCost-${dayNum}`);
+        const currInput = document.getElementById(`actCurrency-${dayNum}`);
+        const descInput = document.getElementById(`actDesc-${dayNum}`);
+
+        const newActivity = {
+            id: 'act-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+            dayNumber: dayNum,
+            title: titleInput.value.trim(),
+            time: timeInput.value.trim() || 'כל היום',
+            type: typeInput.value,
+            cost: parseFloat(costInput.value) || 0,
+            currency: currInput.value,
+            desc: descInput.value.trim(),
+            addedBy: activeUser,
+            likes: [],
+            comments: []
+        };
+
+        itineraryActivities.push(newActivity);
+        saveLocalState();
+        renderItinerary();
+        
+        toggleDay(dayNum);
+
+        await updateFirestoreDoc('itinerary', newActivity.id, newActivity);
+
+        titleInput.value = '';
+        timeInput.value = '';
+        costInput.value = '';
+        descInput.value = '';
+    }
+
+    async function toggleLikeActivity(actId) {
+        const act = itineraryActivities.find(a => a.id === actId);
+        if (!act) return;
+
+        if (!act.likes) act.likes = [];
+        const index = act.likes.indexOf(activeUser);
+        if (index > -1) {
+            act.likes.splice(index, 1);
+        } else {
+            act.likes.push(activeUser);
+        }
+
+        saveLocalState();
+        renderItinerary();
+
+        await updateFirestoreDoc('itinerary', act.id, act);
+    }
+
+    async function addCommentToActivity(actId) {
+        const act = itineraryActivities.find(a => a.id === actId);
+        const input = document.getElementById(`comment-input-${actId}`);
+        if (!act || !input || !input.value.trim()) return;
+
+        if (!act.comments) act.comments = [];
+        
+        const newComment = {
+            id: 'comm-' + Date.now(),
+            user: activeUser,
+            text: input.value.trim(),
+            date: new Date().toLocaleDateString('he-IL', { day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit' })
+        };
+
+        act.comments.push(newComment);
+        saveLocalState();
+        renderItinerary();
+        input.value = '';
+
+        await updateFirestoreDoc('itinerary', act.id, act);
+    }
+
+    async function deleteActivity(actId) {
+        // Safe interactive custom message since we are in iframe
+        const modalCheck = confirm("האם למחוק פעילות זו לצמיתות?");
+        if (modalCheck) {
+            const index = itineraryActivities.findIndex(a => a.id === actId);
+            if (index > -1) {
+                const dayNum = itineraryActivities[index].dayNumber;
+                itineraryActivities.splice(index, 1);
+                saveLocalState();
+                renderItinerary();
+                
+                toggleDay(dayNum);
+
+                await deleteFirestoreDoc('itinerary', actId);
+            }
+        }
+    }
+
+    function convertToIls(amount, currency) {
+        if (currency === 'ILS') return amount;
+        if (currency === 'THB') return amount * exchangeRates.THB;
+        if (currency === 'USD') return amount * exchangeRates.USD;
+        return amount;
+    }
+
+    function renderBudget() {
+        const tableBody = document.getElementById('expensesTableBody');
+        const mobileContainer = document.getElementById('expensesMobileContainer');
+        const totalGroupExpensesEl = document.getElementById('totalGroupExpenses');
+        const averagePerPersonEl = document.getElementById('averagePerPerson');
+        const individualBalancesList = document.getElementById('individualBalancesList');
+        const debtSettlementSuggestions = document.getElementById('debtSettlementSuggestions');
+
+        let totalIlsSum = 0;
+        groupExpenses.forEach(exp => {
+            totalIlsSum += convertToIls(exp.amount, exp.currency);
+        });
+
+        totalGroupExpensesEl.innerHTML = `₪ ${totalIlsSum.toLocaleString('he-IL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        
+        const userCount = users.length;
+        const avgPerPerson = totalIlsSum / userCount;
+        averagePerPersonEl.innerHTML = `₪ ${avgPerPerson.toLocaleString('he-IL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} לכל אחד`;
+
+        const categoryEmojiMap = {
+            flights: '✈️',
+            hotel: '🏨',
+            attraction: '🐘',
+            food: '🍜',
+            shopping: '🛍️',
+            other: '⚙️'
+        };
+
+        // Render Desktop Table View
+        tableBody.innerHTML = groupExpenses.map(exp => {
+            const sumIls = convertToIls(exp.amount, exp.currency);
+            const emoji = categoryEmojiMap[exp.category] || '💰';
+            const splitLabels = exp.splitBetween.map(u => `<span class="bg-teal-50 text-teal-700 px-1 py-0.5 rounded text-[10px] font-bold">${u}</span>`).join(' ');
+
+            return `
+                <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors text-xs sm:text-sm">
+                    <td class="py-3">
+                        <span class="mr-1">${emoji}</span>
+                        <span class="font-bold text-slate-800">${exp.description}</span>
+                    </td>
+                    <td class="py-3 font-extrabold text-teal-950">${exp.payer}</td>
+                    <td class="py-3 text-center">
+                        <div class="flex flex-wrap justify-center gap-1">${splitLabels}</div>
+                    </td>
+                    <td class="py-3 text-left font-bold text-slate-500">${exp.amount.toFixed(1)} ${exp.currency}</td>
+                    <td class="py-3 text-left font-black text-emerald-700">₪ ${sumIls.toFixed(1)}</td>
+                    <td class="py-3 text-center">
+                        <button onclick="deleteExpense('${exp.id}')" class="text-rose-400 hover:text-rose-600 p-1.5">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+
+        // Render Mobile Card View
+        mobileContainer.innerHTML = groupExpenses.map(exp => {
+            const sumIls = convertToIls(exp.amount, exp.currency);
+            const emoji = categoryEmojiMap[exp.category] || '💰';
+            const splitLabels = exp.splitBetween.map(u => `<span class="bg-teal-50 text-teal-800 px-2 py-1 rounded text-[10px] font-extrabold border border-teal-100">${u}</span>`).join(' ');
+
+            return `
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3.5 relative">
+                    <button onclick="deleteExpense('${exp.id}')" class="absolute left-2 top-2 text-rose-400 p-2 text-sm">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <span class="text-lg">${emoji}</span>
+                        <span class="font-extrabold text-slate-800 text-sm">${exp.description}</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs mb-2">
+                        <div>
+                            <span class="text-slate-400">שילם:</span>
+                            <span class="font-black text-teal-900">${exp.payer}</span>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-slate-400">סכום:</span>
+                            <span class="font-extrabold text-slate-700">${exp.amount.toFixed(1)} ${exp.currency}</span>
+                        </div>
+                        <div class="col-span-2 border-t border-dashed border-slate-200 pt-2">
+                            <span class="text-slate-400 block mb-1">התחלק בין:</span>
+                            <div class="flex flex-wrap gap-1">${splitLabels}</div>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 rounded-xl p-2 border border-slate-100/50 flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-slate-400">עלות סופית בשקלים:</span>
+                        <span class="text-sm font-black text-emerald-700">₪ ${sumIls.toFixed(1)}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        if (groupExpenses.length === 0) {
+            const fallbackHtml = `
+                <div class="text-center py-6 text-slate-400 text-xs">
+                    <i class="fa-solid fa-coins text-2xl mb-1 block text-teal-300"></i>
+                    טרם נרשמו הוצאות קבוצתיות.
+                </div>
+            `;
+            tableBody.innerHTML = `<tr><td colspan="6">${fallbackHtml}</td></tr>`;
+            mobileContainer.innerHTML = fallbackHtml;
+        }
+
+        const ledger = {};
+        users.forEach(u => {
+            ledger[u.name] = { paid: 0, owes: 0, balance: 0 };
+        });
+
+        groupExpenses.forEach(exp => {
+            const costIls = convertToIls(exp.amount, exp.currency);
+            const payer = exp.payer;
+            const splitList = exp.splitBetween || [];
+            
+            if (ledger[payer]) {
+                ledger[payer].paid += costIls;
+            }
+
+            if (splitList.length > 0) {
+                const slice = costIls / splitList.length;
+                splitList.forEach(u => {
+                    if (ledger[u]) {
+                        ledger[u].owes += slice;
+                    }
+                });
+            }
+        });
+
+        users.forEach(u => {
+            const userLedger = ledger[u.name];
+            userLedger.balance = userLedger.paid - userLedger.owes;
+        });
+
+        individualBalancesList.innerHTML = users.map(user => {
+            const bal = ledger[user.name].balance;
+            const formatBal = bal >= 0 ? `+ ₪${bal.toFixed(1)}` : `- ₪${Math.abs(bal).toFixed(1)}`;
+            const isPositive = bal >= 0;
+            const badgeColor = isPositive ? 'bg-emerald-50 text-emerald-800 border-emerald-150' : 'bg-rose-50 text-rose-800 border-rose-150';
+
+            return `
+                <div class="flex justify-between items-center p-2 rounded-xl border ${badgeColor}">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xs font-black">${user.avatar} ${user.name}</span>
+                        <span class="text-[9px] text-slate-400">שילם: ₪${ledger[user.name].paid.toFixed(0)}</span>
+                    </div>
+                    <span class="font-black text-xs font-mono">${formatBal}</span>
+                </div>
+            `;
+        }).join('');
+
+        const debtors = [];
+        const creditors = [];
+
+        users.forEach(u => {
+            const b = ledger[u.name].balance;
+            if (b < -0.1) {
+                debtors.push({ name: u.name, balance: b });
+            } else if (b > 0.1) {
+                creditors.push({ name: u.name, balance: b });
+            }
+        });
+
+        debtors.sort((a, b) => a.balance - b.balance);
+        creditors.sort((a, b) => b.balance - a.balance);
+
+        const transactions = [];
+        let dIdx = 0;
+        let cIdx = 0;
+
+        while (dIdx < debtors.length && cIdx < creditors.length) {
+            const debtor = debtors[dIdx];
+            const creditor = creditors[cIdx];
+
+            const amountToPay = Math.min(Math.abs(debtor.balance), creditor.balance);
+            
+            transactions.push({
+                from: debtor.name,
+                to: creditor.name,
+                amount: amountToPay
+            });
+
+            debtor.balance += amountToPay;
+            creditor.balance -= amountToPay;
+
+            if (Math.abs(debtor.balance) < 0.1) dIdx++;
+            if (Math.abs(creditor.balance) < 0.1) cIdx++;
+        }
+
+        if (transactions.length > 0) {
+            debtSettlementSuggestions.innerHTML = `
+                <ul class="space-y-1.5 font-bold">
+                    ${transactions.map(t => `
+                        <li class="flex justify-between items-center border-b border-amber-200/20 pb-1">
+                            <span>💡 <strong class="text-rose-700">${t.from}</strong> מעביר ל-<strong class="text-emerald-800">${t.to}</strong></span>
+                            <span class="font-black text-teal-900 bg-white border border-amber-200 px-2 py-0.5 rounded font-mono text-[11px]">₪ ${t.amount.toFixed(1)}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+        } else {
+            debtSettlementSuggestions.innerHTML = `
+                <div class="text-center py-2 text-slate-500 text-xs">
+                    <i class="fa-solid fa-handshake-angle text-sm animate-bounce"></i>
+                    כולם מאוזנים לחלוטין!
+                </div>
+            `;
+        }
+    }
+
+    async function handleNewExpense(e) {
+        e.preventDefault();
+
+        const amountInput = document.getElementById('expAmount');
+        const currencySelect = document.getElementById('expCurrency');
+        const descInput = document.getElementById('expDescription');
+        const categorySelect = document.getElementById('expCategory');
+
+        const splitList = [];
+        users.forEach(u => {
+            if (document.getElementById(`split-${u.name}`).checked) {
+                splitList.push(u.name);
+            }
+        });
+
+        if (splitList.length === 0) {
+            alert("חובה לבחור לפחות חבר אחד עבורו נוצרה ההוצאה!");
+            return;
+        }
+
+        const newExpense = {
+            id: 'exp-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+            description: descInput.value.trim(),
+            amount: parseFloat(amountInput.value) || 0,
+            currency: currencySelect.value,
+            category: categorySelect.value,
+            payer: activeUser, // uses the activeUser state directly matching the selector inside the form
+            splitBetween: splitList,
+            dateAdded: new Date().toISOString()
+        };
+
+        groupExpenses.push(newExpense);
+        saveLocalState();
+        renderBudget();
+
+        await updateFirestoreDoc('budget', newExpense.id, newExpense);
+
+        amountInput.value = '';
+        descInput.value = '';
+    }
+
+    async function deleteExpense(expId) {
+        const modalCheck = confirm("האם למחוק הוצאה זו?");
+        if (modalCheck) {
+            const idx = groupExpenses.findIndex(e => e.id === expId);
+            if (idx > -1) {
+                groupExpenses.splice(idx, 1);
+                saveLocalState();
+                renderBudget();
+
+                await deleteFirestoreDoc('budget', expId);
+            }
+        }
+    }
+
+    function renderChecklist() {
+        const container = document.getElementById('checklistContainer');
+        
+        const categories = [
+            { id: 'docs', name: 'מסמכים חיוניים וביטוחים', icon: 'fa-id-card', color: 'text-rose-600' },
+            { id: 'clothing', name: 'בגדים וטואלטיקה', icon: 'fa-shirt', color: 'text-amber-600' },
+            { id: 'pharmacy', name: 'תרופות ועזרה ראשונה', icon: 'fa-suitcase-medical', color: 'text-emerald-600' },
+            { id: 'electronics', name: 'אלקטרוניקה וציוד עזר', icon: 'fa-plug', color: 'text-blue-600' }
+        ];
+
+        container.innerHTML = categories.map(cat => {
+            const items = checklistItems.filter(item => item.category === cat.id);
+
+            const itemsHtml = items.map(item => {
+                const isChecked = item.checked;
+                return `
+                    <label class="flex justify-between items-center p-3 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white transition-all cursor-pointer select-none">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" onchange="toggleChecklistItem('${item.id}')" ${isChecked ? 'checked' : ''} class="rounded text-teal-600 focus:ring-teal-500 h-4.5 w-4.5">
+                            <span class="${isChecked ? 'line-through text-slate-400 font-semibold' : 'text-slate-700 font-bold'} text-xs">
+                                ${item.text}
+                            </span>
+                        </div>
+                        ${isChecked ? `<span class="bg-teal-50 text-teal-800 text-[9px] px-1.5 py-0.5 rounded font-black"><i class="fa-solid fa-check"></i> ע"י ${item.checkedBy}</span>` : ''}
+                    </label>
+                `;
+            }).join('');
+
+            return `
+                <div class="space-y-2">
+                    <h4 class="font-extrabold text-xs text-slate-500 flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
+                        <span class="${cat.color}"><i class="fa-solid ${cat.icon}"></i></span>
+                        ${cat.name}
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        ${itemsHtml}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    async function toggleChecklistItem(id) {
+        const item = checklistItems.find(i => i.id === id);
+        if (!item) return;
+
+        item.checked = !item.checked;
+        item.checkedBy = item.checked ? activeUser : '';
+        
+        saveLocalState();
+        renderChecklist();
+
+        await updateFirestoreDoc('checklist', item.id, item);
+    }
+
+    async function resetChecklist() {
+        const modalCheck = confirm("לאפס את כל רשימת האריזה?");
+        if (modalCheck) {
+            checklistItems.forEach(item => {
+                item.checked = false;
+                item.checkedBy = '';
+            });
+            saveLocalState();
+            renderChecklist();
+
+            for (const item of checklistItems) {
+                await updateFirestoreDoc('checklist', item.id, item);
+            }
+        }
+    }
+
+    function seedStaticRecommendations() {
+        // 1. Chabad Houses
+        const chabadHouses = [
+            {
+                name: 'בית חב"ד בנגקוק',
+                desc: 'הסניף המפורסם בסמוך לרחוב הקוסאן. מסעדה כשרה, בית כנסת שוקק, וסיוע בכל עניין.',
+                tip: 'סעודות שבת מתמלאות במהירות שיא. מומלץ להזמין מראש!',
+                contact: '+66 2 282 2467',
+                img: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'בית חב"ד קוסמוי',
+                desc: 'הסניף השוקק בלב חוף צ\'אוונג התוסס. מפגש חם לאלפי ישראלים באיים המזרחיים באווירה מרגשת.',
+                tip: 'לא לפספס את ההבדלה במוצאי שבת, כולם שרים ורוקדים יחד!',
+                contact: '+66 77 413 521',
+                img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'בית חב"ד פוקט',
+                desc: 'באזור חוף פאטונג הפופולרי. אי של שלווה ושקט, בית כנסת יפיפה ומסעדה בשרית כשרה.',
+                tip: 'צוות חב"ד פוקט מחובר לבתי החולים ומסייע בכל מקרה חירום.',
+                contact: '+66 76 342 770',
+                img: 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'בית חב"ד צ\'יאנג מאי',
+                desc: 'הנציגות הרשמית והחמה בצפון תאילנד. ממוקם קרוב לשוק הלילה המפורסם.',
+                tip: 'מומלץ לתאם עימם מדריכי ג׳יפים וטרקים מותאמי דתיים.',
+                contact: '+66 53 274 085',
+                img: 'https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=400&q=80'
+            }
+        ];
+
+        document.getElementById('chabadRecommendationsContainer').innerHTML = chabadHouses.map(c => `
+            <div class="bg-white rounded-3xl overflow-hidden border border-amber-200/50 shadow-md hover:shadow-lg transition-all flex flex-col">
+                <div class="h-28 bg-cover bg-center" style="background-image: url('${c.img}');"></div>
+                <div class="p-4 flex flex-col justify-between flex-1">
+                    <div>
+                        <h3 class="font-extrabold text-teal-950 text-sm border-b border-amber-100 pb-1.5 mb-2 flex justify-between items-center">
+                            <span>🕍 ${c.name}</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">${c.desc}</p>
+                    </div>
+                    <div class="bg-amber-50/50 rounded-xl p-2.5 border border-amber-100">
+                        <p class="text-[10px] text-amber-950 leading-normal"><strong class="font-bold">טיפ:</strong> ${c.tip}</p>
+                        <div class="mt-2.5 flex justify-between items-center border-t border-amber-200/20 pt-1.5 text-[10px]">
+                            <span class="text-slate-400">טלפון:</span>
+                            <a href="tel:${c.contact.replace(/\s+/g, '')}" class="font-extrabold text-teal-700 hover:underline">${c.contact}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // 2. Parties
+        const parties = [
+            {
+                name: 'מסיבת הפול מון (Full Moon Party)',
+                location: 'קופנגן, חוף הד-רין',
+                desc: 'המסיבה הגדולה ביותר בעולם שנערכת בכל ירח מלא. עשרות אלפי תיירים רוקדים עם צבעים זוהרים.',
+                safety: 'נעלו נעליים סגורות למניעת זכוכיות, שתו רק מבקבוקים סגורים.',
+                img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'מסיבות חצי הירח (Half Moon Party)',
+                location: 'קופנגן, עמוק בג׳ונגל',
+                desc: 'פסטיבל מוזיקלי מעוצב ביותר בלב יער עם אומנים בינלאומיים ואווירה פסיכדלית מרשימה.',
+                safety: 'המסיבה מרוחקת מהחוף. תאמו מוניות רשמיות מראש.',
+                img: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'חיי לילה ברחוב קוסאן (Khao San Road)',
+                location: 'בנגקוק, שוקק חיים',
+                desc: 'מועדונים, דוכני אוכל רחוב ומוזיקה רועשת שיוצאת לרחוב הראשי. המקום הכי שמח לצעירים.',
+                safety: 'שמרו היטב על ארנקים וסלולרי בכיס קדמי - המקום עמוס.',
+                img: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=400&q=80'
+            }
+        ];
+
+        document.getElementById('partiesRecommendationsContainer').innerHTML = parties.map(p => `
+            <div class="bg-white rounded-3xl overflow-hidden border border-purple-200 shadow-md hover:shadow-lg transition-all flex flex-col">
+                <div class="h-28 bg-cover bg-center" style="background-image: url('${p.img}');"></div>
+                <div class="p-4 flex flex-col justify-between flex-1">
+                    <div>
+                        <h3 class="font-extrabold text-purple-950 text-sm border-b border-purple-100 pb-1.5 mb-1 flex justify-between items-center">
+                            <span>🎉 ${p.name}</span>
+                        </h3>
+                        <p class="text-[10px] text-purple-600 font-bold mb-2 flex items-center gap-1">
+                            <i class="fa-solid fa-location-dot"></i> מיקום: ${p.location}
+                        </p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">${p.desc}</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-2.5 border border-purple-100 text-[10px] text-purple-900 leading-normal">
+                        <strong class="font-bold text-rose-700 flex items-center gap-1 mb-0.5"><i class="fa-solid fa-circle-exclamation"></i> בטיחות:</strong>
+                        ${p.safety}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // 3. Attractions
+        const attractions = [
+            {
+                name: 'מפגש פילים אתי ותומך',
+                location: 'צ\'יאנג מאי / פוקט',
+                desc: 'ביקור בחוות שיקום בהן אסור לרכוב. מאכילים את הפילים, צועדים איתם ורוחצים בנהר.',
+                duration: 'חצי יום או יום שלם',
+                img: 'https://images.unsplash.com/photo-1585938338392-50a59970d8ee?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'טיול 4 האיים בסירת לונגטייל',
+                location: 'קראבי / פוקט',
+                desc: 'שייט מהפנט בין איי גיר מרהיבים, צלילה עם שנורקלים וביקור בחופים לבנים ומפרצים.',
+                duration: 'יום שלם (08:00 - 16:00)',
+                img: 'https://images.unsplash.com/photo-1528181304800-2f1908c97520?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                name: 'שוק סוף השבוע צ\'אטוצ\'אק',
+                location: 'בנגקוק',
+                desc: 'השוק הגדול ביותר בתאילנד עם מעל ל-15,000 דוכני בגדים, מזכרות, אוכל רחוב ומציאות.',
+                duration: 'פתוח בסופ"ש בלבד',
+                img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80'
+            }
+        ];
+
+        document.getElementById('attractionsRecommendationsContainer').innerHTML = attractions.map(a => `
+            <div class="bg-white rounded-3xl overflow-hidden border border-teal-200/50 shadow-md hover:shadow-lg transition-all flex flex-col">
+                <div class="h-28 bg-cover bg-center" style="background-image: url('${a.img}');"></div>
+                <div class="p-4 flex flex-col justify-between flex-1">
+                    <div>
+                        <h3 class="font-extrabold text-teal-950 text-sm border-b border-teal-100 pb-1.5 mb-2">
+                            🐘 ${a.name}
+                        </h3>
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">${a.desc}</p>
+                    </div>
+                    <div class="bg-teal-50/50 rounded-xl p-2 border border-teal-100/50 flex justify-between items-center text-[9px] text-slate-500">
+                        <span>📍 מיקום: <strong>${a.location}</strong></span>
+                        <span>⏱️ משך: <strong>${a.duration}</strong></span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // 4. Thai Dictionary Phrases
+        const phrases = [
+            { thai: 'Sawasdee-ka / krub', phon: 'סוואדי קה / קראפ', heb: 'שלום וברכה' },
+            { thai: 'Khop Khun Ka / krub', phon: 'קופ קון קה / קראפ', heb: 'תודה רבה' },
+            { thai: 'Mai Phet', phon: 'מאי פט', heb: 'לא חריף בכלל! 🌶️' },
+            { thai: 'Tao Rai?', phon: 'טאו ראי?', heb: 'כמה זה עולה?' },
+            { thai: 'Aroy Mak', phon: 'ארוי מאק', heb: 'טעים מאוד!' },
+            { thai: 'Check Bin Ka', phon: 'צ\'ק בין קה', heb: 'חשבון בבקשה' },
+            { thai: 'Hong nam yoo tee nai?', phon: 'הונג נאם יו טי נאי?', heb: 'איפה השירותים?' }
+        ];
+
+        document.getElementById('thaiPhrasesContainer').innerHTML = phrases.map(p => `
+            <div class="bg-white/80 rounded-2xl p-2.5 border border-amber-200/30 flex justify-between items-center gap-2">
+                <div>
+                    <span class="block text-xs text-amber-950 font-extrabold">${p.heb}</span>
+                    <span class="text-[10px] text-slate-400 font-bold block mt-0.5">${p.thai}</span>
+                </div>
+                <span class="bg-amber-100 text-amber-800 font-extrabold px-2 py-1 rounded-xl text-xs font-mono">
+                    "${p.phon}"
+                </span>
+            </div>
+        `).join('');
+    }
+
+    function startCountdownTimer() {
+        const dTile = document.getElementById('count-days');
+        const hTile = document.getElementById('count-hours');
+        const mTile = document.getElementById('count-minutes');
+        const sTile = document.getElementById('count-seconds');
+        const statusText = document.getElementById('countdownStatusText');
+
+        function update() {
+            const now = new Date();
+            const diff = DEPARTURE_DATE - now;
+
+            if (diff <= 0) {
+                if (now < RETURN_DATE) {
+                    statusText.innerHTML = "🏖️ יאללה בלאגן! אנחנו כרגע בתאילנד!";
+                } else {
+                    statusText.innerHTML = "✈️ הטיול הסתיים, מתחילים לתכנן את הבא!";
+                }
+                dTile.textContent = "00";
+                hTile.textContent = "00";
+                mTile.textContent = "00";
+                sTile.textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            dTile.textContent = String(days).padStart(2, '0');
+            hTile.textContent = String(hours).padStart(2, '0');
+            mTile.textContent = String(minutes).padStart(2, '0');
+            sTile.textContent = String(seconds).padStart(2, '0');
+
+            statusText.innerHTML = `🌟 עוד <strong>${days} ימים, ${hours} שעות ו-${minutes} דקות</strong> ממריאים לתאילנד!`;
+        }
+
+        update();
+        setInterval(update, 1000);
+    }
+
+    function switchTab(tabId) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(el => el.classList.add('hidden'));
+
+        document.getElementById(`content-${tabId}`).classList.remove('hidden');
+
+        const navButtons = document.querySelectorAll('#mainNavigation button');
+        navButtons.forEach(btn => {
+            btn.classList.remove('active-tab');
+            btn.classList.add('bg-white/60', 'text-slate-500', 'border-slate-100');
+        });
+
+        const activeBtn = document.getElementById(`tab-${tabId}`);
+        activeBtn.classList.add('active-tab');
+        activeBtn.classList.remove('bg-white/60', 'text-slate-500', 'border-slate-100');
+    }
+
+    window.switchTab = switchTab;
+    window.setActiveUser = setActiveUser;
+    window.toggleAllDays = toggleAllDays;
+    window.toggleDay = toggleDay;
+    window.handleNewActivity = handleNewActivity;
+    window.toggleLikeActivity = toggleLikeActivity;
+    window.addCommentToActivity = addCommentToActivity;
+    window.deleteActivity = deleteActivity;
+    window.handleNewExpense = handleNewExpense;
+    window.deleteExpense = deleteExpense;
+    window.toggleChecklistItem = toggleChecklistItem;
+    window.resetChecklist = resetChecklist;
+    window.convertCurrency = convertCurrency;
+    window.openUserModal = openUserModal;
+    window.closeUserModal = closeUserModal;
+    window.selectUserFromModal = selectUserFromModal;
+
+    function renderAll() {
+        renderActiveUserUI();
+        renderItinerary();
+        renderBudget();
+        renderChecklist();
+    }
+
+    window.onload = async function() {
+        loadInitialMockData();
+        loadLocalState();
+        renderAll();
+        
+        seedStaticRecommendations();
+        startCountdownTimer();
+        fetchLiveCurrencyRates();
+
+        await setupFirestoreSync();
+    };
+</script>
 </body>
 </html>
-
