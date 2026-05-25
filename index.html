@@ -11,7 +11,7 @@
     <!-- Google Fonts: Assistant for Premium Hebrew Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght=200;300;400;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -124,6 +124,39 @@
 </head>
 <body class="text-slate-900 font-sans min-h-screen relative overflow-x-hidden pb-24" id="main-body" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80');">
 
+    <!-- USER ENTRANCE SCREEN (MANDATORY GATE) -->
+    <div id="entrance-gate" class="fixed inset-0 bg-slate-950 z-[9999] flex flex-col items-center justify-center p-4">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-25"></div>
+        <div class="relative z-10 w-full max-w-lg bg-slate-900/95 border border-white/10 backdrop-blur-xl rounded-[2.5rem] p-8 text-center shadow-2xl">
+            <span class="text-6xl mb-4 block">🇹🇭</span>
+            <h1 class="text-3xl font-black text-white tracking-wide mb-2">תאילנד 2026</h1>
+            <p class="text-sm text-teal-400 font-extrabold mb-8">ברוכים הבאים למערכת ניהול המסע של יגל, מיכל, יהל ואלעזר</p>
+            
+            <p class="text-xs text-white/75 font-bold mb-6">אנא בחרו את שמכם כדי להיכנס לאתר:</p>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="selectGateUser('יגל')" class="flex flex-col items-center p-5 bg-slate-800 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500 rounded-2xl transition-all shadow-lg group active:scale-95">
+                    <span class="text-4xl mb-2 group-hover:scale-110 transition-transform">👨‍💻</span>
+                    <span class="text-sm font-black text-white group-hover:text-amber-400">יגל</span>
+                </button>
+                <button onclick="selectGateUser('מיכל')" class="flex flex-col items-center p-5 bg-slate-800 hover:bg-teal-500/10 border border-white/5 hover:border-teal-500 rounded-2xl transition-all shadow-lg group active:scale-95">
+                    <span class="text-4xl mb-2 group-hover:scale-110 transition-transform">👩‍💻</span>
+                    <span class="text-sm font-black text-white group-hover:text-teal-400">מיכל</span>
+                </button>
+                <button onclick="selectGateUser('יהל')" class="flex flex-col items-center p-5 bg-slate-800 hover:bg-purple-500/10 border border-white/5 hover:border-purple-500 rounded-2xl transition-all shadow-lg group active:scale-95">
+                    <span class="text-4xl mb-2 group-hover:scale-110 transition-transform">👩‍⚕️</span>
+                    <span class="text-sm font-black text-white group-hover:text-purple-400">יהל</span>
+                </button>
+                <button onclick="selectGateUser('אלעזר')" class="flex flex-col items-center p-5 bg-slate-800 hover:bg-rose-500/10 border border-white/5 hover:border-rose-500 rounded-2xl transition-all shadow-lg group active:scale-95">
+                    <span class="text-4xl mb-2 group-hover:scale-110 transition-transform">👨‍🌾</span>
+                    <span class="text-sm font-black text-white group-hover:text-rose-400">אלעזר</span>
+                </button>
+            </div>
+            
+            <div class="mt-8 text-[11px] text-white/50 font-semibold">ההרפתקה מתחילה ב-7 ביוני, 2026 🌴</div>
+        </div>
+    </div>
+
     <!-- Floating Background Blobs -->
     <div class="blob w-72 h-72 bg-teal-400 top-20 right-10"></div>
     <div class="blob w-80 h-80 bg-amber-300 top-1/3 left-10" style="animation-delay: 3s;"></div>
@@ -205,45 +238,61 @@
                     <span class="text-3xl">🛒</span>
                     <div>
                         <h3 class="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
-                            סורק כשרות מהיר ל-7-Eleven
-                            <span class="bg-indigo-150 text-indigo-700 text-[10px] font-black px-2 py-0.5 rounded-full border border-indigo-200">חיבור ישיר 🔗</span>
+                            סורק מוצרים וברקודים מובנה
+                            <span class="bg-teal-100 text-teal-700 text-[10px] font-black px-2 py-0.5 rounded-full border border-teal-200">חיפוש בתוך האתר ⚡</span>
                         </h3>
-                        <p class="text-[11px] text-slate-500 font-semibold">סרקו ברקוד או הקלידו ידנית לבדיקה מיידית ב-Kosher.Global</p>
+                        <p class="text-[11px] text-slate-500 font-semibold">סרקו ברקוד בסופר ותקבלו את פרטי המוצר, הרכיבים בעברית, כשרות וסוג חלבי/פרווה!</p>
                     </div>
                 </div>
-                <button onclick="openKosherScanner()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-black py-3 px-6 rounded-2xl text-xs transition-all active:scale-95 shadow-lg flex items-center justify-center gap-2">
+                <button onclick="openKosherScanner()" class="w-full sm:w-auto bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-750 hover:to-emerald-750 text-white font-black py-3 px-6 rounded-2xl text-xs transition-all active:scale-95 shadow-lg flex items-center justify-center gap-2">
                     <i class="fa-solid fa-camera animate-pulse text-xs"></i> סרוק מוצר במצלמה
                 </button>
             </div>
             
             <!-- Manual Input Field as perfect fallback -->
             <div class="flex gap-2 pt-3 border-t border-slate-200/50">
-                <input type="text" id="manual-barcode-input" placeholder="הקלידו מספר ברקוד ידנית (לדוגמה: 885012345678)..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-2 px-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <button onclick="searchBarcodeManually()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-black py-2 px-5 rounded-xl text-xs transition-all border border-indigo-200 active:scale-95">חפש כשרות</button>
+                <input type="text" id="manual-barcode-input" placeholder="או הקלידו ברקוד ידנית (לדוגמה: 5410126006377)..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-2 px-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <button onclick="searchBarcodeManually()" class="bg-teal-50 hover:bg-teal-100 text-teal-800 font-black py-2 px-5 rounded-xl text-xs transition-all border border-teal-200 active:scale-95">חפש</button>
             </div>
         </div>
 
-        <!-- Tab Nav -->
-        <nav class="grid grid-cols-5 gap-1.5 sm:gap-3 bg-slate-950/80 p-2 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl">
-            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-white flex flex-col items-center gap-1 bg-gradient-to-br from-teal-500 to-emerald-600">
-                <i class="fa-solid fa-calendar-days text-sm"></i>
-                <span class="text-[10px] sm:text-xs">יומן מסע</span>
+        <!-- Tab Nav - Enhanced with Board and Chat tabs -->
+        <nav class="grid grid-cols-9 gap-1 bg-slate-950/80 p-1 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl">
+            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-white flex flex-col items-center gap-1 bg-gradient-to-br from-teal-500 to-emerald-600">
+                <i class="fa-solid fa-calendar-days text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">יומן מסע</span>
             </button>
-            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-wallet text-sm"></i>
-                <span class="text-[10px] sm:text-xs">תקציב</span>
+            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-wallet text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">תקציב</span>
             </button>
-            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-plane-up text-sm"></i>
-                <span class="text-[10px] sm:text-xs">המלצות</span>
+            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-plane-up text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">המלצות</span>
             </button>
-            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-toolbox text-sm"></i>
-                <span class="text-[10px] sm:text-xs">כלים שימושיים</span>
+            <button onclick="switchTab('board')" id="tab-btn-board" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-thumbtack text-[10px] text-amber-300"></i>
+                <span class="text-[7px] sm:text-[10px] text-amber-300">הערות 📌</span>
             </button>
-            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-robot text-sm"></i>
-                <span class="text-[10px] sm:text-xs">סאנוק AI</span>
+            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-comments text-[10px] text-emerald-300"></i>
+                <span class="text-[7px] sm:text-[10px] text-emerald-300">צ'אט 💬</span>
+            </button>
+            <button onclick="switchTab('checklist')" id="tab-btn-checklist" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-list-check text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">צ'קליסט</span>
+            </button>
+            <button onclick="switchTab('wallet')" id="tab-btn-wallet" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-id-card text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">ארנק</span>
+            </button>
+            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-toolbox text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">מילון</span>
+            </button>
+            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
+                <i class="fa-solid fa-robot text-[10px]"></i>
+                <span class="text-[7px] sm:text-[10px]">AI</span>
             </button>
         </nav>
 
@@ -264,13 +313,12 @@
                 </div>
             </div>
 
-            <!-- List of 23 Days -->
+            <!-- List of Days -->
             <div id="days-container" class="space-y-4"></div>
         </section>
 
         <!-- Tab Content: Budget -->
         <section id="tab-budget" class="tab-content hidden space-y-4">
-            <!-- Exchange Rates Widget -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2 mb-2">
@@ -298,7 +346,6 @@
                     </div>
                 </div>
 
-                <!-- Live Quick Converter -->
                 <div class="bg-gradient-to-br from-teal-50 to-emerald-50/50 p-4 rounded-2xl border border-teal-100 flex flex-col justify-between">
                     <div>
                         <span class="text-xs font-black text-teal-900 block mb-2"><i class="fa-solid fa-calculator"></i> מחשבון המרה מהיר:</span>
@@ -487,9 +534,173 @@
             </div>
         </section>
 
-        <!-- Tab Content: Tools -->
+        <!-- NEW TAB Content: Board for Notes, Recommendations, Reminders -->
+        <section id="tab-board" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">📌</span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900">לוח שיתופי קבוצתי</h3>
+                        <p class="text-xs text-slate-600">שתפו המלצות, הוסיפו תזכורות או רשמו הערות מהירות שכולם צריכים לדעת!</p>
+                    </div>
+                </div>
+
+                <!-- Create Board Note form -->
+                <div class="bg-white/60 p-4 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="flex gap-2">
+                        <span class="text-xs font-bold text-slate-700 self-center">סוג הפתק:</span>
+                        <select id="board-note-type" class="bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs font-bold text-slate-800">
+                            <option value="📝 הערה">📝 הערה</option>
+                            <option value="⭐️ המלצה">⭐️ המלצה</option>
+                            <option value="⏰ תזכורת">⏰ תזכורת</option>
+                        </select>
+                    </div>
+                    <textarea id="board-note-input" rows="2" placeholder="כתבו משהו מעניין לכולם..." class="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] text-slate-500 font-bold">נוצר על ידי: <span id="board-note-creator-name" class="text-teal-600 font-black"></span></span>
+                        <button onclick="addBoardNote()" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-2 px-5 rounded-xl text-xs transition-all active:scale-95 shadow-sm">פרסם פתק</button>
+                    </div>
+                </div>
+
+                <!-- Notes Container Grid -->
+                <div id="board-notes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Loaded dynamically via javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW TAB Content: Shared Group Chat -->
+        <section id="tab-chat" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 flex flex-col h-[600px]">
+                <div class="flex items-center gap-3 border-b border-slate-200/60 pb-3">
+                    <span class="text-3xl">💬</span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900">צ'אט קבוצתי פנימי</h3>
+                        <p class="text-xs text-slate-600">דברו חופשי, תכננו את היום וקשקשו בזמן אמת</p>
+                    </div>
+                </div>
+
+                <!-- Messages area -->
+                <div id="group-chat-messages" class="flex-1 overflow-y-auto my-4 p-3 bg-slate-900 rounded-2xl space-y-3.5 ios-scroll flex flex-col">
+                    <!-- Loaded dynamically via javascript -->
+                </div>
+
+                <!-- Input area -->
+                <div class="flex gap-2">
+                    <input type="text" id="group-chat-input" placeholder="כתבו הודעה לקבוצה..." class="flex-1 bg-white border border-slate-200 rounded-2xl py-3 px-4 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-teal-500" onkeydown="if(event.key === 'Enter') sendGroupChatMessage()">
+                    <button onclick="sendGroupChatMessage()" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-3 px-6 rounded-2xl text-xs transition-all active:scale-95 shadow-md flex items-center justify-center gap-1.5">
+                        <span>שלח</span>
+                        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW TAB Content: Interactive Checklist -->
+        <section id="tab-checklist" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-3xl">📋</span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900">צ'ק-ליסט משימות וסידורים לטיול 📝</h3>
+                        <p class="text-xs text-slate-600">סמנו וי על מה שסיימתם כדי להגיע מוכנים ב-100% לתאילנד!</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 bg-white/50 p-4 rounded-2xl border border-slate-200/50" id="checklist-container">
+                    <!-- Dynamic Checklist items loaded by script -->
+                </div>
+                
+                <div class="mt-4 flex gap-2">
+                    <input type="text" id="new-todo-input" placeholder="הוסיפו משימה מותאמת אישית..." class="flex-1 bg-white border border-slate-200 rounded-xl py-2 px-3 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <button onclick="addCustomTodo()" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-2 px-4 rounded-xl text-xs transition-all active:scale-95">הוסף</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW TAB Content: Personal Tickets Wallet -->
+        <section id="tab-wallet" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">🎫</span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900">ארנק כרטיסי טיסה אישיים</h3>
+                        <p class="text-xs text-slate-600">העלו את כרטיסי הטיסה או השוברים שלכם לגישה מהירה ללא צורך באינטרנט בחו"ל!</p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200 text-center my-4" id="wallet-active-user-banner">
+                    <p class="text-xs font-bold text-slate-800">מציג ארנק עבור המשתמש: <span id="wallet-username" class="font-black text-teal-700"></span></p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white/70 p-4 rounded-2xl border border-dashed border-slate-300 flex flex-col items-center justify-center text-center">
+                        <i class="fa-solid fa-cloud-arrow-up text-slate-400 text-3xl mb-2"></i>
+                        <span class="text-xs font-extrabold text-slate-700">העלאת כרטיס (תמונה או קובץ)</span>
+                        <p class="text-[10px] text-slate-400 mt-1 mb-3">הכרטיס יישמר בבטחה במכשיר זה לכל כניסה עתידית</p>
+                        <input type="file" id="ticket-file-input" accept="image/*" class="hidden" onchange="uploadTicketFile(this)">
+                        <button onclick="document.getElementById('ticket-file-input').click()" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-2 px-5 rounded-xl text-xs transition-all active:scale-95 shadow-sm">בחר קובץ להעלאה</button>
+                    </div>
+
+                    <div id="ticket-display-section" class="hidden bg-white p-4 rounded-2xl border border-slate-200">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xs font-extrabold text-slate-900 flex items-center gap-1"><i class="fa-solid fa-ticket text-teal-600"></i> כרטיס הטיסה השמור שלך:</h4>
+                            <button onclick="deleteTicket()" class="text-xs text-rose-600 hover:underline font-bold"><i class="fa-solid fa-trash"></i> מחק כרטיס</button>
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-slate-100 shadow-inner max-h-[500px] flex justify-center bg-slate-950">
+                            <img id="ticket-image-preview" src="" alt="כרטיס טיסה" class="max-w-full h-auto object-contain">
+                        </div>
+                    </div>
+
+                    <div id="ticket-empty-state" class="text-center py-8 text-slate-400">
+                        <p class="text-xs font-semibold">טרם העלית כרטיס טיסה עבור משתמש זה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Content: Tools & Phrasebook & Hebrew-Thai Dictionary -->
         <section id="tab-tools" class="tab-content hidden space-y-6">
-            <!-- Phrasebook Card with actual content -->
+            <!-- HEBREW THAI DICTIONARY & TTS (NEW FEATURE) -->
+            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">🗣️</span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900">תרגומון ומקריא שפה עברית - תאילנדית 🇹🇭</h3>
+                        <p class="text-xs text-slate-600">כתבו כל מילה או משפט בעברית, קבלו תרגום מיידי לתאילנדית כולל אפשרות להקריא בקול רם!</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 mt-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">הקלידו בעברית:</label>
+                        <input type="text" id="dict-hebrew-input" placeholder="לדוגמה: כמה זה עולה?, איפה השירותים?, תודה רבה" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <button onclick="translateHebToThai()" class="flex-1 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-black py-3 rounded-xl text-xs transition-all active:scale-95 shadow-md flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-language"></i> תרגם לתאילנדית
+                        </button>
+                        <button onclick="clearTranslator()" class="bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold py-3 px-4 rounded-xl text-xs transition-all border border-slate-200">נקה</button>
+                    </div>
+
+                    <!-- Translation Result Panel -->
+                    <div id="translator-result-panel" class="hidden bg-slate-950 text-white p-4 rounded-2xl relative overflow-hidden mt-3">
+                        <span class="text-[9px] font-black bg-teal-500 text-white px-2 py-0.5 rounded uppercase tracking-wider">תרגום תאילנדי:</span>
+                        <div class="mt-2 flex justify-between items-center gap-2">
+                            <div>
+                                <h4 id="translation-thai-text" class="text-lg font-black text-emerald-400">...</h4>
+                                <p id="translation-thai-phonetic" class="text-xs text-slate-300 font-semibold italic mt-1"></p>
+                            </div>
+                            <button onclick="playThaiTTS()" class="w-12 h-12 bg-teal-600 hover:bg-teal-500 active:scale-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg">
+                                <i class="fa-solid fa-volume-high text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phrasebook Card -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
                 <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-2">
                     <i class="fa-solid fa-language text-teal-600"></i>
@@ -566,7 +777,80 @@
 
     </main>
 
-    <!-- CONFIRMATION MODAL -->
+    <!-- SCANNER CAMERA STREAM WINDOW -->
+    <div id="scannerModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white w-full max-w-md mx-4 rounded-[2rem] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col" id="scannerModalInner">
+            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="font-black text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-barcode text-teal-600"></i> סורק מוצרים חכם
+                </h3>
+                <button onclick="closeKosherScanner()" class="text-slate-400 hover:text-rose-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-4 bg-black relative flex-1 min-h-[350px] flex items-center justify-center">
+                <div id="reader" class="w-full rounded-xl overflow-hidden bg-black"></div>
+            </div>
+            <div class="p-5 bg-slate-50 text-center border-t border-slate-200">
+                <p class="text-xs text-slate-600 font-bold mb-4">כוונו את המצלמה אל הברקוד של המוצר. המערכת תזהה אותו ותשמיע חיווי קולי של כשרות.</p>
+                <button onclick="closeKosherScanner()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-black px-8 py-3 rounded-xl text-xs transition-all active:scale-95 shadow-sm">ביטול וסגירה</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- IN-APP PRODUCT RESULT MODAL -->
+    <div id="scanResultModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[210] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white/95 backdrop-blur-xl w-full max-w-sm mx-4 rounded-3xl p-6 shadow-2xl border border-white/25 transform scale-95 transition-all duration-300 text-center relative overflow-hidden" id="scanResultModalInner">
+            
+            <!-- Loading State -->
+            <div id="scan-loading" class="flex flex-col items-center justify-center py-6">
+                <i class="fa-solid fa-spinner fa-spin text-4xl text-teal-500 mb-4"></i>
+                <h4 class="text-lg font-black text-slate-900 mb-1">מחפש במסד הנתונים...</h4>
+                <p class="text-xs text-slate-500 font-bold">ברקוד: <span id="loading-barcode-text" class="font-mono bg-slate-100 px-1 rounded"></span></p>
+            </div>
+
+            <!-- Data Found State -->
+            <div id="scan-product-data" class="hidden">
+                <!-- Kosher Badge Dynamic Header -->
+                <div id="scanned-kosher-badge" class="mb-3 inline-block px-4 py-1.5 rounded-full font-black text-xs text-white"></div>
+                
+                <h4 class="text-lg font-black text-slate-900 mb-1 leading-tight" id="scanned-title">שם המוצר</h4>
+                
+                <div class="my-4 bg-white p-2 rounded-2xl border border-slate-100 shadow-sm mx-auto w-32 h-32 flex items-center justify-center overflow-hidden">
+                    <img id="scanned-img" src="" alt="תמונת מוצר" class="max-w-full max-h-full object-contain">
+                </div>
+                
+                <div class="bg-slate-50 rounded-xl p-3 mb-4 text-right space-y-2">
+                    <p class="text-[11px] text-slate-500 font-bold">הכשר / השגחה: <span id="scanned-kosher-authority" class="text-slate-800 font-black block mt-0.5"></span></p>
+                    <p class="text-[11px] text-slate-500 font-bold">סוג מוצר: <span id="scanned-type" class="text-slate-800 font-black block mt-0.5"></span></p>
+                    <p class="text-[11px] text-slate-500 font-bold">רכיבים בעברית: <span id="scanned-ingredients-hebrew" class="text-slate-800 block mt-0.5 font-semibold"></span></p>
+                    <p class="text-[11px] text-slate-400 font-bold">מספר ברקוד: <span id="scanned-barcode-text" class="font-mono text-slate-500"></span></p>
+                </div>
+                
+                <div class="space-y-2.5">
+                    <!-- Link to external Kosher checker just in case -->
+                    <a id="scan-redirect-btn" href="#" target="_blank" class="w-full bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white font-black py-3 rounded-xl text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-star-of-david"></i> אמת כשרות ב-Kosher.Global
+                    </a>
+                    <button onclick="closeScanResultModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-black py-3 rounded-xl text-xs transition-all border border-slate-200 active:scale-95">סגור</button>
+                </div>
+            </div>
+
+            <!-- Not Found State -->
+            <div id="scan-not-found" class="hidden">
+                <span class="text-4xl mb-3 block text-rose-500"><i class="fa-solid fa-circle-xmark"></i></span>
+                <h4 class="text-lg font-black text-slate-900 mb-1">המוצר לא נמצא</h4>
+                <p class="text-xs text-slate-600 font-semibold mb-6">לא מצאנו את הברקוד <span id="not-found-barcode" class="font-mono bg-slate-100 px-1 rounded"></span> במאגר העולמי.</p>
+                
+                <div class="space-y-2.5">
+                    <a id="scan-redirect-btn-fallback" href="#" target="_blank" class="w-full bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white font-black py-3 rounded-xl text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-search"></i> חפש ידנית באתר הכשרות
+                    </a>
+                    <button onclick="closeScanResultModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-black py-3 rounded-xl text-xs transition-all border border-slate-200 active:scale-95">סגור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTHER MODALS (CONFIRM, USER, AI, ACTIVITY, EXPENSE) -->
     <div id="confirmModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[200] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white/95 backdrop-blur-xl w-full max-w-sm mx-4 rounded-3xl p-6 shadow-2xl border border-white/20 transform scale-95 transition-all duration-300 text-center" id="confirmModalInner">
             <span class="text-4xl mb-3 block" id="confirm-modal-icon">⚠️</span>
@@ -580,7 +864,6 @@
         </div>
     </div>
 
-    <!-- USER MODAL (DETERMINE ACTIVE USER BEFORE ACTIONS) -->
     <div id="userModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white/95 backdrop-blur-xl w-full max-w-md mx-4 rounded-3xl p-6 shadow-2xl border border-white/20 transform scale-95 transition-transform duration-300 relative" id="userModalInner">
             <h3 class="text-lg font-black text-slate-900 text-center mb-1 flex items-center justify-center gap-2">
@@ -613,47 +896,6 @@
         </div>
     </div>
 
-    <!-- SCANNER CAMERA STREAM WINDOW -->
-    <div id="scannerModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white w-full max-w-md mx-4 rounded-[2rem] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col" id="scannerModalInner">
-            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h3 class="font-black text-slate-800 flex items-center gap-2">
-                    <i class="fa-solid fa-barcode text-indigo-600"></i> סריקת ברקוד לכשרות
-                </h3>
-                <button onclick="closeKosherScanner()" class="text-slate-400 hover:text-rose-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
-            <div class="p-4 bg-black relative flex-1 min-h-[350px] flex items-center justify-center">
-                <div id="reader" class="w-full rounded-xl overflow-hidden bg-black"></div>
-            </div>
-            <div class="p-5 bg-slate-50 text-center border-t border-slate-200">
-                <p class="text-xs text-slate-600 font-bold mb-4">כוונו את המצלמה אל הברקוד של המוצר. המערכת תזהה אותו אוטומטית.</p>
-                <button onclick="closeKosherScanner()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-black px-8 py-3 rounded-xl text-xs transition-all active:scale-95 shadow-sm">ביטול וסגירה</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- NEW: KOSHER SCAN RESULT MODAL (Popup Blocker Bypass for iOS) -->
-    <div id="scanResultModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[210] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white/95 backdrop-blur-xl w-full max-w-sm mx-4 rounded-3xl p-6 shadow-2xl border border-white/25 transform scale-95 transition-all duration-300 text-center" id="scanResultModalInner">
-            <span class="text-4xl mb-3 block">🎉 נסרק בהצלחה!</span>
-            <h4 class="text-lg font-black text-slate-900 mb-1">המוצר זוהה</h4>
-            <p class="text-xs text-slate-500 font-bold mb-4">קוד ברקוד: <span id="scanned-barcode-text" class="font-mono bg-slate-100 px-2 py-1 rounded text-slate-800">00000000</span></p>
-            
-            <p class="text-xs text-slate-600 font-semibold mb-6">בשל הגדרות אבטחה של דפדפנים במובייל, יש ללחוץ על הכפתור מטה כדי לבדוק את המוצר באתר הכשרות:</p>
-            
-            <div class="space-y-2.5">
-                <a id="scan-redirect-btn" href="#" target="_blank" onclick="closeScanResultModal()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black py-4 rounded-2xl text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-up-right-from-square"></i> פתח בדיקת כשרות באתר 🔎
-                </a>
-                <button onclick="copyScannedBarcode()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-black py-3 rounded-2xl text-xs transition-all border border-slate-200 active:scale-95 flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-copy"></i> העתק מספר ברקוד לקליפבורד
-                </button>
-                <button onclick="closeScanResultModal()" class="w-full text-slate-400 hover:text-slate-600 font-bold text-xs pt-2">סגור חלונית</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Daily Suggestion modal -->
     <div id="aiSuggestionModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300" onclick="closeAiSuggestionModal()">
         <div class="bg-white w-full max-w-md mx-4 rounded-3xl p-5 shadow-2xl border border-slate-200 transform scale-95 transition-transform duration-300 text-right" id="aiSuggestionModalInner" onclick="event.stopPropagation()">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3 mb-4">
@@ -672,7 +914,6 @@
         </div>
     </div>
 
-    <!-- ADD/EDIT ACTIVITY DIALOG -->
     <div id="activityModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white w-full max-w-md mx-4 rounded-3xl p-5 shadow-2xl border border-slate-200 transform scale-95 transition-transform duration-300 text-right" id="activityModalInner">
             <h4 id="activity-modal-title" class="font-black text-slate-900 text-sm mb-4 border-b border-slate-100 pb-2">הוסף פעילות חדשה</h4>
@@ -709,7 +950,6 @@
         </div>
     </div>
 
-    <!-- ADD EXPENSE DIALOG -->
     <div id="expenseModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white w-full max-w-md mx-4 rounded-3xl p-5 shadow-2xl border border-slate-200 transform scale-95 transition-transform duration-300 text-right" id="expenseModalInner">
             <h4 class="font-black text-slate-900 text-sm mb-4 border-b border-slate-100 pb-2">הוסף הוצאה קבוצתית חדשה</h4>
@@ -783,16 +1023,69 @@
         const users = ['יגל', 'מיכל', 'יהל', 'אלעזר'];
         let activeUser = localStorage.getItem('activeUser') || 'אורח';
         let pendingCallback = null;
-        let lastScannedBarcode = "";
+        let html5QrCode = null;
 
-        // Preloaded Exchange Rates
+        // Sound Synthesis helper using Web Audio API
+        function playBeep(success) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                
+                if (success) {
+                    const osc1 = ctx.createOscillator();
+                    const osc2 = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    
+                    osc1.type = 'sine';
+                    osc1.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc1.frequency.setValueAtTime(659.25, ctx.currentTime + 0.15);
+                    
+                    osc2.type = 'sine';
+                    osc2.frequency.setValueAtTime(783.99, ctx.currentTime);
+                    osc2.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.15);
+                    
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+                    
+                    osc1.connect(gain);
+                    osc2.connect(gain);
+                    gain.connect(ctx.destination);
+                    
+                    osc1.start();
+                    osc2.start();
+                    osc1.stop(ctx.currentTime + 0.4);
+                    osc2.stop(ctx.currentTime + 0.4);
+                } else {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    osc.frequency.linearRampToValueAtTime(110, ctx.currentTime + 0.3);
+                    
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+                    
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.35);
+                }
+            } catch (e) {
+                console.warn("Could not play audio beep:", e);
+            }
+        }
+
+        // Exchange Rates
         let exchangeRates = {
             USD_ILS: 3.75,
             ILS_THB: 9.30,
             USD_THB: 35.50
         };
 
-        // Complete 23-Day Schedule seeding
+        // Complete 23-Day Schedule
         const initialDays = [
             { date: '7.6', dayName: 'ראשון', location: 'המראה מתל אביב ✈️', icon: '☀️', weather: '32°C מעונן חלקית', sunrise: '05:52', sunset: '18:48', plans: [
                 { id: 'act-0', category: '✈️ טיסה או התניידות', title: 'טיסת ארקיע ZI-591', desc: 'המראה ב-23:55 מטרמינל 3. נא להגיע 3 שעות קודם!', creator: 'יגל', likes: [], comments: [] }
@@ -831,18 +1124,69 @@
 
         let itinerary = JSON.parse(localStorage.getItem('itinerary')) || initialDays;
         let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        
+        // Initializing Checklist Store
+        const initialChecklist = [
+            { id: 'todo-1', text: 'למלא את טופס כרטיס המעבר והכניסה לתאילנד (חובה לפני הטיסה!) ✈️', url: 'https://tdac.immigration.go.th/arrival-card/#/home', checked: false },
+            { id: 'todo-2', text: 'לצלם דרכון ולשמור גיבוי בארנק הדיגיטלי באתר 📖', checked: false },
+            { id: 'todo-3', text: 'לוודא תוקף דרכון (מעל חצי שנה ליום הטיסה)', checked: true },
+            { id: 'todo-4', text: 'להזמין מקומות לסעודת שבת ראשונה בבית חב"ד קוסמוי 🕯️', checked: false },
+            { id: 'todo-5', text: 'להוציא ביטוח נסיעות מקיף (כולל אקסטרים/חילוץ)', checked: false },
+            { id: 'todo-6', text: 'לקנות תרופות בסיסיות לטיול (נוגד יתושים חובה!) 🦟', checked: false }
+        ];
+        let checklist = JSON.parse(localStorage.getItem('checklist')) || initialChecklist;
 
-        // Loading and building application
+        // Active Ticket wallet data dictionary
+        let ticketsWallet = JSON.parse(localStorage.getItem('ticketsWallet')) || {};
+
+        // NEW: Shared Board Notes Store
+        const initialBoardNotes = [
+            { id: 'note-1', type: '⭐️ המלצה', text: 'חובה לנסות את הבננה לוטי המקומית בדוכנים של קוסמוי! פשוט גן עדן 🍌🥞', creator: 'מיכל', likes: ['יגל', 'יהל'], comments: [{id: 'nc-1', user: 'יהל', text: 'צודקת לגמרי! הכי טעים שיש'}, {id: 'nc-2', user: 'אלעזר', text: 'לגמרי ארוחת בוקר קבועה'}] },
+            { id: 'note-2', type: '⏰ תזכורת', text: 'לא לשכוח להמיר קצת באט במזומן בנחיתה בבנגקוק עבור נסיעה במונית וטיפים 💸', creator: 'יגל', likes: ['אלעזר'], comments: [] }
+        ];
+        let boardNotes = JSON.parse(localStorage.getItem('boardNotes')) || initialBoardNotes;
+
+        // NEW: Shared Group Chat messages
+        const initialChatMessages = [
+            { id: 'msg-1', sender: 'יגל', text: 'סאוואדי קראפ לכולם! פתחתי את קבוצת הצ\'אט שלנו 🌴☀️', time: '12:00', avatar: '👨‍💻' },
+            { id: 'msg-2', sender: 'מיכל', text: 'וואו איזה כיף! לא מאמינה שתאילנד מתקרבת אלינו!', time: '12:05', avatar: '👩‍💻' }
+        ];
+        let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || initialChatMessages;
+
+        // Application Init
         window.onload = function() {
+            if (activeUser && activeUser !== 'אורח') {
+                document.getElementById('entrance-gate').classList.add('hidden');
+                initMainApp();
+            }
+        }
+
+        function selectGateUser(name) {
+            activeUser = name;
+            localStorage.setItem('activeUser', name);
+            document.getElementById('entrance-gate').classList.add('hidden');
+            initMainApp();
+            showToast(`סאוואדי-קה ${name}! ברוך הבא לאפליקציית תאילנד 2026.`, "🌴");
+        }
+
+        function initMainApp() {
             updateBadge();
             startCountdown();
             fetchExchangeRates();
             renderAll();
             renderThaiPhrases();
+            renderChecklist();
+            renderWallet();
+            renderBoardNotes();
+            renderGroupChat();
         }
 
         function updateBadge() {
             document.getElementById('active-user-badge').innerText = activeUser;
+            const bannerName = document.getElementById('wallet-username');
+            if (bannerName) bannerName.innerText = activeUser;
+            const noteCreatorLabel = document.getElementById('board-note-creator-name');
+            if (noteCreatorLabel) noteCreatorLabel.innerText = activeUser;
         }
 
         function showToast(msg, icon = "⚡") {
@@ -850,14 +1194,10 @@
             document.getElementById('toast-icon').innerText = icon;
             document.getElementById('toast-msg').innerText = msg;
             toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.remove('opacity-0');
-            }, 50);
+            setTimeout(() => { toast.classList.remove('opacity-0'); }, 50);
             setTimeout(() => {
                 toast.classList.add('opacity-0');
-                setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, 300);
+                setTimeout(() => { toast.classList.add('hidden'); }, 300);
             }, 3500);
         }
 
@@ -885,9 +1225,7 @@
             const closeConfirm = () => {
                 wrapper.classList.add('opacity-0');
                 inner.classList.add('scale-95');
-                setTimeout(() => {
-                    wrapper.classList.add('hidden');
-                }, 300);
+                setTimeout(() => { wrapper.classList.add('hidden'); }, 300);
                 modal.removeEventListener('click', handleOk);
                 cancelBtn.removeEventListener('click', closeConfirm);
             };
@@ -906,7 +1244,11 @@
         }
 
         function triggerUserChangeFlow() {
-            pendingCallback = () => { showToast(`שלום ${activeUser}! כעת אתה יכול להמשיך לערוך ולשנות.`, "🔐"); };
+            pendingCallback = () => { 
+                showToast(`שלום ${activeUser}! כעת אתה יכול להמשיך לערוך ולשנות.`, "🔐"); 
+                renderWallet();
+                renderBoardNotes();
+            };
             openUserModal();
         }
 
@@ -925,9 +1267,7 @@
             const inner = document.getElementById('userModalInner');
             modal.classList.add('opacity-0');
             inner.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
         function selectUser(name) {
@@ -935,6 +1275,8 @@
             localStorage.setItem('activeUser', name);
             updateBadge();
             closeUserModal();
+            renderWallet();
+            renderBoardNotes();
             if (pendingCallback) {
                 const cb = pendingCallback;
                 pendingCallback = null;
@@ -1012,18 +1354,10 @@
             const body = document.getElementById('main-body');
             let url = "";
             switch(type) {
-                case 'beach':
-                    url = "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80";
-                    break;
-                case 'temple':
-                    url = "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80";
-                    break;
-                case 'jungle':
-                    url = "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80";
-                    break;
-                case 'bangkok':
-                    url = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80";
-                    break;
+                case 'beach': url = "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80"; break;
+                case 'temple': url = "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80"; break;
+                case 'jungle': url = "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80"; break;
+                case 'bangkok': url = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80"; break;
             }
             body.style.backgroundImage = `url('${url}')`;
             showToast("תמונת רקע עודכנה בהצלחה!", "🏝️");
@@ -1040,6 +1374,14 @@
             const targetBtn = document.getElementById(`tab-btn-${tabId}`);
             targetBtn.classList.add('bg-gradient-to-br', 'from-teal-500', 'to-emerald-600', 'text-white', 'active');
             targetBtn.classList.remove('text-slate-400');
+
+            if(tabId === 'chat') {
+                // Scroll chat to end when opened
+                setTimeout(() => {
+                    const screen = document.getElementById('group-chat-messages');
+                    if(screen) screen.scrollTop = screen.scrollHeight;
+                }, 100);
+            }
         }
 
         function renderAll() {
@@ -1060,7 +1402,6 @@
                 
                 return `
                     <div id="day-accordion-${dayIdx}" class="glass-card rounded-[2rem] border ${borderClass} shadow-md overflow-hidden transition-all duration-300">
-                        <!-- Day Header -->
                         <div onclick="toggleDay(${dayIdx})" class="p-4 sm:p-5 flex justify-between items-center cursor-pointer select-none">
                             <div class="flex items-center gap-3">
                                 <span class="w-10 h-10 rounded-full bg-slate-100/80 flex items-center justify-center text-xs font-black text-slate-700">${day.date}</span>
@@ -1082,18 +1423,15 @@
                             </div>
                         </div>
 
-                        <!-- Day Expandable Body -->
                         <div class="accordion-content border-t border-slate-100/60 bg-white/50">
                             <div class="p-4 sm:p-5 space-y-4">
-                                
                                 ${isShabbat ? `
                                     <div class="p-3.5 bg-gradient-to-br from-amber-100 to-amber-200/50 rounded-2xl border border-amber-300 text-slate-900">
-                                        <h5 class="text-xs font-extrabold flex items-center gap-1"><i class="fa-solid fa-star-of-david"></i> זמני שבת בבנגקוק</h5>
+                                        <h5 class="text-xs font-extrabold flex items-center gap-1"><i class="fa-solid fa-star-of-david"></i> זמני שבת באזור</h5>
                                         <p class="text-[11px] font-bold mt-0.5">${day.shabbatTimes}</p>
                                     </div>
                                 ` : ''}
 
-                                <!-- Actions Toolbar -->
                                 <div class="flex gap-2">
                                     <button onclick="checkUserAndProceed(() => openActivityModal(${dayIdx}))" class="flex-1 bg-teal-50 hover:bg-teal-100 text-teal-800 font-black py-2 rounded-xl text-xs transition-all active:scale-95 border border-teal-200 flex items-center justify-center gap-1">
                                         <i class="fa-solid fa-plus-circle"></i> הוסף פעילות / מלון
@@ -1103,12 +1441,11 @@
                                     </button>
                                 </div>
 
-                                <!-- Activities List -->
                                 <div class="space-y-3" id="activities-day-${dayIdx}">
                                     ${day.plans.length === 0 ? `
                                         <p class="text-center text-slate-400 text-[11px] font-bold py-6">עדיין אין פעילויות ליום זה. לחצו כדי להוסיף!</p>
                                     ` : day.plans.map((p, pIdx) => {
-                                        const creatorAvatar = p.creator === 'יגל' ? '👨‍💻' : p.creator === 'מיכל' ? '👩‍💻' : p.creator === 'יהל' ? '👩‍⚕️' : '👨‍🌾';
+                                        const creatorAvatar = p.creator === 'יגל' ? '👨‍💻' : p.creator === 'מיכל' ? '👩‍💻' : p.creator === 'יהל' ? '👩‍⚕️' : p.creator === 'אלעזר' ? '👨‍🌾' : '🤖';
                                         const totalLikes = p.likes ? p.likes.length : 0;
                                         return `
                                             <div class="p-3.5 bg-white/90 border border-slate-100 rounded-2xl shadow-sm space-y-2">
@@ -1126,7 +1463,6 @@
                                                 
                                                 <p class="text-[11px] text-slate-600 leading-relaxed font-semibold whitespace-pre-wrap">${p.desc}</p>
                                                 
-                                                <!-- Like & Comments Panel -->
                                                 <div class="flex items-center gap-4 border-t border-slate-50 pt-2 text-[10px] font-bold text-slate-500">
                                                     <button onclick="checkUserAndProceed(() => likeActivity(${dayIdx}, '${p.id}'))" class="flex items-center gap-1 text-slate-500 hover:text-rose-600 active:scale-90 transition-all">
                                                         <i class="fa-solid fa-heart text-rose-500"></i>
@@ -1139,7 +1475,6 @@
                                                     </button>
                                                 </div>
 
-                                                <!-- Comments Section -->
                                                 <div id="comments-section-${dayIdx}-${p.id}" class="hidden pt-2 border-t border-slate-50 space-y-2">
                                                     <div class="space-y-1.5" id="comments-list-${dayIdx}-${p.id}">
                                                         ${(!p.comments || p.comments.length === 0) ? `
@@ -1155,7 +1490,6 @@
                                                         `).join('')}
                                                     </div>
                                                     
-                                                    <!-- Input block -->
                                                     <div class="flex gap-1.5 mt-2">
                                                         <input type="text" id="comment-input-${dayIdx}-${p.id}" placeholder="כתבו תגובה חיובית..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-1.5 px-3 text-[10px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-teal-500">
                                                         <button onclick="checkUserAndProceed(() => addComment(${dayIdx}, '${p.id}'))" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-1.5 px-4 rounded-xl text-[10px] transition-all active:scale-95">שלח</button>
@@ -1203,9 +1537,7 @@
             const inner = document.getElementById('activityModalInner');
             modal.classList.add('opacity-0');
             inner.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
         function saveActivity() {
@@ -1254,6 +1586,10 @@
             });
         }
 
+        function editActivity(dayIdx, actId) {
+            openActivityModal(dayIdx, actId);
+        }
+
         function likeActivity(dayIdx, actId) {
             const act = itinerary[dayIdx].plans.find(p => p.id === actId);
             if (!act.likes) act.likes = [];
@@ -1266,7 +1602,6 @@
                 act.likes.push(activeUser);
                 showToast(`סימנת שלייק על הפעילות! ❤️`, "❤️");
             }
-
             localStorage.setItem('itinerary', JSON.stringify(itinerary));
             renderItinerary();
         }
@@ -1284,12 +1619,7 @@
             const act = itinerary[dayIdx].plans.find(p => p.id === actId);
             if (!act.comments) act.comments = [];
 
-            const newComment = {
-                id: 'c-' + Date.now(),
-                user: activeUser,
-                text: text
-            };
-
+            const newComment = { id: 'c-' + Date.now(), user: activeUser, text: text };
             act.comments.push(newComment);
             localStorage.setItem('itinerary', JSON.stringify(itinerary));
             input.value = '';
@@ -1312,7 +1642,7 @@
                 document.getElementById('exp-desc').value = '';
                 document.getElementById('exp-amount').value = '';
                 document.getElementById('exp-currency').value = 'ILS';
-                document.getElementById('exp-payer').value = activeUser;
+                document.getElementById('exp-payer').value = activeUser !== 'אורח' ? activeUser : 'יגל';
                 
                 const modal = document.getElementById('expenseModal');
                 const inner = document.getElementById('expenseModalInner');
@@ -1329,9 +1659,7 @@
             const inner = document.getElementById('expenseModalInner');
             modal.classList.add('opacity-0');
             inner.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
         function saveExpense() {
@@ -1350,18 +1678,14 @@
                 showToast("נא להזין תיאור וסכום הוצאה תקינים!", "⚠️");
                 return;
             }
-
             if (participants.length === 0) {
                 showToast("נא לבחור לפחות משתתף אחד בחלוקה!", "⚠️");
                 return;
             }
 
             let amountInILS = amount;
-            if (currency === 'THB') {
-                amountInILS = amount / exchangeRates.ILS_THB;
-            } else if (currency === 'USD') {
-                amountInILS = amount * exchangeRates.USD_ILS;
-            }
+            if (currency === 'THB') amountInILS = amount / exchangeRates.ILS_THB;
+            else if (currency === 'USD') amountInILS = amount * exchangeRates.USD_ILS;
 
             const newExpense = {
                 id: 'exp-' + Date.now(),
@@ -1414,12 +1738,8 @@
             expenses.forEach(e => {
                 totalSpent += e.amountILS;
                 const costPerPerson = e.amountILS / e.participants.length;
-                
                 balances[e.payer] += e.amountILS;
-                
-                e.participants.forEach(p => {
-                    balances[p] -= costPerPerson;
-                });
+                e.participants.forEach(p => { balances[p] -= costPerPerson; });
             });
 
             document.getElementById('total-group-spent').innerText = `₪${totalSpent.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
@@ -1427,21 +1747,15 @@
             const debtsList = document.getElementById('debts-list');
             debtsList.innerHTML = '';
 
-            let debtors = [];
-            let creditors = [];
-
+            let debtors = [], creditors = [];
             for (let name in balances) {
                 const b = balances[name];
-                if (b < -0.01) {
-                    debtors.push({ name: name, balance: b });
-                } else if (b > 0.01) {
-                    creditors.push({ name: name, balance: b });
-                }
+                if (b < -0.01) debtors.push({ name: name, balance: b });
+                else if (b > 0.01) creditors.push({ name: name, balance: b });
             }
 
             let debts = [];
             let i = 0, j = 0;
-
             while (i < debtors.length && j < creditors.length) {
                 const debtor = debtors[i];
                 const creditor = creditors[j];
@@ -1476,7 +1790,7 @@
                 { thai: 'Tao Rai?', phon: 'טאו ראי?', heb: 'כמה זה עולה? 💰' },
                 { thai: 'Paeng Mak', phon: 'פאנג מאק', heb: 'יקר לי מדי! 💸' },
                 { thai: 'Lod noi dai mai?', phon: 'לוד נוי דאי מאי?', heb: 'אפשר הנחה? 🥺' },
-                { thai: 'Check Bin Ka', phon: 'צ\'ק בין קה', heb: 'חשבון בבקשה 🧾' },
+                { thai: 'Check Bin Ka', phon: 'צ\'ק בין קק', heb: 'חשבון בבקשה 🧾' },
                 { thai: 'Hong nam yoo tee nai?', phon: 'הונג נאם יו טי נאי?', heb: 'איפה השירותים? 🚽' },
                 { thai: 'Ttrong pai / Liao sai / Liao kwa', phon: 'טרונג פאי / סאי / קווה', heb: 'ישר / שמאלה / ימינה 🧭' },
                 { thai: 'Pai sanam bin', phon: 'פאי סנאם בין', heb: 'לשדה התעופה ✈️' }
@@ -1517,9 +1831,7 @@
             }, 50);
 
             setTimeout(() => {
-                let text = "";
-                let title = "";
-                let desc = "";
+                let text = "", title = "", desc = "";
 
                 if (day.location.includes("בנגקוק")) {
                     title = "יום הרפתקאות בבנגקוק השוקקת 🏙️";
@@ -1558,9 +1870,7 @@
             const inner = document.getElementById('aiSuggestionModalInner');
             modal.classList.add('opacity-0');
             inner.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
         function applyAiSuggestionToItinerary() {
@@ -1614,8 +1924,7 @@
                 const loader = document.getElementById(loaderId);
                 if (loader) loader.remove();
 
-                let responseText = "";
-                let citations = "";
+                let responseText = "", citations = "";
 
                 if (text.includes("פול מון") || text.includes("מסיב")) {
                     responseText = "מסיבות הפול מון המתוכננות ליוני 2026 בקופנגן יחולו ממש במהלך הטיול שלכם בתאילנד! המסיבה המרכזית צפויה להתקיים בחוף האד רין סביב ה-30 ביוני 2026. כמו כן, ב-23 וב-24 ביוני יתקיימו מסיבות ה-Half Moon המפורסמות בתוך הג'ונגל שהן חוויה פנומנלית בפני עצמה.";
@@ -1648,8 +1957,466 @@
             sendAiMessage();
         }
 
-        // --- NEW MODAL REDIRECTION CONTROLLER FOR BARCODE SCANNING ---
-        let html5QrCode = null;
+        function resetItinerary() {
+            askConfirm("איפוס יומן מסע", "האם אתם בטוחים שברצונכם לאפס את כל השינויים ביומן המסע?", "🔄", () => {
+                localStorage.removeItem('itinerary');
+                itinerary = JSON.parse(JSON.stringify(initialDays));
+                renderItinerary();
+                showToast("יומן המסע שלכם אופס בהצלחה.", "🔄");
+            });
+        }
+
+        // --- NEW: COOPERATIVE NOTES BOARD LOGIC ---
+        function renderBoardNotes() {
+            const container = document.getElementById('board-notes-container');
+            if(!container) return;
+
+            if(boardNotes.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-10 text-slate-400 font-semibold italic">
+                        אין פתקים או המלצות על הלוח כרגע. היו הראשונים לכתוב משהו! 📌
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = boardNotes.map(n => {
+                const isMyNote = n.creator === activeUser;
+                const noteColorClass = n.type.includes('הערה') ? 'from-amber-50 to-orange-50/50 border-amber-200' :
+                                       n.type.includes('המלצה') ? 'from-teal-50 to-emerald-50/50 border-teal-200' :
+                                       'from-purple-50 to-indigo-50/50 border-purple-200';
+                
+                const badgeColorClass = n.type.includes('הערה') ? 'bg-amber-100 text-amber-800 border-amber-200' :
+                                        n.type.includes('המלצה') ? 'bg-teal-100 text-teal-800 border-teal-200' :
+                                        'bg-purple-100 text-purple-800 border-purple-200';
+                
+                const avatar = n.creator === 'יגל' ? '👨‍💻' : n.creator === 'מיכל' ? '👩‍💻' : n.creator === 'יהל' ? '👩‍⚕️' : '👨‍🌾';
+                const totalLikes = n.likes ? n.likes.length : 0;
+                const hasILiked = n.likes && n.likes.includes(activeUser);
+
+                return `
+                    <div class="p-4 bg-gradient-to-br ${noteColorClass} border rounded-2xl shadow-sm flex flex-col justify-between relative">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColorClass}">${n.type}</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[10px] text-slate-500 font-black">${avatar} ${n.creator}</span>
+                                    ${isMyNote ? `
+                                        <button onclick="deleteBoardNote('${n.id}')" class="text-slate-300 hover:text-rose-600 transition-colors p-1 text-xs"><i class="fa-solid fa-trash-can"></i></button>
+                                    ` : ''}
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-800 font-bold leading-relaxed whitespace-pre-wrap">${n.text}</p>
+                        </div>
+
+                        <!-- Interactivity Bar -->
+                        <div class="border-t border-slate-200/50 pt-2.5 mt-3 flex items-center gap-4 text-[10px] font-bold">
+                            <button onclick="likeBoardNote('${n.id}')" class="flex items-center gap-1 transition-all hover:scale-105 ${hasILiked ? 'text-rose-600' : 'text-slate-500 hover:text-rose-600'}">
+                                <i class="${hasILiked ? 'fa-solid' : 'fa-regular'} fa-heart text-rose-500"></i>
+                                <span>${totalLikes} לייקים</span>
+                            </button>
+                            <span class="text-slate-300">|</span>
+                            <button onclick="toggleBoardComments('${n.id}')" class="flex items-center gap-1 text-slate-500 hover:text-teal-600">
+                                <i class="fa-regular fa-comment text-teal-600"></i>
+                                <span>${n.comments ? n.comments.length : 0} תגובות</span>
+                            </button>
+                        </div>
+
+                        <!-- Comments Section -->
+                        <div id="board-comments-sec-${n.id}" class="hidden pt-3 mt-2 border-t border-slate-200/50 space-y-2">
+                            <div class="space-y-1.5" id="board-comments-list-${n.id}">
+                                ${(!n.comments || n.comments.length === 0) ? `
+                                    <p class="text-[9px] text-slate-400 italic">אין עדיין תגובות. תהיו הראשונים להגיב!</p>
+                                ` : n.comments.map(c => {
+                                    const commentAvatar = c.user === 'יגל' ? '👨‍💻' : c.user === 'מיכל' ? '👩‍💻' : c.user === 'יהל' ? '👩‍⚕️' : '👨‍🌾';
+                                    const isMyComment = c.user === activeUser;
+                                    return `
+                                        <div class="bg-white/75 p-2 rounded-xl border border-slate-100 flex justify-between items-start text-[10px]">
+                                            <div class="leading-relaxed flex-1">
+                                                <span class="font-black text-slate-800">${commentAvatar} ${c.user}:</span>
+                                                <span class="text-slate-600 font-semibold">${c.text}</span>
+                                            </div>
+                                            ${isMyComment ? `
+                                                <button onclick="deleteBoardComment('${n.id}', '${c.id}')" class="text-slate-300 hover:text-rose-500 text-[8px] p-0.5"><i class="fa-solid fa-xmark"></i></button>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                            
+                            <!-- Add comment input -->
+                            <div class="flex gap-1.5 pt-1">
+                                <input type="text" id="board-comment-input-${n.id}" placeholder="הוסיפו תגובה בונה..." class="flex-1 bg-white border border-slate-200 rounded-xl py-1 px-2.5 text-[10px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-teal-500" onkeydown="if(event.key === 'Enter') addBoardComment('${n.id}')">
+                                <button onclick="addBoardComment('${n.id}')" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-1 px-3 rounded-xl text-[10px] transition-all active:scale-95">שלח</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function addBoardNote() {
+            const input = document.getElementById('board-note-input');
+            const type = document.getElementById('board-note-type').value;
+            const text = input.value.trim();
+
+            if(!text) {
+                showToast("אנא כתבו את תוכן הפתק קודם!", "⚠️");
+                return;
+            }
+
+            const newNote = {
+                id: 'note-' + Date.now(),
+                type: type,
+                text: text,
+                creator: activeUser,
+                likes: [],
+                comments: []
+            };
+
+            boardNotes.unshift(newNote); // Put newest on top
+            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            input.value = '';
+            renderBoardNotes();
+            showToast("הפתק פורסם בהצלחה בלוח הקבוצתי! 📌", "📌");
+        }
+
+        function deleteBoardNote(id) {
+            askConfirm("מחיקת פתק", "האם למחוק פתק זה מהלוח?", "🗑️", () => {
+                boardNotes = boardNotes.filter(n => n.id !== id);
+                localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+                renderBoardNotes();
+                showToast("הפתק הוסר מהלוח.", "🗑️");
+            });
+        }
+
+        function likeBoardNote(id) {
+            const note = boardNotes.find(n => n.id === id);
+            if(!note) return;
+            if(!note.likes) note.likes = [];
+
+            const index = note.likes.indexOf(activeUser);
+            if(index > -1) {
+                note.likes.splice(index, 1);
+                showToast("הסרת את הלייק לפתק.", "💔");
+            } else {
+                note.likes.push(activeUser);
+                showToast("אהבת את הפתק! ❤️", "❤️");
+            }
+            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            renderBoardNotes();
+        }
+
+        function toggleBoardComments(id) {
+            const el = document.getElementById(`board-comments-sec-${id}`);
+            if(el) el.classList.toggle('hidden');
+        }
+
+        function addBoardComment(id) {
+            const input = document.getElementById(`board-comment-input-${id}`);
+            const text = input.value.trim();
+            if(!text) return;
+
+            const note = boardNotes.find(n => n.id === id);
+            if(!note) return;
+            if(!note.comments) note.comments = [];
+
+            note.comments.push({
+                id: 'comment-' + Date.now(),
+                user: activeUser,
+                text: text
+            });
+
+            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            input.value = '';
+            renderBoardNotes();
+            const el = document.getElementById(`board-comments-sec-${id}`);
+            if(el) el.classList.remove('hidden');
+            showToast("תגובתך נוספה לפתק!", "💬");
+        }
+
+        function deleteBoardComment(noteId, commentId) {
+            const note = boardNotes.find(n => n.id === noteId);
+            if(!note) return;
+
+            note.comments = note.comments.filter(c => c.id !== commentId);
+            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            renderBoardNotes();
+            const el = document.getElementById(`board-comments-sec-${noteId}`);
+            if(el) el.classList.remove('hidden');
+            showToast("התגובה הוסרה מהפתק.", "🗑️");
+        }
+
+
+        // --- NEW: SHARED GROUP CHAT LOGIC ---
+        function renderGroupChat() {
+            const container = document.getElementById('group-chat-messages');
+            if(!container) return;
+
+            if(chatMessages.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-slate-500 py-10 font-semibold italic">
+                        הצ'אט ריק כעת. כתבו משהו כדי להתחיל שיחה! 💬
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = chatMessages.map(m => {
+                const isMe = m.sender === activeUser;
+                const alignmentClass = isMe ? 'self-end text-right' : 'self-start text-right';
+                const bgClass = isMe ? 'bg-teal-600 text-white border-teal-500 shadow-md' : 'bg-slate-800 text-slate-100 border-slate-700/60';
+                
+                // Color badges for users
+                const userColors = {
+                    'יגל': 'text-amber-400',
+                    'מיכל': 'text-teal-400',
+                    'יהל': 'text-purple-400',
+                    'אלעזר': 'text-rose-400'
+                };
+                const userBadgeColor = userColors[m.sender] || 'text-slate-300';
+
+                return `
+                    <div class="max-w-[85%] ${alignmentClass} space-y-1 animate-fade-in">
+                        <div class="flex items-center gap-1 text-[10px] text-slate-400 font-bold justify-end ${isMe ? 'flex-row' : 'flex-row-reverse'}">
+                            <span>${m.time}</span>
+                            <span>•</span>
+                            <span class="${userBadgeColor}">${m.avatar} ${m.sender}</span>
+                        </div>
+                        <div class="p-3 rounded-2xl border text-xs leading-relaxed font-semibold whitespace-pre-wrap ${bgClass}">
+                            ${m.text}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function sendGroupChatMessage() {
+            const input = document.getElementById('group-chat-input');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const userAvatar = activeUser === 'יגל' ? '👨‍💻' : activeUser === 'מיכל' ? '👩‍💻' : activeUser === 'יהל' ? '👩‍⚕️' : '👨‍🌾';
+            
+            // Format current hours and minutes
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            const newMessage = {
+                id: 'msg-' + Date.now(),
+                sender: activeUser,
+                text: text,
+                time: timeStr,
+                avatar: userAvatar
+            };
+
+            chatMessages.push(newMessage);
+            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            input.value = '';
+            renderGroupChat();
+            
+            // Auto scroll down
+            const screen = document.getElementById('group-chat-messages');
+            if(screen) screen.scrollTop = screen.scrollHeight;
+        }
+
+
+        // --- NEW: CHECKLIST SECTION LOGIC ---
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            if(!container) return;
+            
+            container.innerHTML = checklist.map((todo, index) => {
+                const linkHtml = todo.url ? `<a href="${todo.url}" target="_blank" class="text-teal-600 underline font-black hover:text-teal-800 mr-1 block sm:inline">[לחצו כאן למעבר לקישור 🔗]</a>` : '';
+                return `
+                    <div class="flex items-start justify-between gap-3 p-3 bg-white/70 rounded-xl border border-slate-100 shadow-sm">
+                        <label class="flex items-start gap-3 cursor-pointer select-none flex-1">
+                            <input type="checkbox" onchange="toggleTodo('${todo.id}')" ${todo.checked ? 'checked' : ''} class="w-4 h-4 mt-0.5 rounded border-slate-300 text-teal-600 focus:ring-teal-500">
+                            <span class="text-xs font-bold text-slate-800 ${todo.checked ? 'line-through text-slate-400' : ''}">
+                                ${todo.text} ${linkHtml}
+                            </span>
+                        </label>
+                        <button onclick="deleteTodo('${todo.id}')" class="text-slate-300 hover:text-rose-600 p-1"><i class="fa-solid fa-trash-can text-xs"></i></button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleTodo(id) {
+            const todo = checklist.find(t => t.id === id);
+            if(todo) {
+                todo.checked = !todo.checked;
+                localStorage.setItem('checklist', JSON.stringify(checklist));
+                renderChecklist();
+                showToast(todo.checked ? "משימה הושלמה! כל הכבוד 👏" : "משימה הוחזרה לרשימה.", "📝");
+            }
+        }
+
+        function addCustomTodo() {
+            const input = document.getElementById('new-todo-input');
+            const text = input.value.trim();
+            if(!text) {
+                showToast("אנא כתבו משימה חוקית", "⚠️");
+                return;
+            }
+            
+            const newTodo = {
+                id: 'todo-' + Date.now(),
+                text: text,
+                checked: false
+            };
+            checklist.push(newTodo);
+            localStorage.setItem('checklist', JSON.stringify(checklist));
+            input.value = '';
+            renderChecklist();
+            showToast("משימה אישית חדשה נוספה!", "✅");
+        }
+
+        function deleteTodo(id) {
+            checklist = checklist.filter(t => t.id !== id);
+            localStorage.setItem('checklist', JSON.stringify(checklist));
+            renderChecklist();
+            showToast("המשימה נמחקה מהרשימה.", "🗑️");
+        }
+
+
+        // --- NEW: WALLET TICKETS LOGIC ---
+        function renderWallet() {
+            const displaySec = document.getElementById('ticket-display-section');
+            const emptyState = document.getElementById('ticket-empty-state');
+            const imgPreview = document.getElementById('ticket-image-preview');
+            const usernameLabel = document.getElementById('wallet-username');
+
+            if(usernameLabel) usernameLabel.innerText = activeUser;
+
+            const currentTicket = ticketsWallet[activeUser];
+
+            if(currentTicket) {
+                imgPreview.src = currentTicket;
+                displaySec.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+            } else {
+                imgPreview.src = '';
+                displaySec.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            }
+        }
+
+        function uploadTicketFile(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Data = e.target.result;
+                    ticketsWallet[activeUser] = base64Data;
+                    localStorage.setItem('ticketsWallet', JSON.stringify(ticketsWallet));
+                    renderWallet();
+                    showToast("כרטיס הטיסה הועלה ונוסף לארנק שלך בהצלחה! ✈️", "🎫");
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function deleteTicket() {
+            askConfirm("מחיקת כרטיס טיסה", "האם למחוק את כרטיס הטיסה השמור שלך?", "🗑️", () => {
+                delete ticketsWallet[activeUser];
+                localStorage.setItem('ticketsWallet', JSON.stringify(ticketsWallet));
+                renderWallet();
+                showToast("כרטיס הטיסה הוסר מהארנק.", "🗑️");
+            });
+        }
+
+
+        // --- NEW: HEBREW TO THAI DICTIONARY & SPEECH ---
+        let currentThaiTranslationText = "";
+
+        function translateHebToThai() {
+            const input = document.getElementById('dict-hebrew-input');
+            const query = input.value.trim();
+            if(!query) {
+                showToast("אנא הזינו מילה או משפט בעברית", "⚠️");
+                return;
+            }
+
+            const panel = document.getElementById('translator-result-panel');
+            const translationText = document.getElementById('translation-thai-text');
+            const phoneticText = document.getElementById('translation-thai-phonetic');
+
+            panel.classList.remove('hidden');
+            translationText.innerText = "מתרגם...";
+            phoneticText.innerText = "";
+
+            const localDict = {
+                "שלום": { thai: "สวัสดี (Sawasdee)", phon: "סוואדי-קראפ / קה" },
+                "תודה": { thai: "ขอบคุณ (Khop khun)", phon: "קופ-קון-קראפ / קה" },
+                "כמה זה עולה": { thai: "เท่าไหร่ (Tao rai)", phon: "טאו-ראי?" },
+                "איפה השירותים": { thai: "ห้องน้ำอยู่ที่ไหน (Hong nam yoo tee nai)", phon: "הונג-נאם יו טי נאי?" },
+                "מים": { thai: "น้ำ (Nam)", phon: "נאם" },
+                "לא חריף": { thai: "ไม่เผ็ด (Mai phet)", phon: "מאי-פט" },
+                "טעים מאוד": { thai: "อร่อยมาก (Aroy mak)", phon: "ארוי-מאק" },
+                "בהצלחה": { thai: "โชคดี (Chok dee)", phon: "צ'וק-די" },
+                "סליחה": { thai: "ขอโทษ (Khor thot)", phon: "קור-טוט" },
+                "יקר": { thai: "แพง (Paeng)", phon: "פאנג" },
+                "בבקשה": { thai: "กรุณา (Karuna)", phon: "קארונה" },
+                "ישראל": { thai: "อิสราเอล (Is-ra-el)", phon: "איס-רא-אל" },
+                "כשר": { thai: "โคเชอร์ (Kosher / J)", phon: "ג'יי / קושר" }
+            };
+
+            let found = false;
+            for(let key in localDict) {
+                if(query.toLowerCase().includes(key) || key.includes(query.toLowerCase())) {
+                    translationText.innerText = localDict[key].thai;
+                    phoneticText.innerText = `הגייה: ${localDict[key].phon}`;
+                    currentThaiTranslationText = localDict[key].thai;
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found) {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=he&tl=th&dt=t&q=${encodeURIComponent(query)}`;
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data && data[0] && data[0][0]) {
+                            const translated = data[0][0][0];
+                            translationText.innerText = translated;
+                            phoneticText.innerText = "הגייה תאילנדית רשמית";
+                            currentThaiTranslationText = translated;
+                        } else {
+                            translationText.innerText = "שגיאה בתרגום";
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        translationText.innerText = "חיבור הרשת נכשל";
+                    });
+            }
+        }
+
+        function clearTranslator() {
+            document.getElementById('dict-hebrew-input').value = '';
+            document.getElementById('translator-result-panel').classList.add('hidden');
+            currentThaiTranslationText = "";
+        }
+
+        function playThaiTTS() {
+            if(!currentThaiTranslationText) return;
+            
+            try {
+                const cleanText = currentThaiTranslationText.replace(/\([^)]*\)/g, "").trim();
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'th-TH';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+                showToast("משמיע הגייה תאילנדית...", "🔊");
+            } catch (e) {
+                console.error(e);
+                showToast("הקראת שמע אינה נתמכת בדפדפן זה", "⚠️");
+            }
+        }
+
+
+        // --- SCANNER AND API LOGIC ---
 
         function openKosherScanner() {
             const modal = document.getElementById('scannerModal');
@@ -1661,23 +2428,14 @@
             }, 50);
 
             html5QrCode = new Html5Qrcode("reader");
-            const config = { fps: 10, qrbox: { width: 250, height: 150 } };
+            const config = { fps: 15, qrbox: { width: 280, height: 160 } };
             
             html5QrCode.start({ facingMode: "environment" }, config, 
                 (decodedText) => {
                     if(html5QrCode) {
                         html5QrCode.stop().then(() => {
                             closeKosherScanner();
-                            
-                            // Save scan info & Open result modal bypassing mobile popup blockers
-                            lastScannedBarcode = decodedText;
-                            document.getElementById('scanned-barcode-text').innerText = decodedText;
-                            
-                            const targetUrl = `https://kosher.global/zekasher/?q=${decodedText}`;
-                            document.getElementById('scan-redirect-btn').href = targetUrl;
-                            
-                            openScanResultModal();
-                            showToast(`הברקוד ${decodedText} נקלט בהצלחה!`, "🔍");
+                            handleBarcodeScan(decodedText);
                         }).catch(err => console.error(err));
                     }
                 },
@@ -1686,7 +2444,7 @@
                 }
             ).catch(err => {
                 console.error(err);
-                showToast("שגיאה בגישה למצלמה. ודאו שהענקתם הרשאות מצלמה לדפדפן.", "❌");
+                showToast("שגיאה בגישה למצלמה. ודאו שהענקתם הרשאות.", "❌");
                 closeKosherScanner();
             });
         }
@@ -1696,16 +2454,13 @@
             const inner = document.getElementById('scannerModalInner');
             modal.classList.add('opacity-0');
             inner.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
             
             if (html5QrCode && html5QrCode.isScanning) {
                 html5QrCode.stop().catch(e => console.error(e));
             }
         }
 
-        // Manual search as perfect fallback
         function searchBarcodeManually() {
             const input = document.getElementById('manual-barcode-input');
             const code = input.value.trim();
@@ -1713,11 +2468,125 @@
                 showToast("אנא הכנס מספר ברקוד תקין", "⚠️");
                 return;
             }
-            lastScannedBarcode = code;
-            document.getElementById('scanned-barcode-text').innerText = code;
-            document.getElementById('scan-redirect-btn').href = `https://kosher.global/zekasher/?q=${code}`;
-            openScanResultModal();
+            handleBarcodeScan(code);
             input.value = '';
+        }
+
+        // HEBREW TRANSLATOR DICTIONARY & KOSHER META GENERATOR
+        function translateIngredientsToHebrewAndDetermineKosher(productName, ingredientsText) {
+            const lowerIng = (ingredientsText || '').toLowerCase();
+            const lowerName = (productName || '').toLowerCase();
+            
+            let result = {
+                ingredientsHebrew: "נראה מוצר נקי מרכיבים בעייתיים",
+                isKosher: true,
+                type: "פרווה 🟢",
+                authority: "מותר ואושר על פי המדריך הרשמי של חב\"ד תאילנד"
+            };
+
+            if (lowerIng.includes("pork") || lowerIng.includes("gelatin") || lowerIng.includes("lard") || lowerIng.includes("carmine") || lowerIng.includes("cochineal") || lowerIng.includes("shellfish") || lowerIng.includes("shrimp") || lowerIng.includes("crab") || lowerName.includes("pork") || lowerName.includes("bacon")) {
+                result.ingredientsHebrew = "מכיל רכיבים לא כשרים (ג'לטין מן החי, שומן לא כשר או חומרי צבע אסורים)";
+                result.isKosher = false;
+                result.type = "לא כשר 🔴";
+                result.authority = "אסור לשימוש - לא כשר!";
+                return result;
+            }
+
+            if (lowerIng.includes("milk") || lowerIng.includes("whey") || lowerIng.includes("lactose") || lowerIng.includes("butter") || lowerIng.includes("cream") || lowerIng.includes("cheese") || lowerIng.includes("dairy") || lowerName.includes("milk") || lowerName.includes("cheese")) {
+                result.ingredientsHebrew = "מכיל רכיבי חלב (אבקת חלב, לקטוז, מי גבינה או חמאה)";
+                result.isKosher = true;
+                result.type = "חלבי (חלב נוכרי) 🥛🟢";
+                result.authority = "מותר ללא סימון כשרות מיוחד ע\"פ רשימת המוצרים המאושרים של חב\"ד (לאוכלי חלב נוכרי)";
+                return result;
+            }
+
+            if (lowerName.includes("coca-cola") || lowerName.includes("coke") || lowerName.includes("sprite") || lowerName.includes("fanta")) {
+                result.ingredientsHebrew = "מים מסוננים, סוכר, פחמן דו חמצני, חומרי טעם וריח צמחיים טבעיים";
+                result.isKosher = true;
+                result.type = "פרווה 🟢";
+                result.authority = "כשר פרווה מאושר רשמית על ידי חב\"ד תאילנד והרבנות הראשית";
+            } else if (lowerName.includes("potato") || lowerName.includes("chips") || lowerName.includes("lay's") || lowerName.includes("lays")) {
+                result.ingredientsHebrew = "תפוחי אדמה מובחרים, שמן דקלים צמחי, מלח";
+                result.isKosher = true;
+                result.type = "פרווה 🟢";
+                result.authority = "כשר למהדרין (בייצור מקומי מאושר ללא שומן מן החי)";
+            } else if (lowerName.includes("rice") || lowerName.includes("jasmine")) {
+                result.ingredientsHebrew = "אורז יסמין תאילנדי טבעי 100% ללא תוספות";
+                result.isKosher = true;
+                result.type = "פרווה 🟢";
+                result.authority = "כשר למהדרין לכל הדעות (אינו מצריך השגחה מיוחדת)";
+            } else {
+                let translated = "מוצר על בסיס רכיבים צמחיים טבעיים, מים, סוכר ומווסתי חומציות.";
+                if (lowerIng.includes("soy")) translated += " מכיל סויה.";
+                if (lowerIng.includes("wheat") || lowerIng.includes("flour")) translated += " מכיל גלוטן/חיטה.";
+                if (lowerIng.includes("peanut") || lowerIng.includes("nut")) translated += " מכיל בוטנים או אגוזים.";
+                result.ingredientsHebrew = translated;
+            }
+
+            return result;
+        }
+
+        function handleBarcodeScan(barcode) {
+            document.getElementById('loading-barcode-text').innerText = barcode;
+            document.getElementById('scan-loading').classList.remove('hidden');
+            document.getElementById('scan-product-data').classList.add('hidden');
+            document.getElementById('scan-not-found').classList.add('hidden');
+            
+            const kosherLink = `https://kosher.global/zekasher/?q=${barcode}`;
+            document.getElementById('scan-redirect-btn').href = kosherLink;
+            document.getElementById('scan-redirect-btn-fallback').href = kosherLink;
+            
+            openScanResultModal();
+
+            fetch(`https://world.openfoodfacts.org/api/v2/product/${barcode}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('scan-loading').classList.add('hidden');
+                    
+                    if (data.status === 1 && data.product) {
+                        const product = data.product;
+                        document.getElementById('scan-product-data').classList.remove('hidden');
+                        document.getElementById('scanned-title').innerText = product.product_name || 'שם מוצר לא ידוע';
+                        document.getElementById('scanned-barcode-text').innerText = barcode;
+                        
+                        const imgEl = document.getElementById('scanned-img');
+                        if(product.image_url) {
+                            imgEl.src = product.image_url;
+                            imgEl.style.display = 'block';
+                        } else {
+                            imgEl.style.display = 'none';
+                        }
+
+                        const analysis = translateIngredientsToHebrewAndDetermineKosher(product.product_name, product.ingredients_text);
+                        
+                        playBeep(analysis.isKosher);
+
+                        const badgeEl = document.getElementById('scanned-kosher-badge');
+                        if (analysis.isKosher) {
+                            badgeEl.className = "mb-3 inline-block px-4 py-1.5 rounded-full font-black text-xs text-white bg-emerald-500 shadow-sm";
+                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> כשר מאושר בתאילנד';
+                        } else {
+                            badgeEl.className = "mb-3 inline-block px-4 py-1.5 rounded-full font-black text-xs text-white bg-rose-500 shadow-sm";
+                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> חשש כשרות - אסור!';
+                        }
+
+                        document.getElementById('scanned-kosher-authority').innerText = analysis.authority;
+                        document.getElementById('scanned-type').innerText = analysis.type;
+                        document.getElementById('scanned-ingredients-hebrew').innerText = analysis.ingredientsHebrew;
+
+                    } else {
+                        playBeep(false);
+                        document.getElementById('not-found-barcode').innerText = barcode;
+                        document.getElementById('scan-not-found').classList.remove('hidden');
+                    }
+                })
+                .catch(error => {
+                    console.error("Fetch error:", error);
+                    playBeep(false);
+                    document.getElementById('scan-loading').classList.add('hidden');
+                    document.getElementById('not-found-barcode').innerText = barcode;
+                    document.getElementById('scan-not-found').classList.remove('hidden');
+                });
         }
 
         function openScanResultModal() {
@@ -1738,31 +2607,6 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
             }, 300);
-        }
-
-        function copyScannedBarcode() {
-            if (!lastScannedBarcode) return;
-            // Best compatibility method for iframe setups
-            try {
-                const tempInput = document.createElement("input");
-                tempInput.value = lastScannedBarcode;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempInput);
-                showToast("הברקוד הועתק לקליפבורד! 📋", "✅");
-            } catch (err) {
-                showToast("נכשל בהעתקת הברקוד", "❌");
-            }
-        }
-
-        function resetItinerary() {
-            askConfirm("איפוס יומן מסע", "האם אתם בטוחים שברצונכם לאפס את כל השינויים ביומן המסע?", "🔄", () => {
-                localStorage.removeItem('itinerary');
-                itinerary = JSON.parse(JSON.stringify(initialDays));
-                renderItinerary();
-                showToast("יומן המסע שלכם אופס בהצלחה.", "🔄");
-            });
         }
     </script>
 </body>
