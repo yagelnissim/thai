@@ -120,6 +120,15 @@
         .accordion-active .accordion-content {
             max-height: 2000px;
         }
+
+        /* Hide scrollbar for nav */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="text-slate-900 font-sans min-h-screen relative overflow-x-hidden pb-24" id="main-body" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80');">
@@ -256,43 +265,43 @@
             </div>
         </div>
 
-        <!-- Tab Nav - Enhanced with Board and Chat tabs -->
-        <nav class="grid grid-cols-9 gap-1 bg-slate-950/80 p-1 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl">
-            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-white flex flex-col items-center gap-1 bg-gradient-to-br from-teal-500 to-emerald-600">
-                <i class="fa-solid fa-calendar-days text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">יומן מסע</span>
+        <!-- Tab Nav - Enhanced and ENLARGED (Scrollable and thumb-friendly for mobile) -->
+        <nav class="flex overflow-x-auto hide-scrollbar gap-3 bg-slate-950/80 p-3 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl ios-scroll">
+            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-white flex flex-col items-center gap-2 bg-gradient-to-br from-teal-500 to-emerald-600">
+                <i class="fa-solid fa-calendar-days text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">יומן מסע</span>
             </button>
-            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-wallet text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">תקציב</span>
+            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-wallet text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">תקציב</span>
             </button>
-            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-plane-up text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">המלצות</span>
+            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-plane-up text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">המלצות</span>
             </button>
-            <button onclick="switchTab('board')" id="tab-btn-board" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-thumbtack text-[10px] text-amber-300"></i>
-                <span class="text-[7px] sm:text-[10px] text-amber-300">הערות 📌</span>
+            <button onclick="switchTab('board')" id="tab-btn-board" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-thumbtack text-base sm:text-lg text-amber-300"></i>
+                <span class="text-xs sm:text-[13px] text-amber-300">הערות 📌</span>
             </button>
-            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-comments text-[10px] text-emerald-300"></i>
-                <span class="text-[7px] sm:text-[10px] text-emerald-300">צ'אט 💬</span>
+            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-comments text-base sm:text-lg text-emerald-300"></i>
+                <span class="text-xs sm:text-[13px] text-emerald-300">צ'אט 💬</span>
             </button>
-            <button onclick="switchTab('checklist')" id="tab-btn-checklist" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-list-check text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">צ'קליסט</span>
+            <button onclick="switchTab('checklist')" id="tab-btn-checklist" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-list-check text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">צ'קליסט</span>
             </button>
-            <button onclick="switchTab('wallet')" id="tab-btn-wallet" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-id-card text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">ארנק</span>
+            <button onclick="switchTab('wallet')" id="tab-btn-wallet" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-id-card text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">ארנק</span>
             </button>
-            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-toolbox text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">מילון</span>
+            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-toolbox text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">מילון</span>
             </button>
-            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn py-2 px-0.5 text-center rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
-                <i class="fa-solid fa-robot text-[10px]"></i>
-                <span class="text-[7px] sm:text-[10px]">AI</span>
+            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
+                <i class="fa-solid fa-robot text-base sm:text-lg"></i>
+                <span class="text-xs sm:text-[13px]">AI</span>
             </button>
         </nav>
 
@@ -2564,10 +2573,10 @@
                         const badgeEl = document.getElementById('scanned-kosher-badge');
                         if (analysis.isKosher) {
                             badgeEl.className = "mb-3 inline-block px-4 py-1.5 rounded-full font-black text-xs text-white bg-emerald-500 shadow-sm";
-                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> כשר מאושר בתאילנד';
+                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> כשר - יהל יכולה לאכול!';
                         } else {
                             badgeEl.className = "mb-3 inline-block px-4 py-1.5 rounded-full font-black text-xs text-white bg-rose-500 shadow-sm";
-                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> חשש כשרות - אסור!';
+                            badgeEl.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> לא כשר - אלעזר יכול לאכול!';
                         }
 
                         document.getElementById('scanned-kosher-authority').innerText = analysis.authority;
