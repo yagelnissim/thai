@@ -88,10 +88,10 @@
 
         /* Glassmorphism utility */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.45);
         }
 
         .dark-glass-card {
@@ -139,7 +139,7 @@
                 </div>
             </div>
             
-            <!-- Quick Background Switcher (No Bugs, Simple UI) -->
+            <!-- Quick Background Switcher -->
             <div class="flex items-center gap-2 bg-slate-950/40 p-1.5 rounded-2xl border border-white/10">
                 <span class="text-[10px] text-white font-bold px-2 hidden md:inline">החלף רקע:</span>
                 <button onclick="changeBackground('beach')" class="px-2.5 py-1 text-xs font-semibold rounded-xl bg-teal-500/80 text-white hover:bg-teal-400 transition-all">🏖️ חוף</button>
@@ -154,7 +154,6 @@
         
         <!-- Flight Info & Neon Countdown Wrapper -->
         <div class="dark-glass-card rounded-[2.5rem] p-6 sm:p-8 text-center shadow-2xl border border-white/20 relative overflow-hidden mb-6">
-            <!-- Background Image Overlay for Contrast -->
             <div class="absolute inset-0 bg-slate-950/40 z-0"></div>
             
             <div class="relative z-10">
@@ -165,7 +164,6 @@
                 </div>
                 
                 <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight">ההרפתקה מתחילה בעוד:</h2>
-                <p class="text-slate-300 text-xs sm:text-sm font-semibold mb-6">מתי פוגשים את בנגקוק? סופרים את הרגעים!</p>
                 
                 <!-- Countdown Grid -->
                 <div class="grid grid-cols-4 gap-3 max-w-2xl mx-auto">
@@ -191,7 +189,7 @@
                     </div>
                 </div>
 
-                <!-- Active User Indicator (Elegant, Non-intrusive) -->
+                <!-- Active User Indicator -->
                 <div class="mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
                     <span class="text-xs text-white">עורך פעיל כעת:</span>
                     <span id="active-user-badge" class="text-xs font-black bg-teal-500 text-white px-2 py-0.5 rounded-lg">אורח</span>
@@ -200,6 +198,32 @@
             </div>
         </div>
 
+        <!-- NEW: High-Tech Quick Kosher Scanner Widget on Homepage -->
+        <div class="glass-card rounded-[2rem] p-5 shadow-xl border border-white/50 mb-6 space-y-3 relative z-20">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">🛒</span>
+                    <div>
+                        <h3 class="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
+                            סורק כשרות מהיר ל-7-Eleven
+                            <span class="bg-indigo-150 text-indigo-700 text-[10px] font-black px-2 py-0.5 rounded-full border border-indigo-200">חיבור ישיר 🔗</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-500 font-semibold">סרקו ברקוד או הקלידו ידנית לבדיקה מיידית ב-Kosher.Global</p>
+                    </div>
+                </div>
+                <button onclick="openKosherScanner()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-black py-3 px-6 rounded-2xl text-xs transition-all active:scale-95 shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-camera animate-pulse text-xs"></i> סרוק מוצר במצלמה
+                </button>
+            </div>
+            
+            <!-- Manual Input Field as perfect fallback -->
+            <div class="flex gap-2 pt-3 border-t border-slate-200/50">
+                <input type="text" id="manual-barcode-input" placeholder="הקלידו מספר ברקוד ידנית (לדוגמה: 885012345678)..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-2 px-3.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <button onclick="searchBarcodeManually()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-black py-2 px-5 rounded-xl text-xs transition-all border border-indigo-200 active:scale-95">חפש כשרות</button>
+            </div>
+        </div>
+
+        <!-- Tab Nav -->
         <nav class="grid grid-cols-5 gap-1.5 sm:gap-3 bg-slate-950/80 p-2 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl">
             <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-white flex flex-col items-center gap-1 bg-gradient-to-br from-teal-500 to-emerald-600">
                 <i class="fa-solid fa-calendar-days text-sm"></i>
@@ -215,7 +239,7 @@
             </button>
             <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
                 <i class="fa-solid fa-toolbox text-sm"></i>
-                <span class="text-[10px] sm:text-xs">סורק וכלים</span>
+                <span class="text-[10px] sm:text-xs">כלים שימושיים</span>
             </button>
             <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn py-2.5 px-1 text-center rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-1">
                 <i class="fa-solid fa-robot text-sm"></i>
@@ -223,8 +247,8 @@
             </button>
         </nav>
 
+        <!-- Tab Content: Itinerary -->
         <section id="tab-itinerary" class="tab-content block space-y-4">
-            
             <div class="glass-card rounded-3xl p-5 shadow-lg border border-white/50">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                     <div>
@@ -241,13 +265,12 @@
             </div>
 
             <!-- List of 23 Days -->
-            <div id="days-container" class="space-y-4">
-                <!-- Days will be loaded dynamically via Javascript with perfect structures -->
-            </div>
+            <div id="days-container" class="space-y-4"></div>
         </section>
 
+        <!-- Tab Content: Budget -->
         <section id="tab-budget" class="tab-content hidden space-y-4">
-            <!-- Exchange Rates Widget with calculator -->
+            <!-- Exchange Rates Widget -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2 mb-2">
@@ -294,7 +317,7 @@
                 </div>
             </div>
 
-            <!-- Budget Manager with debts logic -->
+            <!-- Budget Manager -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
@@ -319,14 +342,12 @@
                         </div>
                         <div class="border-t md:border-t-0 md:border-r border-indigo-800/60 pt-4 md:pt-0 md:pr-4">
                             <span class="text-[10px] font-extrabold text-indigo-300 uppercase tracking-widest block mb-2">איזון כספי (מי צריך להעביר למי):</span>
-                            <div id="debts-list" class="space-y-1.5 text-xs font-semibold">
-                                <!-- Debts will render dynamically -->
-                            </div>
+                            <div id="debts-list" class="space-y-1.5 text-xs font-semibold"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mobile cards vs Table of Expenses -->
+                <!-- Expenses Table -->
                 <div class="mt-4">
                     <span class="text-xs font-black text-slate-800 block mb-3">רשימת ההוצאות שנרשמו:</span>
                     <div class="overflow-hidden rounded-2xl border border-slate-100 shadow-sm overflow-x-auto ios-scroll">
@@ -340,15 +361,14 @@
                                     <th class="py-3 px-4 text-center">פעולה</th>
                                 </tr>
                             </thead>
-                            <tbody id="expenses-table-body" class="divide-y divide-slate-100 font-semibold text-slate-700">
-                                <!-- Expenses rows render dynamically -->
-                            </tbody>
+                            <tbody id="expenses-table-body" class="divide-y divide-slate-100 font-semibold text-slate-700"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Tab Content: Recommendations -->
         <section id="tab-recommendations" class="tab-content hidden space-y-6">
             <!-- Chabad Card -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
@@ -467,8 +487,8 @@
             </div>
         </section>
 
+        <!-- Tab Content: Tools -->
         <section id="tab-tools" class="tab-content hidden space-y-6">
-            
             <!-- Phrasebook Card with actual content -->
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
                 <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-2">
@@ -477,25 +497,10 @@
                 </h3>
                 <p class="text-xs text-slate-600 font-semibold mb-4">אל תהיו תיירים רגילים! נסו לומר כמה מילים בתאילנדית ברחוב ובשוק, המקומיים פשוט יעריצו אתכם ויעשו לכם הנחות!</p>
                 
-                <div class="space-y-2.5" id="thaiPhrasesContainer">
-                    <!-- Phrases dynamically populated -->
-                </div>
+                <div class="space-y-2.5" id="thaiPhrasesContainer"></div>
             </div>
 
-            <!-- Kosher Scanner Card -->
-            <div class="bg-gradient-to-br from-indigo-50 to-blue-100/80 rounded-3xl p-5 shadow-xl border border-indigo-200">
-                <h3 class="text-base font-extrabold text-indigo-950 mb-1.5 flex items-center gap-2">
-                    <i class="fa-solid fa-barcode"></i>
-                    סורק מוצרים כשרים
-                </h3>
-                <p class="text-[11px] text-indigo-900 mb-4 font-semibold">סרקו ברקוד של כל מוצר בסופר התאילנדי (למשל 7-Eleven) כדי לבדוק מיד אם הוא כשר דרך Kosher.Global.</p>
-                
-                <button onclick="openKosherScanner()" class="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-black py-3.5 rounded-2xl text-sm transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-camera animate-pulse"></i> הפעל סורק ברקוד
-                </button>
-            </div>
-
-            <!-- Direct emergency dial contact card -->
+            <!-- Emergency Contacts -->
             <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-5 shadow-2xl border border-teal-150">
                 <h3 class="text-sm font-extrabold text-slate-900 mb-3 flex items-center gap-2">
                     <i class="fa-solid fa-phone-volume text-rose-500"></i> מספרי חירום חיוניים בתאילנד
@@ -521,6 +526,7 @@
             </div>
         </section>
 
+        <!-- Tab Content: AI -->
         <section id="tab-ai" class="tab-content hidden space-y-4">
             <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 space-y-4">
                 <div class="flex items-center gap-3">
@@ -560,6 +566,7 @@
 
     </main>
 
+    <!-- CONFIRMATION MODAL -->
     <div id="confirmModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[200] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white/95 backdrop-blur-xl w-full max-w-sm mx-4 rounded-3xl p-6 shadow-2xl border border-white/20 transform scale-95 transition-all duration-300 text-center" id="confirmModalInner">
             <span class="text-4xl mb-3 block" id="confirm-modal-icon">⚠️</span>
@@ -573,6 +580,7 @@
         </div>
     </div>
 
+    <!-- USER MODAL (DETERMINE ACTIVE USER BEFORE ACTIONS) -->
     <div id="userModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white/95 backdrop-blur-xl w-full max-w-md mx-4 rounded-3xl p-6 shadow-2xl border border-white/20 transform scale-95 transition-transform duration-300 relative" id="userModalInner">
             <h3 class="text-lg font-black text-slate-900 text-center mb-1 flex items-center justify-center gap-2">
@@ -605,7 +613,7 @@
         </div>
     </div>
 
-    <!-- KOSHER SCANNER MODAL -->
+    <!-- SCANNER CAMERA STREAM WINDOW -->
     <div id="scannerModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white w-full max-w-md mx-4 rounded-[2rem] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col" id="scannerModalInner">
             <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
@@ -618,8 +626,29 @@
                 <div id="reader" class="w-full rounded-xl overflow-hidden bg-black"></div>
             </div>
             <div class="p-5 bg-slate-50 text-center border-t border-slate-200">
-                <p class="text-xs text-slate-600 font-bold mb-4">כוונו את המצלמה אל הברקוד של המוצר. המערכת תסרוק ותעביר אתכם אוטומטית לבדיקה באתר.</p>
+                <p class="text-xs text-slate-600 font-bold mb-4">כוונו את המצלמה אל הברקוד של המוצר. המערכת תזהה אותו אוטומטית.</p>
                 <button onclick="closeKosherScanner()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-black px-8 py-3 rounded-xl text-xs transition-all active:scale-95 shadow-sm">ביטול וסגירה</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: KOSHER SCAN RESULT MODAL (Popup Blocker Bypass for iOS) -->
+    <div id="scanResultModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[210] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white/95 backdrop-blur-xl w-full max-w-sm mx-4 rounded-3xl p-6 shadow-2xl border border-white/25 transform scale-95 transition-all duration-300 text-center" id="scanResultModalInner">
+            <span class="text-4xl mb-3 block">🎉 נסרק בהצלחה!</span>
+            <h4 class="text-lg font-black text-slate-900 mb-1">המוצר זוהה</h4>
+            <p class="text-xs text-slate-500 font-bold mb-4">קוד ברקוד: <span id="scanned-barcode-text" class="font-mono bg-slate-100 px-2 py-1 rounded text-slate-800">00000000</span></p>
+            
+            <p class="text-xs text-slate-600 font-semibold mb-6">בשל הגדרות אבטחה של דפדפנים במובייל, יש ללחוץ על הכפתור מטה כדי לבדוק את המוצר באתר הכשרות:</p>
+            
+            <div class="space-y-2.5">
+                <a id="scan-redirect-btn" href="#" target="_blank" onclick="closeScanResultModal()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black py-4 rounded-2xl text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-up-right-from-square"></i> פתח בדיקת כשרות באתר 🔎
+                </a>
+                <button onclick="copyScannedBarcode()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-black py-3 rounded-2xl text-xs transition-all border border-slate-200 active:scale-95 flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-copy"></i> העתק מספר ברקוד לקליפבורד
+                </button>
+                <button onclick="closeScanResultModal()" class="w-full text-slate-400 hover:text-slate-600 font-bold text-xs pt-2">סגור חלונית</button>
             </div>
         </div>
     </div>
@@ -633,9 +662,7 @@
                 </h4>
                 <button onclick="closeAiSuggestionModal()" class="text-slate-400 hover:text-rose-500"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="ai-suggestion-body" class="space-y-4 text-xs font-semibold leading-relaxed text-slate-700">
-                <!-- AI Suggestions render dynamically -->
-            </div>
+            <div id="ai-suggestion-body" class="space-y-4 text-xs font-semibold leading-relaxed text-slate-700"></div>
             <div class="mt-6 flex gap-2">
                 <button onclick="applyAiSuggestionToItinerary()" class="flex-1 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-750 hover:to-emerald-750 text-white font-black py-3 rounded-2xl text-xs transition-all active:scale-95 shadow-md flex items-center justify-center gap-2">
                     <i class="fa-solid fa-plus"></i> הוסף ללוח הזמנים
@@ -745,6 +772,7 @@
         </div>
     </div>
 
+    <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 bg-slate-900/90 text-white backdrop-blur-xl border border-white/15 rounded-2xl py-3 px-6 shadow-2xl z-[300] hidden opacity-0 transition-all duration-300 text-xs font-black flex items-center gap-2">
         <span id="toast-icon">⚡</span>
         <span id="toast-msg">פעולה בוצעה בהצלחה!</span>
@@ -754,7 +782,8 @@
         // Core State
         const users = ['יגל', 'מיכל', 'יהל', 'אלעזר'];
         let activeUser = localStorage.getItem('activeUser') || 'אורח';
-        let pendingCallback = null; // Storing action after choosing user
+        let pendingCallback = null;
+        let lastScannedBarcode = "";
 
         // Preloaded Exchange Rates
         let exchangeRates = {
@@ -877,7 +906,7 @@
         }
 
         function triggerUserChangeFlow() {
-            pendingCallback = () => { showToast(`שלום ${activeUser}! כעת אתה יכול להמשיך לערוך ולעשות שינויים.`, "🔐"); };
+            pendingCallback = () => { showToast(`שלום ${activeUser}! כעת אתה יכול להמשיך לערוך ולשנות.`, "🔐"); };
             openUserModal();
         }
 
@@ -928,7 +957,7 @@
                         document.getElementById('rate-usd-ils').innerText = `₪${exchangeRates.USD_ILS}`;
                         document.getElementById('rate-ils-thb').innerText = `${exchangeRates.ILS_THB}฿`;
                         document.getElementById('rate-usd-thb').innerText = `${exchangeRates.USD_THB}฿`;
-                        convertCurrency('thb'); // trigger initial convert calculation
+                        convertCurrency('thb');
                     }
                 })
                 .catch(err => {
@@ -1110,7 +1139,7 @@
                                                     </button>
                                                 </div>
 
-                                                <!-- Expandable Comments Area -->
+                                                <!-- Comments Section -->
                                                 <div id="comments-section-${dayIdx}-${p.id}" class="hidden pt-2 border-t border-slate-50 space-y-2">
                                                     <div class="space-y-1.5" id="comments-list-${dayIdx}-${p.id}">
                                                         ${(!p.comments || p.comments.length === 0) ? `
@@ -1126,7 +1155,7 @@
                                                         `).join('')}
                                                     </div>
                                                     
-                                                    <!-- New comment input -->
+                                                    <!-- Input block -->
                                                     <div class="flex gap-1.5 mt-2">
                                                         <input type="text" id="comment-input-${dayIdx}-${p.id}" placeholder="כתבו תגובה חיובית..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-1.5 px-3 text-[10px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-teal-500">
                                                         <button onclick="checkUserAndProceed(() => addComment(${dayIdx}, '${p.id}'))" class="bg-teal-600 hover:bg-teal-700 text-white font-black py-1.5 px-4 rounded-xl text-[10px] transition-all active:scale-95">שלח</button>
@@ -1192,14 +1221,12 @@
             }
 
             if (actId) {
-                // Edit mode
                 const act = itinerary[dayIdx].plans.find(p => p.id === actId);
                 act.title = title;
                 act.category = category;
                 act.desc = desc;
                 showToast("פעילות עודכנה בהצלחה!", "📝");
             } else {
-                // Create mode
                 const newAct = {
                     id: 'act-' + Date.now(),
                     category: category,
@@ -1329,7 +1356,6 @@
                 return;
             }
 
-            // Convert raw amount to ILS for calculations
             let amountInILS = amount;
             if (currency === 'THB') {
                 amountInILS = amount / exchangeRates.ILS_THB;
@@ -1382,7 +1408,6 @@
                 `;
             }).join('');
 
-            // Calculate overall total and balance/debts using simplified algorithm
             let totalSpent = 0;
             let balances = { 'יגל': 0, 'מיכל': 0, 'יהל': 0, 'אלעזר': 0 };
 
@@ -1390,10 +1415,8 @@
                 totalSpent += e.amountILS;
                 const costPerPerson = e.amountILS / e.participants.length;
                 
-                // Payer gets credited
                 balances[e.payer] += e.amountILS;
                 
-                // Participants get debited
                 e.participants.forEach(p => {
                     balances[p] -= costPerPerson;
                 });
@@ -1401,7 +1424,6 @@
 
             document.getElementById('total-group-spent').innerText = `₪${totalSpent.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
 
-            // Calculate debts (Who owes who)
             const debtsList = document.getElementById('debts-list');
             debtsList.innerHTML = '';
 
@@ -1417,7 +1439,6 @@
                 }
             }
 
-            // Greedy algorithm to solve debts
             let debts = [];
             let i = 0, j = 0;
 
@@ -1495,7 +1516,6 @@
                 inner.classList.remove('scale-95');
             }, 50);
 
-            // Mocked generative output with rich context based on itinerary day location
             setTimeout(() => {
                 let text = "";
                 let title = "";
@@ -1572,19 +1592,16 @@
 
             const container = document.getElementById('chat-messages-container');
             
-            // Render user message
             container.innerHTML += `
-                <div class="bg-teal-600 text-white text-xs p-3.5 rounded-2xl max-w-[85%] self-end font-semibold text-right border border-teal-500 shadow-md">
+                <div class="bg-teal-600 text-white text-xs p-3.5 rounded-2xl max-w-[85%] self-end font-semibold text-right border border-teal-500 shadow-md animate-fade-in">
                     ${text}
                 </div>
             `;
             input.value = '';
             
-            // Scroll to bottom
             const screen = document.getElementById('ai-chat-screen');
             screen.scrollTop = screen.scrollHeight;
 
-            // Render Loader
             const loaderId = 'loader-' + Date.now();
             container.innerHTML += `
                 <div id="${loaderId}" class="bg-slate-800 text-slate-300 text-xs p-3.5 rounded-2xl max-w-[85%] border border-slate-700/60 leading-relaxed font-semibold">
@@ -1593,7 +1610,6 @@
             `;
             screen.scrollTop = screen.scrollHeight;
 
-            // Simulate AI fetch responses with custom web grounding citations
             setTimeout(() => {
                 const loader = document.getElementById(loaderId);
                 if (loader) loader.remove();
@@ -1616,7 +1632,7 @@
                 }
 
                 container.innerHTML += `
-                    <div class="bg-slate-800 text-slate-100 text-xs p-3.5 rounded-2xl max-w-[85%] border border-slate-700/60 leading-relaxed font-semibold space-y-2">
+                    <div class="bg-slate-800 text-slate-100 text-xs p-3.5 rounded-2xl max-w-[85%] border border-slate-700/60 leading-relaxed font-semibold space-y-2 animate-fade-in">
                         <p class="whitespace-pre-line">${responseText}</p>
                         <div class="pt-2 border-t border-slate-700/40 text-[9px] text-teal-400 font-bold">
                             <i class="fa-solid fa-magnifying-glass text-[8px]"></i> <span>גוגל שולף:</span> ${citations}
@@ -1632,6 +1648,7 @@
             sendAiMessage();
         }
 
+        // --- NEW MODAL REDIRECTION CONTROLLER FOR BARCODE SCANNING ---
         let html5QrCode = null;
 
         function openKosherScanner() {
@@ -1648,18 +1665,24 @@
             
             html5QrCode.start({ facingMode: "environment" }, config, 
                 (decodedText) => {
-                    // Success callback
                     if(html5QrCode) {
                         html5QrCode.stop().then(() => {
                             closeKosherScanner();
-                            showToast(`נסרק ברקוד: ${decodedText} מעביר לאתר...`, "🔍");
-                            try { navigator.clipboard.writeText(decodedText); } catch(e) {}
-                            window.open(`https://kosher.global/zekasher/?q=${decodedText}`, '_blank');
+                            
+                            // Save scan info & Open result modal bypassing mobile popup blockers
+                            lastScannedBarcode = decodedText;
+                            document.getElementById('scanned-barcode-text').innerText = decodedText;
+                            
+                            const targetUrl = `https://kosher.global/zekasher/?q=${decodedText}`;
+                            document.getElementById('scan-redirect-btn').href = targetUrl;
+                            
+                            openScanResultModal();
+                            showToast(`הברקוד ${decodedText} נקלט בהצלחה!`, "🔍");
                         }).catch(err => console.error(err));
                     }
                 },
                 (errorMessage) => {
-                    // Ignore parse errors as it scans continuously
+                    // Ongoing frames scans, no actions needed
                 }
             ).catch(err => {
                 console.error(err);
@@ -1679,6 +1702,57 @@
             
             if (html5QrCode && html5QrCode.isScanning) {
                 html5QrCode.stop().catch(e => console.error(e));
+            }
+        }
+
+        // Manual search as perfect fallback
+        function searchBarcodeManually() {
+            const input = document.getElementById('manual-barcode-input');
+            const code = input.value.trim();
+            if (!code) {
+                showToast("אנא הכנס מספר ברקוד תקין", "⚠️");
+                return;
+            }
+            lastScannedBarcode = code;
+            document.getElementById('scanned-barcode-text').innerText = code;
+            document.getElementById('scan-redirect-btn').href = `https://kosher.global/zekasher/?q=${code}`;
+            openScanResultModal();
+            input.value = '';
+        }
+
+        function openScanResultModal() {
+            const modal = document.getElementById('scanResultModal');
+            const inner = document.getElementById('scanResultModalInner');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                inner.classList.remove('scale-95');
+            }, 50);
+        }
+
+        function closeScanResultModal() {
+            const modal = document.getElementById('scanResultModal');
+            const inner = document.getElementById('scanResultModalInner');
+            modal.classList.add('opacity-0');
+            inner.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function copyScannedBarcode() {
+            if (!lastScannedBarcode) return;
+            // Best compatibility method for iframe setups
+            try {
+                const tempInput = document.createElement("input");
+                tempInput.value = lastScannedBarcode;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showToast("הברקוד הועתק לקליפבורד! 📋", "✅");
+            } catch (err) {
+                showToast("נכשל בהעתקת הברקוד", "❌");
             }
         }
 
