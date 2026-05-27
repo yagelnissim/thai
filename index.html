@@ -266,42 +266,42 @@
         </div>
 
         <!-- Tab Nav - Enhanced and ENLARGED (Scrollable and thumb-friendly for mobile) -->
-        <nav class="flex overflow-x-auto hide-scrollbar gap-3 bg-slate-950/80 p-3 rounded-2xl sm:rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl ios-scroll">
-            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-white flex flex-col items-center gap-2 bg-gradient-to-br from-teal-500 to-emerald-600">
-                <i class="fa-solid fa-calendar-days text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">יומן מסע</span>
+        <nav class="flex overflow-x-auto hide-scrollbar gap-4 bg-slate-950/80 p-4 rounded-3xl border border-white/10 mb-6 shadow-2xl sticky top-4 z-40 backdrop-blur-xl ios-scroll">
+            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-white flex flex-col items-center gap-2.5 bg-gradient-to-br from-teal-500 to-emerald-600">
+                <i class="fa-solid fa-calendar-days text-2xl"></i>
+                <span class="text-sm font-black">יומן מסע</span>
             </button>
-            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-wallet text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">תקציב</span>
+            <button onclick="switchTab('budget')" id="tab-btn-budget" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-wallet text-2xl"></i>
+                <span class="text-sm font-black">תקציב</span>
             </button>
-            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-plane-up text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">המלצות</span>
+            <button onclick="switchTab('recommendations')" id="tab-btn-recommendations" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-plane-up text-2xl"></i>
+                <span class="text-sm font-black">המלצות</span>
             </button>
-            <button onclick="switchTab('board')" id="tab-btn-board" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-thumbtack text-base sm:text-lg text-amber-300"></i>
-                <span class="text-xs sm:text-[13px] text-amber-300">הערות 📌</span>
+            <button onclick="switchTab('board')" id="tab-btn-board" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-thumbtack text-2xl text-amber-300"></i>
+                <span class="text-sm font-black text-amber-300">הערות 📌</span>
             </button>
-            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-comments text-base sm:text-lg text-emerald-300"></i>
-                <span class="text-xs sm:text-[13px] text-emerald-300">צ'אט 💬</span>
+            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-comments text-2xl text-emerald-300"></i>
+                <span class="text-sm font-black text-emerald-300">צ'אט 💬</span>
             </button>
-            <button onclick="switchTab('checklist')" id="tab-btn-checklist" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-list-check text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">צ'קליסט</span>
+            <button onclick="switchTab('checklist')" id="tab-btn-checklist" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-list-check text-2xl"></i>
+                <span class="text-sm font-black">צ'קליסט</span>
             </button>
-            <button onclick="switchTab('wallet')" id="tab-btn-wallet" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-id-card text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">ארנק</span>
+            <button onclick="switchTab('wallet')" id="tab-btn-wallet" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-id-card text-2xl"></i>
+                <span class="text-sm font-black">ארנק</span>
             </button>
-            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-toolbox text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">מילון</span>
+            <button onclick="switchTab('tools')" id="tab-btn-tools" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-toolbox text-2xl"></i>
+                <span class="text-sm font-black">מילון</span>
             </button>
-            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn flex-shrink-0 min-w-[90px] sm:min-w-[110px] py-3.5 px-2 text-center rounded-xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2">
-                <i class="fa-solid fa-robot text-base sm:text-lg"></i>
-                <span class="text-xs sm:text-[13px]">AI</span>
+            <button onclick="switchTab('ai')" id="tab-btn-ai" class="tab-btn flex-shrink-0 min-w-[110px] py-4 px-2 text-center rounded-2xl font-bold transition-all text-slate-400 hover:text-white flex flex-col items-center gap-2.5">
+                <i class="fa-solid fa-robot text-2xl"></i>
+                <span class="text-sm font-black">AI</span>
             </button>
         </nav>
 
@@ -426,120 +426,49 @@
 
         <!-- Tab Content: Recommendations -->
         <section id="tab-recommendations" class="tab-content hidden space-y-6">
-            <!-- Chabad Card -->
-            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50">
-                <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-2">
-                    <i class="fa-solid fa-star-of-david text-blue-600"></i>
-                    בתי חב"ד בתאילנד - שבתות וטיפים 🕯️✨
-                </h3>
-                <p class="text-xs text-slate-600 font-semibold mb-6">בתי חב"ד הם הבית החם של המטיילים הישראלים בתאילנד. מומלץ להזמין סעודות שבת מראש דרך האתר או הווטסאפ.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <!-- Chabad Bangkok -->
-                    <div class="bg-white/80 rounded-2xl overflow-hidden shadow border border-slate-100 flex flex-col justify-between">
-                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="בנגקוק" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x200/2dd4bf/ffffff?text=Bangkok+Chabad'">
-                        <div class="p-4 flex-1">
-                            <span class="text-[10px] font-black bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md">בנגקוק (קוסאן)</span>
-                            <h4 class="text-sm font-extrabold text-slate-950 mt-1 mb-1.5">בית חב"ד מרכזי בנגקוק</h4>
-                            <p class="text-[11px] text-slate-600 mb-3">ממוקם ממש ליד רחוב הקוואסן הפופולרי. מציע מסעדה בשרית כשרה, בית כנסת פעיל, פינות מנוחה וייעוץ למטיילים.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
-                            <a href="https://chabadthailand.org/bangkok/" target="_blank" class="flex-1 text-center bg-blue-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-blue-700 transition-all active:scale-95"><i class="fa-solid fa-globe"></i> לאתר הרשמי</a>
-                            <a href="https://wa.me/6622822461" target="_blank" class="flex-1 text-center bg-emerald-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-emerald-700 transition-all active:scale-95"><i class="fa-brands fa-whatsapp"></i> ווטסאפ</a>
-                        </div>
+            <!-- Link Analyzer Widget -->
+            <div class="glass-card rounded-[2.5rem] p-6 sm:p-8 shadow-xl border border-white/50 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-4xl animate-bounce">🎬</span>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                            סורק ומנתח סרטוני המלצות AI
+                            <span class="bg-purple-100 text-purple-700 text-[10px] font-black px-2 py-0.5 rounded-full border border-purple-200">TikTok & Instagram ⚡</span>
+                        </h3>
+                        <p class="text-xs text-slate-600 font-semibold">ראיתם סרטון שווה באינסטגרם או בטיקטוק? הדביקו את הקישור כאן. ה-AI יחקור את המקום בגוגל, יסכם אותו בעברית ויקטלג אותו אוטומטית!</p>
                     </div>
-
-                    <!-- Chabad Samui -->
-                    <div class="bg-white/80 rounded-2xl overflow-hidden shadow border border-slate-100 flex flex-col justify-between">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="קוסמוי" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x200/34d399/ffffff?text=Koh+Samui+Chabad'">
-                        <div class="p-4 flex-1">
-                            <span class="text-[10px] font-black bg-teal-100 text-teal-700 px-2 py-0.5 rounded-md">קוסמוי (צאוונג)</span>
-                            <h4 class="text-sm font-extrabold text-slate-950 mt-1 mb-1.5">בית חב"ד קוסמוי</h4>
-                            <p class="text-[11px] text-slate-600 mb-3">בית חב"ד ענק ומפנק בלב האזור הפופולרי בצ'אוונג. מקום מושלם לעשות בו שבת עם מאות מטיילים נוספים.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
-                            <a href="https://chabadthailand.org/kosamui/" target="_blank" class="flex-1 text-center bg-blue-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-blue-700 transition-all active:scale-95"><i class="fa-solid fa-globe"></i> לאתר הרשמי</a>
-                            <a href="https://wa.me/66818073507" target="_blank" class="flex-1 text-center bg-emerald-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-emerald-700 transition-all active:scale-95"><i class="fa-brands fa-whatsapp"></i> ווטסאפ</a>
-                        </div>
-                    </div>
-
-                    <!-- Chabad Phuket -->
-                    <div class="bg-white/80 rounded-2xl overflow-hidden shadow border border-slate-100 flex flex-col justify-between">
-                        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=600&q=80" alt="פוקט" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x200/f43f5e/ffffff?text=Phuket+Chabad'">
-                        <div class="p-4 flex-1">
-                            <span class="text-[10px] font-black bg-rose-100 text-rose-700 px-2 py-0.5 rounded-md">פוקט (פאטונג)</span>
-                            <h4 class="text-sm font-extrabold text-slate-950 mt-1 mb-1.5">בית חב"ד פוקט</h4>
-                            <p class="text-[11px] text-slate-600 mb-3">ממוקם באזור הפאטונג השוקק. מסעדה ישראלית בשרית כשרה, בית כנסת חם ופעיל וצוות מסור שיעזור בכל שאלה.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
-                            <a href="https://chabadthailand.org/phuket/" target="_blank" class="flex-1 text-center bg-blue-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-blue-700 transition-all active:scale-95"><i class="fa-solid fa-globe"></i> לאתר הרשמי</a>
-                            <a href="https://wa.me/66819266107" target="_blank" class="flex-1 text-center bg-emerald-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-emerald-700 transition-all active:scale-95"><i class="fa-brands fa-whatsapp"></i> ווטסאפ</a>
-                        </div>
-                    </div>
-
-                    <!-- Chabad Pai / Chiang Mai -->
-                    <div class="bg-white/80 rounded-2xl overflow-hidden shadow border border-slate-100 flex flex-col justify-between">
-                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80" alt="צפון תאילנד" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x200/a855f7/ffffff?text=Chiang+Mai+Chabad'">
-                        <div class="p-4 flex-1">
-                            <span class="text-[10px] font-black bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md">צ'יאנג מאי</span>
-                            <h4 class="text-sm font-extrabold text-slate-950 mt-1 mb-1.5">בית חב"ד צ'יאנג מאי</h4>
-                            <p class="text-[11px] text-slate-600 mb-3">העוגן של המטיילים בצפון תאילנד. מציע סעודות שבת מרהיבות, בית חם וקהילה נפלאה בבירת הצפון היפיפיה.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
-                            <a href="https://chabadthailand.org/chiangmai/" target="_blank" class="flex-1 text-center bg-blue-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-blue-700 transition-all active:scale-95"><i class="fa-solid fa-globe"></i> לאתר הרשמי</a>
-                            <a href="https://wa.me/66818165307" target="_blank" class="flex-1 text-center bg-emerald-600 text-white font-bold py-2 rounded-xl text-[11px] hover:bg-emerald-700 transition-all active:scale-95"><i class="fa-brands fa-whatsapp"></i> ווטסאפ</a>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-2.5 pt-2">
+                    <input type="text" id="recommendation-link-input" placeholder="הדביקו קישור לסרטון (לדוגמה: https://www.instagram.com/reel/...)..." class="flex-1 bg-slate-50 border border-slate-200 rounded-2xl py-3 px-4 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button onclick="checkUserAndProceed(() => analyzeRecommendationLink())" id="analyze-link-btn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-750 text-white font-black py-3 px-6 rounded-2xl text-xs transition-all active:scale-95 shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> <span>נתח וסכם המלצה</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Attractions & Parties Card -->
-            <div class="glass-card rounded-3xl p-6 shadow-xl border border-white/50 space-y-6">
-                <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-2">
-                    <i class="fa-solid fa-masks-theater text-amber-500"></i>
-                    מסיבות ואטרקציות חובה בתאילנד 🏝️🎉
-                </h3>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <!-- Full Moon Party -->
-                    <div class="bg-slate-900 text-white rounded-2xl overflow-hidden shadow flex flex-col justify-between border border-slate-800">
-                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" alt="מסיבת פול מון" class="w-full h-32 object-cover">
-                        <div class="p-4">
-                            <span class="text-[9px] font-extrabold bg-rose-500/30 text-rose-300 px-2 py-0.5 rounded-md uppercase tracking-wider">מסיבות וחיי לילה</span>
-                            <h4 class="text-xs font-extrabold mt-1 mb-1">מסיבת הפול מון קופנגן (Full Moon)</h4>
-                            <p class="text-[10px] text-slate-400">המסיבה המפורסמת ביותר בעולם בחוף האד רין בקופנגן. עשרות אלפי חוגגים, צבעי פול מון זוהרים מוזיקה ומופעי אש.</p>
-                        </div>
-                        <div class="p-4 bg-slate-950 flex">
-                            <a href="https://www.fullmoonparty-kohphangan.com/" target="_blank" class="w-full text-center bg-rose-600 hover:bg-rose-700 text-white font-bold py-1.5 rounded-lg text-[10px] transition-all"><i class="fa-solid fa-ticket"></i> מידע וכרטיסים</a>
-                        </div>
-                    </div>
+            <!-- Category Navigation Tab Bar inside Recommendations -->
+            <div class="bg-slate-950/90 backdrop-blur-md p-2 rounded-2xl border border-white/10 flex overflow-x-auto hide-scrollbar gap-2 shadow-lg">
+                <button onclick="filterRecommendations('all')" id="rec-cat-all" class="rec-cat-btn flex-shrink-0 px-4 py-2.5 text-xs font-black rounded-xl transition-all bg-teal-500 text-white active">
+                    ✨ הכל
+                </button>
+                <button onclick="filterRecommendations('hotels')" id="rec-cat-hotels" class="rec-cat-btn flex-shrink-0 px-4 py-2.5 text-xs font-black rounded-xl transition-all text-slate-300 hover:text-white">
+                    🏨 מלונות ואירוח
+                </button>
+                <button onclick="filterRecommendations('attractions')" id="rec-cat-attractions" class="rec-cat-btn flex-shrink-0 px-4 py-2.5 text-xs font-black rounded-xl transition-all text-slate-300 hover:text-white">
+                    🏖️ אטרקציות וסיורים
+                </button>
+                <button onclick="filterRecommendations('shopping')" id="rec-cat-shopping" class="rec-cat-btn flex-shrink-0 px-4 py-2.5 text-xs font-black rounded-xl transition-all text-slate-300 hover:text-white">
+                    🛍️ קניות וקניונים
+                </button>
+                <button onclick="filterRecommendations('restaurants')" id="rec-cat-restaurants" class="rec-cat-btn flex-shrink-0 px-4 py-2.5 text-xs font-black rounded-xl transition-all text-slate-300 hover:text-white">
+                    🍜 מסעדות ואוכל
+                </button>
+            </div>
 
-                    <!-- Elephant Sanctuary -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow flex flex-col justify-between border border-slate-100">
-                        <img src="https://images.unsplash.com/photo-1585938338670-d01162234563?auto=format&fit=crop&w=400&q=80" alt="שמורת פילים" class="w-full h-32 object-cover">
-                        <div class="p-4">
-                            <span class="text-[9px] font-extrabold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md uppercase tracking-wider">אטרקציה אתית</span>
-                            <h4 class="text-xs font-extrabold text-slate-950 mt-1 mb-1">חוות פילים אתית (צ'יאנג מאי / פוקט)</h4>
-                            <p class="text-[10px] text-slate-600">שמורת פילים אתית ללא רכיבה. כאן תוכלו לרחוץ את הפילים, להאכיל אותם וללמוד על שיקומם בסביבה טבעית.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 flex">
-                            <a href="https://www.elephantnaturepark.org/" target="_blank" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1.5 rounded-lg text-[10px] transition-all"><i class="fa-solid fa-tree"></i> שמורת הפילים בצפון</a>
-                        </div>
-                    </div>
-
-                    <!-- Ang Thong Marine Park -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow flex flex-col justify-between border border-slate-100">
-                        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=400&q=80" alt="אנג תונג" class="w-full h-32 object-cover">
-                        <div class="p-4">
-                            <span class="text-[9px] font-extrabold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md uppercase tracking-wider">שייט ואיים</span>
-                            <h4 class="text-xs font-extrabold text-slate-950 mt-1 mb-1">פארק לאומי אנג ת'ונג (Ang Thong)</h4>
-                            <p class="text-[10px] text-slate-600">שייט מדהים בין 42 איים קסומים היוצא מקוסמוי/קופנגן. כולל שנורקלים, קיאקים, וטיפוס לנקודת תצפית עוצרת נשימה.</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 flex">
-                            <a href="https://www.thainationalparks.com/mu-ko-ang-thong-national-park" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 rounded-lg text-[10px] transition-all"><i class="fa-solid fa-anchor"></i> מדריך הפארק הלאומי</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Recommendations Cards Grid -->
+            <div id="recommendations-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Loaded dynamically by Javascript -->
             </div>
         </section>
 
@@ -1027,7 +956,68 @@
         <span id="toast-msg">פעולה בוצעה בהצלחה!</span>
     </div>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global Firebase variables
+        let app, auth, db, user;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'thailand-2026-app';
+
+        // Bind global functions to window for HTML handlers (Required for type="module")
+        window.playBeep = playBeep;
+        window.selectGateUser = selectGateUser;
+        window.changeBackground = changeBackground;
+        window.switchTab = switchTab;
+        window.toggleDay = toggleDay;
+        window.openActivityModal = openActivityModal;
+        window.closeActivityModal = closeActivityModal;
+        window.saveActivity = saveActivity;
+        window.deleteActivity = deleteActivity;
+        window.editActivity = editActivity;
+        window.likeActivity = likeActivity;
+        window.toggleCommentsSection = toggleCommentsSection;
+        window.addComment = addComment;
+        window.deleteComment = deleteComment;
+        window.openAddExpenseForm = openAddExpenseForm;
+        window.closeExpenseModal = closeExpenseModal;
+        window.saveExpense = saveExpense;
+        window.deleteExpense = deleteExpense;
+        window.openAiDailyPlanner = openAiDailyPlanner;
+        window.closeAiSuggestionModal = closeAiSuggestionModal;
+        window.applyAiSuggestionToItinerary = applyAiSuggestionToItinerary;
+        window.sendAiMessage = sendAiMessage;
+        window.sendQuickAiPrompt = sendQuickAiPrompt;
+        window.resetItinerary = resetItinerary;
+        window.filterRecommendations = filterRecommendations;
+        window.deleteRecommendation = deleteRecommendation;
+        window.analyzeRecommendationLink = analyzeRecommendationLink;
+        window.addBoardNote = addBoardNote;
+        window.deleteBoardNote = deleteBoardNote;
+        window.likeBoardNote = likeBoardNote;
+        window.toggleBoardComments = toggleBoardComments;
+        window.addBoardComment = addBoardComment;
+        window.deleteBoardComment = deleteBoardComment;
+        window.sendGroupChatMessage = sendGroupChatMessage;
+        window.toggleTodo = toggleTodo;
+        window.addCustomTodo = addCustomTodo;
+        window.deleteTodo = deleteTodo;
+        window.uploadTicketFile = uploadTicketFile;
+        window.deleteTicket = deleteTicket;
+        window.translateHebToThai = translateHebToThai;
+        window.clearTranslator = clearTranslator;
+        window.playThaiTTS = playThaiTTS;
+        window.openKosherScanner = openKosherScanner;
+        window.closeKosherScanner = closeKosherScanner;
+        window.searchBarcodeManually = searchBarcodeManually;
+        window.closeScanResultModal = closeScanResultModal;
+        window.triggerUserChangeFlow = triggerUserChangeFlow;
+        window.selectUser = selectUser;
+        window.closeUserModal = closeUserModal;
+        window.convertCurrency = convertCurrency;
+        window.checkUserAndProceed = checkUserAndProceed;
+
         // Core State
         const users = ['יגל', 'מיכל', 'יהל', 'אלעזר'];
         let activeUser = localStorage.getItem('activeUser') || 'אורח';
@@ -1094,7 +1084,7 @@
             USD_THB: 35.50
         };
 
-        // Complete 23-Day Schedule
+        // Default Data Constants
         const initialDays = [
             { date: '7.6', dayName: 'ראשון', location: 'המראה מתל אביב ✈️', icon: '☀️', weather: '32°C מעונן חלקית', sunrise: '05:52', sunset: '18:48', plans: [
                 { id: 'act-0', category: '✈️ טיסה או התניידות', title: 'טיסת ארקיע ZI-591', desc: 'המראה ב-23:55 מטרמינל 3. נא להגיע 3 שעות קודם!', creator: 'יגל', likes: [], comments: [] }
@@ -1131,10 +1121,75 @@
             ]}
         ];
 
-        let itinerary = JSON.parse(localStorage.getItem('itinerary')) || initialDays;
-        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        
-        // Initializing Checklist Store
+        const initialRecommendations = [
+            {
+                id: 'rec-1',
+                name: 'בית חב"ד מרכזי בנגקוק',
+                category: 'hotels',
+                location: 'בנגקוק',
+                description: 'ממוקם ממש ליד רחוב הקוואסן הפופולרי. מציע מסעדה בשרית כשרה, בית כנסת פעיל, פינות מנוחה וייעוץ למטיילים.',
+                whyRecommended: 'פינה חמה, שירותי ייעוץ מעולים וסעודות שבת באווירה משפחתית קבוצתית.',
+                link: 'https://chabadthailand.org/bangkok/',
+                imageUrl: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80',
+                creator: 'מיכל'
+            },
+            {
+                id: 'rec-2',
+                name: 'בית חב"ד קוסמוי',
+                category: 'hotels',
+                location: 'קוסמוי',
+                description: 'בית חב"ד ענק ומפנק בלב האזור הפופולרי בצ\'אוונג. מקום מושלם לעשות בו שבת עם מאות מטיילים נוספים.',
+                whyRecommended: 'אחת מסעודות השבת הגדולות והמפנקות ביותר במזרח.',
+                link: 'https://chabadthailand.org/kosamui/',
+                imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+                creator: 'מערכת'
+            },
+            {
+                id: 'rec-3',
+                name: 'בית חב"ד פוקט',
+                category: 'hotels',
+                location: 'פוקט',
+                description: 'ממוקם באזור הפאטונג השוקק. מסעדה ישראלית בשרית כשרה, בית כנסת חם ופעיל וצוות מסור שיעזור בכל שאלה.',
+                whyRecommended: 'מסעדה בשרית מדהימה ונוחות הגעה מקסימלית בלב פאטונג.',
+                link: 'https://chabadthailand.org/phuket/',
+                imageUrl: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=600&q=80',
+                creator: 'יהל'
+            },
+            {
+                id: 'rec-4',
+                name: 'מסיבת הפול מון קופנגן',
+                category: 'attractions',
+                location: 'קופנגן',
+                description: 'המסיבה המפורסמת ביותר בעולם בחוף האד רין בקופנגן. עשרות אלפי חוגגים, צבעי פול מון זוהרים, מוזיקה ומופעי אש.',
+                whyRecommended: 'אירוע של פעם בחיים. מוזיקה סוחפת ואווירה מחשמלת.',
+                link: 'https://www.fullmoonparty-kohphangan.com/',
+                imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80',
+                creator: 'מערכת'
+            },
+            {
+                id: 'rec-5',
+                name: 'קניון MBK בנגקוק',
+                category: 'shopping',
+                location: 'בנגקוק',
+                description: 'קניון ענק של 8 קומות המציע הכל מהכל: בגדים, אלקטרוניקה, מזכרות, קוסמטיקה ואוכל רחוב תאילנדי במחירים ללא תחרות.',
+                whyRecommended: 'מלך קניות האלקטרוניקה והמזכרות הזולות בבנגקוק.',
+                link: 'https://www.mbk-center.co.th/',
+                imageUrl: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80',
+                creator: 'יגל'
+            },
+            {
+                id: 'rec-6',
+                name: 'מסעדת פאד תאי טיפ סאמאי (Thip Samai)',
+                category: 'restaurants',
+                location: 'בנגקוק',
+                description: 'המסעדה הכי מפורסמת בבנגקוק לפאד תאי, מעוטרת כוכב מישלן. ידועה ברוטב הסודי ובמעטפת הביצה הדקה והנימוחה.',
+                whyRecommended: 'הפאד תאי הטוב והמפורסם ביותר שתאכלו בחיים שלכם.',
+                link: 'https://thipsamai.com/',
+                imageUrl: 'https://images.unsplash.com/photo-1626804475315-9944c69519c1?auto=format&fit=crop&w=600&q=80',
+                creator: 'יהל'
+            }
+        ];
+
         const initialChecklist = [
             { id: 'todo-1', text: 'למלא את טופס כרטיס המעבר והכניסה לתאילנד (חובה לפני הטיסה!) ✈️', url: 'https://tdac.immigration.go.th/arrival-card/#/home', checked: false },
             { id: 'todo-2', text: 'לצלם דרכון ולשמור גיבוי בארנק הדיגיטלי באתר 📖', checked: false },
@@ -1143,32 +1198,112 @@
             { id: 'todo-5', text: 'להוציא ביטוח נסיעות מקיף (כולל אקסטרים/חילוץ)', checked: false },
             { id: 'todo-6', text: 'לקנות תרופות בסיסיות לטיול (נוגד יתושים חובה!) 🦟', checked: false }
         ];
-        let checklist = JSON.parse(localStorage.getItem('checklist')) || initialChecklist;
 
-        // Active Ticket wallet data dictionary
-        let ticketsWallet = JSON.parse(localStorage.getItem('ticketsWallet')) || {};
-
-        // NEW: Shared Board Notes Store
         const initialBoardNotes = [
             { id: 'note-1', type: '⭐️ המלצה', text: 'חובה לנסות את הבננה לוטי המקומית בדוכנים של קוסמוי! פשוט גן עדן 🍌🥞', creator: 'מיכל', likes: ['יגל', 'יהל'], comments: [{id: 'nc-1', user: 'יהל', text: 'צודקת לגמרי! הכי טעים שיש'}, {id: 'nc-2', user: 'אלעזר', text: 'לגמרי ארוחת בוקר קבועה'}] },
             { id: 'note-2', type: '⏰ תזכורת', text: 'לא לשכוח להמיר קצת באט במזומן בנחיתה בבנגקוק עבור נסיעה במונית וטיפים 💸', creator: 'יגל', likes: ['אלעזר'], comments: [] }
         ];
-        let boardNotes = JSON.parse(localStorage.getItem('boardNotes')) || initialBoardNotes;
 
-        // NEW: Shared Group Chat messages
         const initialChatMessages = [
             { id: 'msg-1', sender: 'יגל', text: 'סאוואדי קראפ לכולם! פתחתי את קבוצת הצ\'אט שלנו 🌴☀️', time: '12:00', avatar: '👨‍💻' },
             { id: 'msg-2', sender: 'מיכל', text: 'וואו איזה כיף! לא מאמינה שתאילנד מתקרבת אלינו!', time: '12:05', avatar: '👩‍💻' }
         ];
-        let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || initialChatMessages;
+
+        // Active State Objects
+        let itinerary = initialDays;
+        let expenses = [];
+        let recommendations = initialRecommendations;
+        let checklist = initialChecklist;
+        let boardNotes = initialBoardNotes;
+        let chatMessages = initialChatMessages;
+        let ticketsWallet = {};
+        let currentRecFilter = 'all';
+
+        // Firebase Initialization and Cloud Sync
+        async function initFirebase() {
+            try {
+                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+                if (!firebaseConfig || Object.keys(firebaseConfig).length === 0) return;
+
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                onAuthStateChanged(auth, (u) => {
+                    user = u;
+                    if (user) {
+                        setupRealtimeListeners();
+                    }
+                });
+            } catch (e) {
+                console.error("Firebase Initialization Error:", e);
+            }
+        }
+
+        function setupRealtimeListeners() {
+            if (!user) return;
+            const sharedDataRef = collection(db, 'artifacts', appId, 'public', 'data', 'shared_data');
+
+            onSnapshot(doc(sharedDataRef, 'itinerary'), (snap) => {
+                if (snap.exists()) { itinerary = snap.data().items; renderItinerary(); }
+                else setDoc(doc(sharedDataRef, 'itinerary'), { items: initialDays });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'expenses'), (snap) => {
+                if (snap.exists()) { expenses = snap.data().items; renderExpenses(); }
+                else setDoc(doc(sharedDataRef, 'expenses'), { items: [] });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'recommendations'), (snap) => {
+                if (snap.exists()) { recommendations = snap.data().items; renderRecommendations(); }
+                else setDoc(doc(sharedDataRef, 'recommendations'), { items: initialRecommendations });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'checklist'), (snap) => {
+                if (snap.exists()) { checklist = snap.data().items; renderChecklist(); }
+                else setDoc(doc(sharedDataRef, 'checklist'), { items: initialChecklist });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'boardNotes'), (snap) => {
+                if (snap.exists()) { boardNotes = snap.data().items; renderBoardNotes(); }
+                else setDoc(doc(sharedDataRef, 'boardNotes'), { items: initialBoardNotes });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'chatMessages'), (snap) => {
+                if (snap.exists()) { chatMessages = snap.data().items; renderGroupChat(); }
+                else setDoc(doc(sharedDataRef, 'chatMessages'), { items: initialChatMessages });
+            }, (err) => console.error(err));
+
+            onSnapshot(doc(sharedDataRef, 'ticketsWallet'), (snap) => {
+                if (snap.exists()) { ticketsWallet = snap.data().items; renderWallet(); }
+                else setDoc(doc(sharedDataRef, 'ticketsWallet'), { items: {} });
+            }, (err) => console.error(err));
+        }
+
+        // Firebase Data Savers
+        async function saveItinerary() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'itinerary'), { items: itinerary }); }
+        async function saveExpenses() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'expenses'), { items: expenses }); }
+        async function saveRecommendations() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'recommendations'), { items: recommendations }); }
+        async function saveChecklist() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'checklist'), { items: checklist }); }
+        async function saveBoardNotes() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'boardNotes'), { items: boardNotes }); }
+        async function saveChatMessages() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'chatMessages'), { items: chatMessages }); }
+        async function saveTicketsWallet() { if(user) await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'shared_data', 'ticketsWallet'), { items: ticketsWallet }); }
+
 
         // Application Init
-        window.onload = function() {
+        (async function() {
+            await initFirebase();
             if (activeUser && activeUser !== 'אורח') {
                 document.getElementById('entrance-gate').classList.add('hidden');
                 initMainApp();
             }
-        }
+        })();
 
         function selectGateUser(name) {
             activeUser = name;
@@ -1188,6 +1323,7 @@
             renderWallet();
             renderBoardNotes();
             renderGroupChat();
+            renderRecommendations();
         }
 
         function updateBadge() {
@@ -1385,7 +1521,6 @@
             targetBtn.classList.remove('text-slate-400');
 
             if(tabId === 'chat') {
-                // Scroll chat to end when opened
                 setTimeout(() => {
                     const screen = document.getElementById('group-chat-messages');
                     if(screen) screen.scrollTop = screen.scrollHeight;
@@ -1396,6 +1531,7 @@
         function renderAll() {
             renderItinerary();
             renderExpenses();
+            renderRecommendations();
         }
 
         function toggleDay(index) {
@@ -1581,7 +1717,7 @@
                 showToast("פעילות חדשה נוספה ליומן!", "✅");
             }
 
-            localStorage.setItem('itinerary', JSON.stringify(itinerary));
+            saveItinerary();
             closeActivityModal();
             renderItinerary();
         }
@@ -1589,7 +1725,7 @@
         function deleteActivity(dayIdx, actId) {
             askConfirm("מחיקת פעילות", "האם אתם בטוחים שברצונכם למחוק את הפעילות הזו?", "🗑️", () => {
                 itinerary[dayIdx].plans = itinerary[dayIdx].plans.filter(p => p.id !== actId);
-                localStorage.setItem('itinerary', JSON.stringify(itinerary));
+                saveItinerary();
                 renderItinerary();
                 showToast("פעילות נמחקה מהיומן.", "🗑️");
             });
@@ -1611,7 +1747,7 @@
                 act.likes.push(activeUser);
                 showToast(`סימנת שלייק על הפעילות! ❤️`, "❤️");
             }
-            localStorage.setItem('itinerary', JSON.stringify(itinerary));
+            saveItinerary();
             renderItinerary();
         }
 
@@ -1630,7 +1766,7 @@
 
             const newComment = { id: 'c-' + Date.now(), user: activeUser, text: text };
             act.comments.push(newComment);
-            localStorage.setItem('itinerary', JSON.stringify(itinerary));
+            saveItinerary();
             input.value = '';
             renderItinerary();
             document.getElementById(`comments-section-${dayIdx}-${actId}`).classList.remove('hidden');
@@ -1640,7 +1776,7 @@
         function deleteComment(dayIdx, actId, commentId) {
             const act = itinerary[dayIdx].plans.find(p => p.id === actId);
             act.comments = act.comments.filter(c => c.id !== commentId);
-            localStorage.setItem('itinerary', JSON.stringify(itinerary));
+            saveItinerary();
             renderItinerary();
             document.getElementById(`comments-section-${dayIdx}-${actId}`).classList.remove('hidden');
             showToast("תגובתך נמחקה מהפעילות.", "🗑️");
@@ -1707,7 +1843,7 @@
             };
 
             expenses.push(newExpense);
-            localStorage.setItem('expenses', JSON.stringify(expenses));
+            saveExpenses();
             closeExpenseModal();
             renderExpenses();
             showToast("הוצאה נוספה והתקציב עודכן!", "💰");
@@ -1716,7 +1852,7 @@
         function deleteExpense(expId) {
             askConfirm("מחיקת הוצאה", "האם אתם בטוחים שברצונכם למחוק הוצאה זו?", "🗑️", () => {
                 expenses = expenses.filter(e => e.id !== expId);
-                localStorage.setItem('expenses', JSON.stringify(expenses));
+                saveExpenses();
                 renderExpenses();
                 showToast("ההוצאה נמחקה והתקציב עודכן.", "🗑️");
             });
@@ -1816,8 +1952,222 @@
             `).join('');
         }
 
-        let activeAiSuggestionDayIndex = null;
-        let activeAiSuggestedPlans = null;
+        // Recommendations Category Filtration and Rendering
+        function filterRecommendations(category) {
+            currentRecFilter = category;
+            document.querySelectorAll('.rec-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-500', 'text-white', 'active');
+                btn.classList.add('text-slate-300', 'hover:text-white');
+            });
+            const activeBtn = document.getElementById(`rec-cat-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-teal-500', 'text-white', 'active');
+                activeBtn.classList.remove('text-slate-300', 'hover:text-white');
+            }
+            renderRecommendations();
+        }
+
+        function renderRecommendations() {
+            const container = document.getElementById('recommendations-cards-grid');
+            if (!container) return;
+
+            const filtered = currentRecFilter === 'all' 
+                ? recommendations 
+                : recommendations.filter(r => r.category === currentRecFilter);
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-400 font-semibold italic">
+                        לא נמצאו המלצות בקטגוריה זו. הדביקו סרטון למעלה כדי ליצור המלצה חדשה! 🎬
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(r => {
+                const icon = r.category === 'hotels' ? '🏨' : r.category === 'attractions' ? '🏖️' : r.category === 'shopping' ? '🛍️' : '🍜';
+                const creatorAvatar = r.creator === 'יגל' ? '👨‍💻' : r.creator === 'מיכל' ? '👩‍💻' : r.creator === 'יהל' ? '👩‍⚕️' : r.creator === 'אלעזר' ? '👨‍🌾' : '🤖';
+                const imageFallback = `https://placehold.co/600x400/2dd4bf/ffffff?text=${encodeURIComponent(r.name)}`;
+                const cardImg = r.imageUrl || imageFallback;
+                const displayCategory = r.category === 'hotels' ? 'מלונות' : r.category === 'attractions' ? 'אטרקציות' : r.category === 'shopping' ? 'קניות' : 'מסעדות';
+
+                return `
+                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <div>
+                            <div class="relative h-44 overflow-hidden bg-slate-100">
+                                <img src="${cardImg}" alt="${r.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='${imageFallback}'">
+                                <span class="absolute top-3 right-3 bg-slate-900/80 text-white text-[10px] font-black px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
+                                    ${icon} ${displayCategory}
+                                </span>
+                                <span class="absolute bottom-3 right-3 bg-teal-500/90 text-white text-[10px] font-black px-2.5 py-1 rounded-lg backdrop-blur-md">
+                                    📍 ${r.location}
+                                </span>
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <div class="flex justify-between items-start gap-2">
+                                    <h4 class="text-sm font-black text-slate-950 leading-tight">${r.name}</h4>
+                                    <span class="text-[9px] text-slate-400 font-bold whitespace-nowrap">${creatorAvatar} ${r.creator}</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 font-semibold leading-relaxed">${r.description}</p>
+                                
+                                ${r.whyRecommended ? `
+                                    <div class="bg-teal-50/50 p-2.5 rounded-xl border border-teal-100/40 text-[10px] text-teal-900 font-semibold mt-1">
+                                        <strong class="text-teal-950 block mb-0.5"><i class="fa-solid fa-star text-[9px] text-amber-500 animate-pulse"></i> למה זה מומלץ:</strong>
+                                        ${r.whyRecommended}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
+                            ${r.link ? `
+                                <a href="${r.link}" target="_blank" class="flex-1 text-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 rounded-xl text-[10px] transition-all active:scale-95 flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-up-right-from-square"></i> מעבר לקישור
+                                </a>
+                            ` : ''}
+                            <button onclick="checkUserAndProceed(() => deleteRecommendation('${r.id}'))" class="bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-600 p-2 rounded-xl transition-all text-xs active:scale-95" title="מחק המלצה">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteRecommendation(id) {
+            askConfirm("מחיקת המלצה", "האם אתם בטוחים שברצונכם למחוק את ההמלצה הזו מהרשימה?", "🗑️", () => {
+                recommendations = recommendations.filter(r => r.id !== id);
+                saveRecommendations();
+                renderRecommendations();
+                showToast("ההמלצה הוסרה מהרשימה.", "🗑️");
+            });
+        }
+
+        // Social Media Link Analyzer using Gemini 2.5 Flash with Web Search Grounding
+        async function analyzeRecommendationLink() {
+            const input = document.getElementById('recommendation-link-input');
+            const url = input.value.trim();
+            if (!url) {
+                showToast("נא להזין קישור תקין לפענוח!", "⚠️");
+                return;
+            }
+
+            const btn = document.getElementById('analyze-link-btn');
+            const originalBtnHtml = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>מנתח ומחפש בגוגל...</span>`;
+
+            try {
+                const systemPrompt = "You are a world-class travel planner for Thailand. Use Google Search grounding to find the travel location, hotel, restaurant, shopping mall, or venue recommended in this social media URL or post. Write a gorgeous, helpful review and summary in Hebrew. Map the place to exactly one of the following categories: 'hotels' (for hotels or accommodation), 'attractions' (for beaches, tours, templates, shows, nightlife), 'shopping' (for malls, local markets, shops), 'restaurants' (for food, street food, bars). Return a clean JSON output matching the requested schema.";
+                const userQuery = `Research this travel recommendation link using google search and summarize it in Hebrew: "${url}"`;
+                
+                const apiKey = ""; // Platform auto-injects
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                "name": { "type": "STRING", "description": "Hebrew name of the place, hotel, restaurant, or mall" },
+                                "category": { "type": "STRING", "description": "Must be exactly one of: 'hotels', 'attractions', 'shopping', 'restaurants'" },
+                                "location": { "type": "STRING", "description": "Location in Thailand in Hebrew, e.g. בנגקוק, פוקט, קוסמוי, קופנגן, צ'יאנג מאי" },
+                                "description": { "type": "STRING", "description": "Detailed explanation of what the place is and what they offer in Hebrew" },
+                                "whyRecommended": { "type": "STRING", "description": "Hebrew brief summary of why the video or travel guides recommend this spot" },
+                                "imageSearchQuery": { "type": "STRING", "description": "Simple English query for Unsplash related to this category and location, e.g., 'phuket hotel', 'bangkok street food'" }
+                            },
+                            "required": ["name", "category", "location", "description", "whyRecommended"]
+                        }
+                    }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Gemini API call returned non-200");
+                }
+
+                const jsonRes = await response.json();
+                const text = jsonRes.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    const parsed = JSON.parse(text);
+                    
+                    // Choose a premium royalty stock photo from Unsplash based on the category of recommendation
+                    let finalImg = `https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80`;
+                    if (parsed.category === 'hotels') {
+                        finalImg = `https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80`;
+                    } else if (parsed.category === 'restaurants') {
+                        finalImg = `https://images.unsplash.com/photo-1626804475315-9944c69519c1?auto=format&fit=crop&w=600&q=80`;
+                    } else if (parsed.category === 'shopping') {
+                        finalImg = `https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80`;
+                    } else {
+                        finalImg = `https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=600&q=80`;
+                    }
+
+                    const newRec = {
+                        id: 'rec-' + Date.now(),
+                        name: parsed.name,
+                        category: parsed.category,
+                        location: parsed.location,
+                        description: parsed.description,
+                        whyRecommended: parsed.whyRecommended,
+                        link: url,
+                        imageUrl: finalImg,
+                        creator: activeUser
+                    };
+
+                    recommendations.unshift(newRec);
+                    saveRecommendations();
+                    
+                    input.value = '';
+                    filterRecommendations(parsed.category);
+                    showToast(`המלצה על "${parsed.name}" נותחה ונוספה בהצלחה! ✨`, "🎉");
+                    playBeep(true);
+                } else {
+                    throw new Error("No parseable text from Gemini candidate");
+                }
+            } catch (err) {
+                console.error("AI Analyzer failed:", err);
+                showToast("סאנוק AI לא הצליח לפענח את הקישור במלואו, יצרנו המלצה כללית על בסיס הקישור.", "⚠️");
+                
+                let fallbackName = "המלצה מקישור חיצוני";
+                try {
+                    const parsedUrl = new URL(url);
+                    fallbackName = `המלצה מתוך ${parsedUrl.hostname.replace('www.', '')}`;
+                } catch(e){}
+
+                const fallbackRec = {
+                    id: 'rec-' + Date.now(),
+                    name: fallbackName,
+                    category: 'attractions',
+                    location: 'תאילנד',
+                    description: 'המלצה שהועלתה על ידי חברי הקבוצה באמצעות קישור לרשת חברתית. היכנסו לקישור המצורף כדי לצפות בסרטון המקורי.',
+                    whyRecommended: 'סרטון פופולרי עם טיפים וצילומים חמים ישירות מתאילנד!',
+                    link: url,
+                    imageUrl: `https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=600&q=80`,
+                    creator: activeUser
+                };
+
+                recommendations.unshift(fallbackRec);
+                saveRecommendations();
+                input.value = '';
+                filterRecommendations('all');
+                playBeep(false);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+        }
 
         function openAiDailyPlanner(dayIdx) {
             activeAiSuggestionDayIndex = dayIdx;
@@ -1897,7 +2247,7 @@
                 };
 
                 itinerary[activeAiSuggestionDayIndex].plans.push(newAct);
-                localStorage.setItem('itinerary', JSON.stringify(itinerary));
+                saveItinerary();
                 closeAiSuggestionModal();
                 renderItinerary();
                 showToast("הצעת ה-AI נוספה בהצלחה ליומן הטיול שלכם!", "✨");
@@ -1968,8 +2318,8 @@
 
         function resetItinerary() {
             askConfirm("איפוס יומן מסע", "האם אתם בטוחים שברצונכם לאפס את כל השינויים ביומן המסע?", "🔄", () => {
-                localStorage.removeItem('itinerary');
                 itinerary = JSON.parse(JSON.stringify(initialDays));
+                saveItinerary();
                 renderItinerary();
                 showToast("יומן המסע שלכם אופס בהצלחה.", "🔄");
             });
@@ -2084,7 +2434,7 @@
             };
 
             boardNotes.unshift(newNote); // Put newest on top
-            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            saveBoardNotes();
             input.value = '';
             renderBoardNotes();
             showToast("הפתק פורסם בהצלחה בלוח הקבוצתי! 📌", "📌");
@@ -2093,7 +2443,7 @@
         function deleteBoardNote(id) {
             askConfirm("מחיקת פתק", "האם למחוק פתק זה מהלוח?", "🗑️", () => {
                 boardNotes = boardNotes.filter(n => n.id !== id);
-                localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+                saveBoardNotes();
                 renderBoardNotes();
                 showToast("הפתק הוסר מהלוח.", "🗑️");
             });
@@ -2112,7 +2462,7 @@
                 note.likes.push(activeUser);
                 showToast("אהבת את הפתק! ❤️", "❤️");
             }
-            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            saveBoardNotes();
             renderBoardNotes();
         }
 
@@ -2136,7 +2486,7 @@
                 text: text
             });
 
-            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            saveBoardNotes();
             input.value = '';
             renderBoardNotes();
             const el = document.getElementById(`board-comments-sec-${id}`);
@@ -2149,7 +2499,7 @@
             if(!note) return;
 
             note.comments = note.comments.filter(c => c.id !== commentId);
-            localStorage.setItem('boardNotes', JSON.stringify(boardNotes));
+            saveBoardNotes();
             renderBoardNotes();
             const el = document.getElementById(`board-comments-sec-${noteId}`);
             if(el) el.classList.remove('hidden');
@@ -2198,6 +2548,11 @@
                     </div>
                 `;
             }).join('');
+
+            // Auto scroll down reliably
+            setTimeout(() => {
+                if(container) container.scrollTop = container.scrollHeight;
+            }, 50);
         }
 
         function sendGroupChatMessage() {
@@ -2220,15 +2575,10 @@
             };
 
             chatMessages.push(newMessage);
-            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            saveChatMessages();
             input.value = '';
             renderGroupChat();
-            
-            // Auto scroll down
-            const screen = document.getElementById('group-chat-messages');
-            if(screen) screen.scrollTop = screen.scrollHeight;
         }
-
 
         // --- NEW: CHECKLIST SECTION LOGIC ---
         function renderChecklist() {
@@ -2255,7 +2605,7 @@
             const todo = checklist.find(t => t.id === id);
             if(todo) {
                 todo.checked = !todo.checked;
-                localStorage.setItem('checklist', JSON.stringify(checklist));
+                saveChecklist();
                 renderChecklist();
                 showToast(todo.checked ? "משימה הושלמה! כל הכבוד 👏" : "משימה הוחזרה לרשימה.", "📝");
             }
@@ -2275,7 +2625,7 @@
                 checked: false
             };
             checklist.push(newTodo);
-            localStorage.setItem('checklist', JSON.stringify(checklist));
+            saveChecklist();
             input.value = '';
             renderChecklist();
             showToast("משימה אישית חדשה נוספה!", "✅");
@@ -2283,7 +2633,7 @@
 
         function deleteTodo(id) {
             checklist = checklist.filter(t => t.id !== id);
-            localStorage.setItem('checklist', JSON.stringify(checklist));
+            saveChecklist();
             renderChecklist();
             showToast("המשימה נמחקה מהרשימה.", "🗑️");
         }
@@ -2317,7 +2667,7 @@
                 reader.onload = function(e) {
                     const base64Data = e.target.result;
                     ticketsWallet[activeUser] = base64Data;
-                    localStorage.setItem('ticketsWallet', JSON.stringify(ticketsWallet));
+                    saveTicketsWallet();
                     renderWallet();
                     showToast("כרטיס הטיסה הועלה ונוסף לארנק שלך בהצלחה! ✈️", "🎫");
                 };
@@ -2328,7 +2678,7 @@
         function deleteTicket() {
             askConfirm("מחיקת כרטיס טיסה", "האם למחוק את כרטיס הטיסה השמור שלך?", "🗑️", () => {
                 delete ticketsWallet[activeUser];
-                localStorage.setItem('ticketsWallet', JSON.stringify(ticketsWallet));
+                saveTicketsWallet();
                 renderWallet();
                 showToast("כרטיס הטיסה הוסר מהארנק.", "🗑️");
             });
