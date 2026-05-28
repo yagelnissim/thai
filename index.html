@@ -2067,10 +2067,9 @@
                 const userQuery = `Research this travel recommendation link using google search and summarize it in Hebrew: "${url}"`;
                 
                 // === API KEY SETUP ===
-                // מפתח ה-API של Gemini. 
-                // אם אתם מריצים בתוך פלטפורמת הצ'אט, המערכת תזריק אותו אוטומטית.
-                // אם אתם מעלים ל-GitHub Pages או מריצים מקומית, הכניסו את המפתח שלכם כאן:
-                const apiKey = "AIzaSyBCjGvm3WmY83hfvJbhdfV_HLzlFjTUjVg"; 
+                // המשתנה apiKey מוגדר כאן כמחרוזת ריקה. הסביבה מפיקה את המפתח בזמן הריצה
+                // או שאתה יכול לרשום את ה-key שלך בפנים ישירות במידה ואתה מעלה ל-GitHub!
+                const apiKey = "AIzaSyB760TX7Mre0poB7eLGKsjDqbGuhLIZhKQ"; 
                 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
